@@ -1,0 +1,10 @@
+Hier kommen deine eigenen Fotos rein. Empfohlene Dateinamen (dann funktionieren die
+Platzhalter in index.html direkt, sobald du die <img>-Tags einsetzt):
+
+- hero.jpg          -> Startbild ganz oben (z. B. du oder ein Kind im Wasser)
+- ueber-mich.jpg     -> Portraitfoto von dir im Abschnitt "Über mich"
+
+Weitere Fotos (optional, für später z. B. in den Angebot-Karten) einfach ebenfalls
+hier ablegen, z. B. kinder.jpg, erwachsene.jpg, baby.jpg.
+
+Tipp: Fotos vorher komprimieren (z. B. mit squoosh.app), damit die Seite schnell lädt.

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "aquakids",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "8791", "--directory", "C:\\Users\\Nadine\\Desktop\\AquaKids-Rhein-Neckar"],
+      "port": 8791
+    }
+  ]
+}
