@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css/style.css?v=3" />
 <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
 </head>
 <body>
@@ -506,11 +506,17 @@
         Faire Preise für individuellen Privatunterricht, ganz ohne versteckte Kosten.
       </p>
       <div class="price-grid">
-        <div class="price-card featured reveal">
-          <h3>Kennenlernstunde</h3>
-          <div class="price">25&nbsp;€ <span>/ 30 Min.</span></div>
-          <p>Unverbindlich reinschnuppern, bevor es richtig losgeht.</p>
-        </div>
+        <details class="price-card price-card-toggle featured reveal">
+          <summary>
+            <h3>Kennenlernstunde</h3>
+            <div class="price">25&nbsp;€ <span>/ 30 Min.</span></div>
+            <p>Unverbindlich reinschnuppern, bevor es richtig losgeht.</p>
+            <span class="btn btn-outline price-toggle-btn">Jetzt vereinbaren</span>
+          </summary>
+          <div class="kennenlern-termine" id="kennenlern-termine">
+            <!-- wird automatisch aus js/termine-data.js befüllt -->
+          </div>
+        </details>
         <div class="price-card reveal">
           <h3>Einzelstunde</h3>
           <div class="price">60&nbsp;€ <span>/ 50 Min.</span></div>
@@ -539,27 +545,28 @@
         <details class="price-card price-card-toggle reveal">
           <summary>
             <h3>Unterricht im eigenen Pool</h3>
-            <p>
-              Findet der Unterricht bei dir zu Hause im eigenen Pool oder Schwimmbad statt,
-              entfällt der Badeintritt, deshalb 5&nbsp;€ Rabatt pro Einheit. Die
-              Anfahrtskostenpauschale nach Gebiet fällt weiterhin an.
-              <span class="price-toggle-hint">Zum Ansehen der Preise klicken</span>
-            </p>
+            <ul class="price-toggle-bullets">
+              <li>Unterricht bei dir zu Hause im eigenen Pool oder Schwimmbad</li>
+              <li>Badeintritt entfällt</li>
+              <li>Dafür 5&nbsp;€ Rabatt pro Einheit</li>
+              <li>Anfahrtskostenpauschale nach Gebiet fällt weiterhin an</li>
+            </ul>
           </summary>
           <div class="price-toggle-grid">
-            <div class="price-toggle-item"><span>Kennenlernstunde</span><strong>20&nbsp;€</strong></div>
-            <div class="price-toggle-item"><span>Einzelstunde</span><strong>55&nbsp;€</strong></div>
-            <div class="price-toggle-item"><span>5er-Karte</span><strong>250&nbsp;€</strong></div>
-            <div class="price-toggle-item"><span>10er-Karte</span><strong>470&nbsp;€</strong></div>
-            <div class="price-toggle-item"><span>Baby &amp; Kleinkind</span><strong>35&nbsp;€</strong></div>
-            <div class="price-toggle-item"><span>Duo-Unterricht</span><strong>95&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Kennenlernstunde / 30 Min.</span><strong>20&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Einzelstunde / 50 Min.</span><strong>55&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>5er-Karte / 5&nbsp;Einheiten</span><strong>250&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>10er-Karte / 10&nbsp;Einheiten</span><strong>470&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Baby &amp; Kleinkind / 30 Min.</span><strong>35&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Duo-Unterricht / 50 Min.</span><strong>95&nbsp;€</strong></div>
           </div>
         </details>
       </div>
       <p class="price-note">
-        Der Eintritt fürs Schwimmbad ist nicht in den Preisen enthalten und wird separat vor Ort
-        bezahlt. Je nach Bad kommt eine pauschale Anfahrtskostenpauschale dazu (gestaffelt nach
-        Gebiet Mannheim/Heidelberg), die Höhe bespreche ich gerne bei der Anfrage.
+        <strong>Zu allen Preisen oben kommt noch dazu:</strong> der Eintritt fürs Schwimmbad
+        (nicht im Preis enthalten, wird separat vor Ort bezahlt) sowie eine
+        Anfahrtskostenpauschale je nach Gebiet (siehe Fahrtkosten-Gebiete unten, 3&ndash;20&nbsp;€
+        je nach Entfernung).
       </p>
     </div>
   </section>
@@ -609,11 +616,8 @@
         Ich bin an mehreren Bädern in Mannheim &amp; Heidelberg aktiv, je nachdem, welche
         Zeitfenster ich dort bekomme.
       </p>
-      <!-- Sobald Bäder & Zeiten final sind: img-placeholder unten gegen pool-legend + schedule-table tauschen. -->
-      <div class="img-placeholder reveal" style="max-width:520px;margin:0 auto;">
-        <span class="emoji">🏊</span>
-        <span>Bäder &amp; Zeiten trage ich hier ein, sobald sie final abgestimmt sind.</span>
-      </div>
+      <!-- Bäder-Karten werden automatisch aus js/pools-data.js erzeugt. -->
+      <div class="pool-cards reveal" id="pool-cards"></div>
       <p class="price-note">
         Kein Buchungskalender: bitte einfach über das Formular oder WhatsApp anfragen, dann
         stimmen wir Bad, Tag und Uhrzeit gemeinsam ab.
@@ -945,7 +949,9 @@
 </footer>
 
 <script src="vendor/leaflet/leaflet.js"></script>
-<script src="js/zones-data.js"></script>
-<script src="js/main.js"></script>
+<script src="js/zones-data.js?v=2"></script>
+<script src="js/termine-data.js?v=1"></script>
+<script src="js/pools-data.js?v=1"></script>
+<script src="js/main.js?v=3"></script>
 </body>
 </html>

@@ -8,7 +8,53 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFaq();
   setupScrollReveal();
   setupZoneMap();
+  setupKennenlernTermine();
+  setupPoolCards();
 });
+
+function setupKennenlernTermine() {
+  const el = document.getElementById("kennenlern-termine");
+  if (!el || typeof KENNENLERNTERMINE === "undefined") return;
+
+  if (!KENNENLERNTERMINE.length) {
+    el.innerHTML =
+      '<p class="kennenlern-termine-empty">Termine folgen in Kürze. Schreib mir gerne schon jetzt über WhatsApp oder das Formular, dann sag ich dir Bescheid, sobald der nächste Schnuppertag feststeht.</p>';
+    return;
+  }
+
+  el.innerHTML = KENNENLERNTERMINE.map(
+    (t) =>
+      '<div class="kennenlern-termin-item">' +
+      '<strong>' + t.datum + '</strong>' +
+      '<span>' + t.bad + '</span>' +
+      '<span>' + t.zeiten + '</span>' +
+      "</div>"
+  ).join("");
+}
+
+function setupPoolCards() {
+  const el = document.getElementById("pool-cards");
+  if (!el || typeof POOLS === "undefined") return;
+
+  if (!POOLS.length) {
+    el.innerHTML =
+      '<div class="img-placeholder" style="max-width:520px;margin:0 auto;">' +
+      '<span class="emoji">🏊</span>' +
+      "<span>Bäder trage ich hier ein, sobald Öffnungszeiten &amp; Eintrittspreise feststehen.</span>" +
+      "</div>";
+    return;
+  }
+
+  el.innerHTML = POOLS.map(
+    (p) =>
+      '<div class="pool-card">' +
+      "<h3>" + p.name + "</h3>" +
+      '<a href="' + p.mapsUrl + '" target="_blank" rel="noopener" class="pool-card-maps">Auf Google Maps öffnen &rarr;</a>' +
+      '<p><strong>Öffnungszeiten:</strong> ' + p.oeffnungszeiten + "</p>" +
+      '<p><strong>Eintritt:</strong> ' + p.eintritt + "</p>" +
+      "</div>"
+  ).join("");
+}
 
 function smoothZoneShape(points, segmentsPerEdge) {
   // Catmull-Rom-Spline durch die Eckpunkte einer geschlossenen Fläche, damit aus den
