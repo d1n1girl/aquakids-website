@@ -93,6 +93,12 @@
   const editableLayers = new L.FeatureGroup();
   map.addLayer(editableLayers);
 
+  function escapeAttr(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML.replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  }
+
   function bindZonePopup(layer) {
     layer.on("popupopen", () => {
       const container = layer.getPopup().getElement();
@@ -118,7 +124,7 @@
       const color = layer._zoneColor || "#3aa0c9";
       return (
         '<div class="admin-popup-form">' +
-        '<input type="text" class="zone-name-input" value="' + name.replace(/"/g, "&quot;") + '" placeholder="Name des Gebiets" />' +
+        '<input type="text" class="zone-name-input" value="' + escapeAttr(name) + '" placeholder="Name des Gebiets" />' +
         '<input type="color" class="zone-color-input" value="' + color + '" />' +
         '<div class="popup-btn-row">' +
         '<button type="button" class="btn btn-primary zone-apply-btn" style="padding:6px 14px;font-size:0.85rem;">Übernehmen</button>' +
@@ -197,7 +203,8 @@
         .map((ll) => "[" + ll.lat.toFixed(4) + ", " + ll.lng.toFixed(4) + "]")
         .join(", ");
       lines.push("  {");
-      lines.push('    name: "' + (layer._zoneName || "Unbenanntes Gebiet").replace(/"/g, '\\"') + '",');
+      const safeName = (layer._zoneName || "Unbenanntes Gebiet").replace(/\\/g, "\\\\").replace(/"/g, '\\"');
+      lines.push('    name: "' + safeName + '",');
       lines.push('    color: "' + (layer._zoneColor || "#3aa0c9") + '",');
       lines.push("    coords: [" + coords + "],");
       lines.push("  },");
