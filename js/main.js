@@ -10,7 +10,54 @@ document.addEventListener("DOMContentLoaded", () => {
   setupScrollReveal();
   setupKennenlernTermine();
   setupPreisUmschalter();
+  setupFormPaketAuswahl();
 });
+
+const PAKET_OPTIONEN = {
+  einzel: [
+    { value: "Schnupperstunde (30 € / 30 Min.)", label: "Schnupperstunde (30 € / 30 Min.)" },
+    { value: "Einzelstunde (70 € / 50 Min.)", label: "Einzelstunde (70 € / 50 Min.)" },
+    { value: "10er-Karte Einzel (630 €)", label: "10er-Karte Einzel (630 €)" },
+    { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
+    { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
+  ],
+  duo: [
+    { value: "Schnupperstunde Duo (30 € / 30 Min., für beide)", label: "Schnupperstunde Duo (30 € / 30 Min., für beide)" },
+    { value: "Duo-Einzelstunde (110 € / 50 Min.)", label: "Duo-Einzelstunde (110 € / 50 Min.)" },
+    { value: "Duo-10er-Karte (480 € pro Kind)", label: "Duo-10er-Karte (480 € pro Kind)" },
+    { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
+    { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
+  ],
+};
+
+function setupFormPaketAuswahl() {
+  const tabs = document.querySelectorAll(".form-modus-tab");
+  const select = document.getElementById("paket");
+  if (!tabs.length || !select) return;
+
+  const fuelleOptionen = (modus) => {
+    select.innerHTML =
+      '<option value="">Bitte wählen</option>' +
+      PAKET_OPTIONEN[modus]
+        .map((o) => '<option value="' + o.value + '">' + o.label + "</option>")
+        .join("");
+  };
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const modus = tab.dataset.formModus;
+
+      tabs.forEach((t) => {
+        t.classList.toggle("active", t === tab);
+        t.setAttribute("aria-selected", t === tab ? "true" : "false");
+      });
+
+      fuelleOptionen(modus);
+    });
+  });
+
+  fuelleOptionen("einzel");
+}
 
 function setupPreisUmschalter() {
   const tabs = document.querySelectorAll(".preis-tab");
