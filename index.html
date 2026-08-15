@@ -922,6 +922,46 @@
     </div>
   </section>
 
+  <!-- Für Bäder: Kooperationsanfrage -->
+  <section class="alt" id="kooperation">
+    <div class="container">
+      <h2 class="section-title reveal">Für Schwimmbäder</h2>
+      <p class="section-subtitle reveal">
+        Du bist für ein Bad in der Region zuständig und hast Interesse an einer Kooperation für
+        privaten Schwimmunterricht? Schreib mir einfach.
+      </p>
+    </div>
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <p>
+          Egal ob feste Bahnenzeiten, ein grundsätzliches Interesse oder erst mal nur Fragen: Über
+          das Formular erreichst du mich am schnellsten. Deine Nachricht wird als vorausgefüllte
+          WhatsApp-Nachricht an mich übergeben, du musst sie dort nur noch abschicken.
+        </p>
+      </div>
+
+      <form class="booking-form reveal" id="kooperation-form" autocomplete="off">
+        <div class="form-group">
+          <label for="koop-bad">Name des Bads / Ansprechperson (optional)</label>
+          <input type="text" id="koop-bad" name="bad" />
+        </div>
+
+        <div class="form-group">
+          <label for="koop-nachricht">Deine Nachricht</label>
+          <textarea id="koop-nachricht" name="nachricht" rows="6" required placeholder="Worum geht es? Feste Zeiten, Konditionen, allgemeines Interesse..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-whatsapp">Anfrage senden</button>
+
+        <p class="form-status" id="kooperation-status" role="status"></p>
+        <p class="form-hint">
+          Beim Absenden öffnet sich WhatsApp mit einer vorausgefüllten Nachricht. Erst wenn du sie
+          dort abschickst, geht deine Anfrage bei mir ein.
+        </p>
+      </form>
+    </div>
+  </section>
+
 </main>
 
 <a href="https://wa.me/4915203611552" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Per WhatsApp schreiben">
@@ -940,6 +980,7 @@
       <li><a href="#angebot">Schwimmkurse</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#kooperation">Für Bäder</a></li>
       <li><a href="impressum.html">Impressum</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
       <li><a href="agb.html">AGB</a></li>

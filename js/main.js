@@ -5,6 +5,7 @@ const WHATSAPP_NUMBER = "4915203611552"; // Format: Ländercode + Nummer, ohne +
 document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
   setupBookingForm();
+  setupKooperationForm();
   setupFaq();
   setupScrollReveal();
   setupZoneMap();
@@ -214,6 +215,38 @@ function setupBookingForm() {
     if (nachricht) {
       lines.push(`Nachricht: ${nachricht}`);
     }
+
+    const text = encodeURIComponent(lines.join("\n"));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    if (status) {
+      status.textContent = "Du wirst zu WhatsApp weitergeleitet. Dort einfach die vorausgefüllte Nachricht abschicken.";
+      status.classList.add("visible");
+    }
+
+    window.open(url, "_blank", "noopener");
+  });
+}
+
+function setupKooperationForm() {
+  const form = document.getElementById("kooperation-form");
+  const status = document.getElementById("kooperation-status");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const bad = (data.get("bad") || "").toString().trim();
+    const nachricht = (data.get("nachricht") || "").toString().trim();
+
+    const lines = ["Hallo! Ich habe eine Kooperationsanfrage für ein Schwimmbad."];
+
+    if (bad) {
+      lines.push(`Bad / Ansprechperson: ${bad}`);
+    }
+
+    lines.push("", nachricht);
 
     const text = encodeURIComponent(lines.join("\n"));
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
