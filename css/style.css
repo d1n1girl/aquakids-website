@@ -191,6 +191,28 @@ nav.main-nav a:hover {
   align-items: center;
 }
 
+.availability-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff0e6;
+  color: #b5501f;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 7px 16px;
+  border-radius: 999px;
+  margin-bottom: 16px;
+}
+
+.availability-badge::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-coral);
+  flex-shrink: 0;
+}
+
 .hero h1 {
   font-size: 2.6rem;
   line-height: 1.15;
@@ -328,6 +350,15 @@ nav.main-nav a:hover {
   min-height: 280px;
 }
 
+.ueber-mich-foto {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center 0%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
 .hero-illustration svg {
   width: 100%;
   height: auto;
@@ -432,6 +463,106 @@ section.alt {
   font-weight: 600;
 }
 
+/* ---------- Fahrtkosten-Gebiete ---------- */
+
+.zone-map-wrap {
+  max-width: 800px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+#zone-leaflet-map {
+  width: 100%;
+  height: 520px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 4px solid var(--color-white);
+}
+
+.zone-place-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-primary-dark);
+  border: 2px solid #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+.zone-place-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.74rem;
+  color: var(--color-primary-dark);
+  background: #ffffff;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(11, 111, 168, 0.25);
+  padding: 4px 11px;
+}
+
+.zone-place-label::before {
+  display: none;
+}
+
+#zone-leaflet-map .leaflet-control-zoom {
+  border: none;
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#zone-leaflet-map .leaflet-control-zoom a {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 18px;
+  color: var(--color-primary-dark);
+  background: var(--color-white);
+}
+
+#zone-leaflet-map .leaflet-control-zoom a:hover {
+  background: var(--color-bg-alt);
+}
+
+#zone-leaflet-map .leaflet-control-attribution {
+  font-size: 0.68rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 8px 0 0 0;
+}
+
+.zone-map-caption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
+.zone-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.zone-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.zone-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
 /* ---------- Wo & wann ich unterrichte (Bäder-Zeitplan) ---------- */
 
 .pool-legend {
@@ -451,6 +582,7 @@ section.alt {
 }
 
 .pool-dot {
+  display: inline-block;
   width: 14px;
   height: 14px;
   border-radius: 50%;
@@ -546,6 +678,36 @@ table.schedule-table td.slot {
   font-size: 0.92rem;
 }
 
+.leistungen-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  color: var(--color-text-light);
+  font-size: 0.94rem;
+}
+
+.leistungen-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+
+.leistungen-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+.leistungen-list li:last-child {
+  margin-bottom: 0;
+}
+
 /* ---------- Preise ---------- */
 
 .price-grid {
@@ -588,11 +750,81 @@ table.schedule-table td.slot {
   color: var(--color-text-light);
 }
 
+.price-card-toggle {
+  text-align: left;
+  cursor: pointer;
+}
+
+.price-card-toggle summary {
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+
+.price-card-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.price-card-toggle summary h3 {
+  position: relative;
+}
+
+.price-card-toggle summary h3::after {
+  content: "▾";
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+  color: var(--color-primary);
+}
+
+.price-card-toggle[open] summary h3::after {
+  transform: rotate(180deg);
+}
+
+.price-toggle-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.price-toggle-grid {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 2px dashed var(--color-bg-alt);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 16px;
+}
+
+.price-toggle-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.88rem;
+}
+
+.price-toggle-item strong {
+  font-family: var(--font-heading);
+  color: var(--color-primary-dark);
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
 .price-note {
   text-align: center;
   color: var(--color-text-light);
   margin-top: 24px;
   font-size: 0.92rem;
+}
+
+.abzeichen-subtitle {
+  text-align: center;
+  color: var(--color-primary-dark);
+  font-size: 1.2rem;
+  margin: 46px 0 24px;
 }
 
 /* ---------- Ablauf ---------- */
@@ -739,6 +971,43 @@ table.schedule-table td.slot {
   align-items: center;
   gap: 10px;
   margin-bottom: 12px;
+  color: var(--color-text-light);
+}
+
+.phone-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--color-white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px 20px;
+  margin-top: 22px;
+}
+
+.phone-box .phone-icon {
+  flex-shrink: 0;
+  font-size: 1.5rem;
+}
+
+.phone-box .phone-number {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  white-space: nowrap;
+  text-decoration: none;
+  margin-bottom: 4px;
+}
+
+.phone-box .phone-number:hover {
+  text-decoration: underline;
+}
+
+.phone-box p {
+  margin: 0;
+  font-size: 0.9rem;
   color: var(--color-text-light);
 }
 

@@ -9,6 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
 </head>
 <body>
 
@@ -48,6 +49,8 @@
     </div>
     <div class="container hero-inner">
       <div>
+        <!-- Verfügbarkeit monatlich aktuell halten: Anzahl der Plätze und Monat anpassen. -->
+        <div class="availability-badge">Nur noch 4 Plätze frei im September</div>
         <h1>Schwimmen lernen mit Spaß &amp; Vertrauen</h1>
         <p class="lead">
           Individueller Schwimmunterricht für Kinder, Erwachsene und die Kleinsten in Mannheim
@@ -166,7 +169,7 @@
             Für Kinder, die noch nicht schwimmen können, ganz spielerisch und in ihrem eigenen
             Tempo, inklusive Vorbereitung aufs Seepferdchen.
           </p>
-          <a href="#preise" class="btn btn-outline">Mehr erfahren</a>
+          <a href="#leistungen-anfaenger" class="btn btn-outline">Mehr erfahren</a>
         </div>
         <div class="card reveal">
           <div class="emoji">🐬</div>
@@ -175,7 +178,7 @@
             Für Kinder, die bereits erste Schwimmerfahrungen haben und Technik &amp; Ausdauer
             weiter ausbauen möchten.
           </p>
-          <a href="#preise" class="btn btn-outline">Mehr erfahren</a>
+          <a href="#leistungen-fortgeschrittene" class="btn btn-outline">Mehr erfahren</a>
         </div>
         <div class="card reveal">
           <div class="emoji">🙋</div>
@@ -184,7 +187,7 @@
             Nie schwimmen gelernt oder Technik verbessern? Individueller Unterricht ganz nach
             deinem Tempo, diskret und geduldig.
           </p>
-          <a href="#preise" class="btn btn-outline">Mehr erfahren</a>
+          <a href="#leistungen-erwachsene" class="btn btn-outline">Mehr erfahren</a>
         </div>
         <div class="card reveal">
           <div class="emoji">👶</div>
@@ -193,7 +196,157 @@
             Sanfte Wassergewöhnung für die Kleinsten, gemeinsam mit einem Elternteil, mit viel
             Sicherheit und Spaß im Wasser.
           </p>
-          <a href="#preise" class="btn btn-outline">Mehr erfahren</a>
+          <a href="#leistungen-baby" class="btn btn-outline">Mehr erfahren</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Was wir gemeinsam üben -->
+  <section class="alt" id="leistungen">
+    <div class="container">
+      <h2 class="section-title reveal">Was wir gemeinsam üben</h2>
+      <p class="section-subtitle reveal">
+        Je nach Gruppe stehen andere Übungen im Mittelpunkt: hier siehst du genauer, woran wir
+        arbeiten.
+      </p>
+      <div class="card-grid">
+        <div class="card reveal" id="leistungen-anfaenger">
+          <div class="emoji">🐠</div>
+          <h3>Anfänger</h3>
+          <ul class="leistungen-list">
+            <li>Wassergewöhnung ganz ohne Angst</li>
+            <li>Tauchen und Luft anhalten</li>
+            <li>Auftreiben und Gleiten</li>
+            <li>Erste Beinschläge</li>
+            <li>Spielerische Vorbereitung aufs Seepferdchen</li>
+          </ul>
+        </div>
+        <div class="card reveal" id="leistungen-fortgeschrittene">
+          <div class="emoji">🐬</div>
+          <h3>Fortgeschrittene</h3>
+          <ul class="leistungen-list">
+            <li>Schwimmtechnik verfeinern (Brust, Kraul, Rücken)</li>
+            <li>Ausdauer aufbauen</li>
+            <li>Sprünge vom Beckenrand</li>
+            <li>Gezielte Vorbereitung auf Bronze und Silber</li>
+          </ul>
+        </div>
+        <div class="card reveal" id="leistungen-erwachsene">
+          <div class="emoji">🙋</div>
+          <h3>Erwachsene</h3>
+          <ul class="leistungen-list">
+            <li>Wasserangst Schritt für Schritt abbauen</li>
+            <li>Grundtechniken von Anfang an, ganz diskret</li>
+            <li>Gezielte Technikkorrektur</li>
+            <li>Mehr Sicherheit im tiefen Wasser</li>
+          </ul>
+        </div>
+        <div class="card reveal" id="leistungen-baby">
+          <div class="emoji">👶</div>
+          <h3>Baby &amp; Kleinkind</h3>
+          <ul class="leistungen-list">
+            <li>Spielerische Wassergewöhnung mit einem Elternteil</li>
+            <li>Tauchreflex behutsam kennenlernen</li>
+            <li>Erste Bewegungsmuster im Wasser</li>
+            <li>Viel Spaß mit Liedern und kleinen Spielen</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schwimmabzeichen -->
+  <section id="abzeichen">
+    <div class="container">
+      <h2 class="section-title reveal">Schwimmabzeichen</h2>
+      <p class="section-subtitle reveal">
+        In meinem Unterricht lege ich die Grundlagen für diese Abzeichen und bereite dein Kind
+        gezielt darauf vor. Die offizielle Abnahme und Prüfung übernimmt die Aufsicht des
+        jeweiligen Schwimmbads bzw. eine offizielle Prüfstelle, nicht ich selbst.
+      </p>
+      <div class="card-grid">
+        <div class="card reveal">
+          <h3>Seepferdchen</h3>
+          <ul class="leistungen-list">
+            <li>Sprung vom Beckenrand</li>
+            <li>25 m Schwimmen in Bauch- oder Rückenlage</li>
+            <li>Gegenstand aus schultertiefem Wasser holen</li>
+            <li>Baderegeln kennen</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>Bronze</h3>
+          <ul class="leistungen-list">
+            <li>Kopfsprung</li>
+            <li>15 Minuten schwimmen, mindestens 200 m</li>
+            <li>Sprung vom 1-Meter-Brett</li>
+            <li>Ca. 2 m tief tauchen und Gegenstand holen</li>
+            <li>Baderegeln kennen</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>Silber</h3>
+          <ul class="leistungen-list">
+            <li>Kopfsprung</li>
+            <li>20 Minuten schwimmen, mindestens 400 m</li>
+            <li>Sprung aus 3 m Höhe (oder zwei 1-Meter-Sprünge)</li>
+            <li>Zweimal ca. 2 m tief tauchen</li>
+            <li>10 m Streckentauchen</li>
+            <li>Baderegeln und Grundlagen der Selbstrettung</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>Gold</h3>
+          <ul class="leistungen-list">
+            <li>Kopfsprung</li>
+            <li>30 Minuten schwimmen, mindestens 800 m</li>
+            <li>Kraul-, Brust- und Rückenschwimmen</li>
+            <li>10 m Streckentauchen ohne Abstoßen</li>
+            <li>Dreimal ca. 2 m tief tauchen, innerhalb von 3 Minuten</li>
+            <li>50 m Transportschwimmen</li>
+            <li>Baderegeln und Hilfe bei Bade-, Boots- und Eisunfällen</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3 class="abzeichen-subtitle reveal">Rettungsschwimmabzeichen (DRSA)</h3>
+      <div class="card-grid">
+        <div class="card reveal">
+          <h3>Bronze</h3>
+          <ul class="leistungen-list">
+            <li>Voraussetzung: keine, ab ca. 12 Jahren</li>
+            <li>200 m schwimmen in max. 10 Minuten</li>
+            <li>100 m in Kleidung schwimmen, danach unter Wasser ausziehen</li>
+            <li>Zwei Tieftauchgänge, Ring aus 2 bis 3 m Tiefe holen</li>
+            <li>50 m Transportschwimmen</li>
+            <li>Befreiungsgriffe und Rettungstransport</li>
+            <li>Grundlagen Wiederbelebung</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>Silber</h3>
+          <ul class="leistungen-list">
+            <li>Voraussetzung: Rettungsschwimmabzeichen Bronze, ab ca. 14 Jahren</li>
+            <li>400 m schwimmen in max. 15 Minuten</li>
+            <li>300 m in Kleidung schwimmen, danach ausziehen</li>
+            <li>Sprung aus 3 m Höhe</li>
+            <li>Drei Tieftauchgänge aus 3 bis 5 m Tiefe</li>
+            <li>50 m Transportschwimmen in unter 90 Sekunden</li>
+            <li>Aktuelle Erste-Hilfe-Ausbildung nötig</li>
+          </ul>
+        </div>
+        <div class="card reveal">
+          <h3>Gold</h3>
+          <ul class="leistungen-list">
+            <li>Voraussetzung: Rettungsschwimmabzeichen Silber, ab ca. 16 Jahren</li>
+            <li>300 m Flossenschwimmen in max. 6 Minuten, davon 50 m Schleppen in Kleidung</li>
+            <li>300 m Schwimmen in Kleidung in max. 9 Minuten, danach im Wasser ausziehen</li>
+            <li>30 m Streckentauchen, mind. 8 von 10 Ringen auf 20 m Strecke sammeln</li>
+            <li>Drei Tieftauchgänge in Kleidung (kopf- und fußwärts) in 3 Minuten, dabei zwei
+              Ringe aus ca. 3 bis 5 m Tiefe holen</li>
+            <li>Aktuelle Erste-Hilfe-Ausbildung und ärztliches Attest nötig</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -277,11 +430,7 @@
   <section id="ueber-mich">
     <div class="container about-grid">
       <div class="reveal">
-        <!-- BILD HIER EINFÜGEN: img/ueber-mich.jpg -->
-        <div class="img-placeholder">
-          <span class="emoji">📷</span>
-          <span>Portraitfoto einfügen<br /><small>z. B. img/ueber-mich.jpg</small></span>
-        </div>
+        <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids Rhein-Neckar" class="ueber-mich-foto" />
       </div>
       <div class="reveal">
         <h2 class="section-title" style="text-align:left">Über mich</h2>
@@ -377,13 +526,73 @@
           <div class="price">520&nbsp;€ <span>/ 10&nbsp;Einheiten</span></div>
           <p>Bester Preis pro Stunde für regelmäßigen Unterricht.</p>
         </div>
+        <div class="price-card reveal">
+          <h3>Baby &amp; Kleinkind</h3>
+          <div class="price">40&nbsp;€ <span>/ 30 Min.</span></div>
+          <p>Als 5er-Karte 180&nbsp;€. Gemeinsam mit einem Elternteil im Wasser.</p>
+        </div>
+        <div class="price-card reveal">
+          <h3>Duo-Unterricht</h3>
+          <div class="price">100&nbsp;€ <span>/ 50 Min.</span></div>
+          <p>Für 2 Kinder gemeinsam in einer Einheit, egal ob Geschwister oder Freunde.</p>
+        </div>
+        <details class="price-card price-card-toggle reveal">
+          <summary>
+            <h3>Unterricht im eigenen Pool</h3>
+            <p>
+              Findet der Unterricht bei dir zu Hause im eigenen Pool oder Schwimmbad statt,
+              entfällt der Badeintritt, deshalb 5&nbsp;€ Rabatt pro Einheit. Die
+              Anfahrtskostenpauschale nach Gebiet fällt weiterhin an.
+              <span class="price-toggle-hint">Zum Ansehen der Preise klicken</span>
+            </p>
+          </summary>
+          <div class="price-toggle-grid">
+            <div class="price-toggle-item"><span>Kennenlernstunde</span><strong>20&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Einzelstunde</span><strong>55&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>5er-Karte</span><strong>250&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>10er-Karte</span><strong>470&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Baby &amp; Kleinkind</span><strong>35&nbsp;€</strong></div>
+            <div class="price-toggle-item"><span>Duo-Unterricht</span><strong>95&nbsp;€</strong></div>
+          </div>
+        </details>
       </div>
       <p class="price-note">
-        Baby- &amp; Kleinkind-Einheiten (30 Min.): 40&nbsp;€ pro Einheit, als 5er-Karte 180&nbsp;€.
-        Geschwisterunterricht (2 Kinder gemeinsam, 50 Min.): 100&nbsp;€ pro Einheit.
         Der Eintritt fürs Schwimmbad ist nicht in den Preisen enthalten und wird separat vor Ort
-        bezahlt.
+        bezahlt. Je nach Bad kommt eine pauschale Anfahrtskostenpauschale dazu (gestaffelt nach
+        Gebiet Mannheim/Heidelberg), die Höhe bespreche ich gerne bei der Anfrage.
       </p>
+    </div>
+  </section>
+
+  <!--
+    Fahrtkosten-Gebiete: schematische Darstellung, keine exakte Geografie, Adresse bewusst nicht
+    sichtbar. Sobald die konkreten Beträge feststehen: Platzhalter "Betrag folgt" in der Legende
+    ersetzen. Sobald die Bäder feststehen: rote Punkte (Kreise) an passender Stelle im jeweiligen
+    Zonen-Ring ergänzen, mit <title> oder Label für den Bad-Namen und Preis.
+  -->
+  <section class="alt" id="fahrtkosten">
+    <div class="container">
+      <h2 class="section-title reveal">Fahrtkosten-Gebiete</h2>
+      <p class="section-subtitle reveal">
+        Je nach Entfernung zu meinem Standort gilt eine pauschale Anfahrtskostenpauschale pro
+        Gebiet, nicht nach genauen Kilometern. Liegt dein Ort außerhalb der eingezeichneten
+        Gebiete, bespreche ich die Pauschale individuell mit dir.
+      </p>
+      <!--
+        Echte Karte (Leaflet + OpenStreetMap, keine Anmeldung/API-Key nötig). Zonen-Daten in
+        js/zones-data.js, Rendering in setupZoneMap() (js/main.js). Zonen bearbeiten:
+        admin-gebiete.html (nicht öffentlich verlinkt). Genaue Adresse wird bewusst nicht
+        als Marker angezeigt.
+      -->
+      <div class="zone-map-wrap reveal">
+        <div id="zone-leaflet-map" aria-label="Karte mit sieben farbig markierten Fahrtkosten-Gebieten rund um Mannheim und Heidelberg"></div>
+        <p class="zone-map-caption">
+          Kartendaten &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>-Mitwirkende.
+          Gebietsgrenzen sind Näherungswerte, keine exakten Kilometerangaben.
+        </p>
+      </div>
+      <!-- Legende wird automatisch aus js/zones-data.js erzeugt (setupZoneMap in js/main.js), bleibt so immer aktuell. -->
+      <div class="zone-legend reveal" id="zone-legend"></div>
     </div>
   </section>
 
@@ -397,62 +606,13 @@
     <div class="container">
       <h2 class="section-title reveal">Wo &amp; wann ich unterrichte</h2>
       <p class="section-subtitle reveal">
-        Ich bin an mehreren Bädern in Mannheim &amp; Heidelberg aktiv. Hier siehst du auf einen
-        Blick, wann welches Bad für den Unterricht infrage kommt. (Beispiel-Zeiten, ich trage die
-        echten Bäder &amp; Zeiten ein, sobald das mit den Bädern abgestimmt ist.)
+        Ich bin an mehreren Bädern in Mannheim &amp; Heidelberg aktiv, je nachdem, welche
+        Zeitfenster ich dort bekomme.
       </p>
-      <div class="pool-legend reveal">
-        <span class="pool-legend-item"><span class="pool-dot pool-a"></span> [Bad 1 (Mannheim)]</span>
-        <span class="pool-legend-item"><span class="pool-dot pool-b"></span> [Bad 2 (Heidelberg)]</span>
-        <span class="pool-legend-item"><span class="pool-dot pool-c"></span> [Bad 3]</span>
-      </div>
-      <div class="schedule-table-wrap reveal">
-        <table class="schedule-table">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Mo</th>
-              <th>Di</th>
-              <th>Mi</th>
-              <th>Do</th>
-              <th>Fr</th>
-              <th>Sa</th>
-              <th>So</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Vormittags</td>
-              <td class="slot pool-a">Bad 1</td>
-              <td></td>
-              <td class="slot pool-a">Bad 1</td>
-              <td></td>
-              <td></td>
-              <td class="slot pool-b">Bad 2</td>
-              <td class="slot pool-c">Bad 3</td>
-            </tr>
-            <tr>
-              <td>Mittags</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="slot pool-a">Bad 1</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Abends</td>
-              <td></td>
-              <td class="slot pool-b">Bad 2</td>
-              <td></td>
-              <td class="slot pool-b">Bad 2</td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </tbody>
-        </table>
+      <!-- Sobald Bäder & Zeiten final sind: img-placeholder unten gegen pool-legend + schedule-table tauschen. -->
+      <div class="img-placeholder reveal" style="max-width:520px;margin:0 auto;">
+        <span class="emoji">🏊</span>
+        <span>Bäder &amp; Zeiten trage ich hier ein, sobald sie final abgestimmt sind.</span>
       </div>
       <p class="price-note">
         Kein Buchungskalender: bitte einfach über das Formular oder WhatsApp anfragen, dann
@@ -602,6 +762,20 @@
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
+            <span>Können zwei Kinder mit unterschiedlichem Alter zusammen Duo-Unterricht haben?</span>
+            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="faq-answer">
+            <p>
+              Ja, das geht meistens gut. Bis zu einem Altersunterschied von etwa 5 Jahren
+              funktioniert Duo-Unterricht in der Regel problemlos. Bei größeren Unterschieden
+              schauen wir gemeinsam, ob und wie es passt: ich gehe dabei individuell auf den
+              Entwicklungsstand jedes Kindes ein.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
             <span>Wie melde ich mich an?</span>
             <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
@@ -650,10 +824,17 @@
         <ul>
           <li>📍 Mannheim &amp; Heidelberg</li>
           <li>💬 Antwort meist innerhalb von 24 Stunden</li>
-          <li>📞 <a href="tel:+4915203611552">+49 1520 3611552</a>: du kannst mich jederzeit
-            anrufen, auch gerne mehrmals. Ich rufe so schnell wie möglich zurück.</li>
         </ul>
         <a href="https://wa.me/4915203611552" target="_blank" rel="noopener" class="btn btn-whatsapp">Direkt per WhatsApp schreiben</a>
+
+        <div class="phone-box">
+          <span class="phone-icon" aria-hidden="true">📞</span>
+          <div>
+            <a href="tel:+4915203611552" class="phone-number">+49&nbsp;1520&nbsp;3611552</a>
+            <p>Du kannst mich jederzeit anrufen, auch gerne mehrmals. Ich rufe so schnell wie
+              möglich zurück.</p>
+          </div>
+        </div>
       </div>
 
       <form class="booking-form reveal" autocomplete="off">
@@ -707,6 +888,8 @@
             <option value="5er-Karte (275 €)">5er-Karte (275&nbsp;€)</option>
             <option value="10er-Karte (520 €)">10er-Karte (520&nbsp;€)</option>
             <option value="Baby/Kleinkind-Einheit (40 € / 30 Min.)">Baby/Kleinkind-Einheit (40&nbsp;€ / 30 Min.)</option>
+            <option value="Duo-Unterricht (100 € / 50 Min.)">Duo-Unterricht (100&nbsp;€ / 50 Min.)</option>
+            <option value="Unterricht im eigenen Pool (5 € Rabatt pro Einheit)">Unterricht im eigenen Pool (5&nbsp;€ Rabatt pro Einheit)</option>
             <option value="Noch unsicher / bitte beraten">Noch unsicher / bitte beraten</option>
           </select>
         </div>
@@ -761,6 +944,8 @@
   <p class="footer-bottom">&copy; 2026 AquaKids Rhein-Neckar</p>
 </footer>
 
+<script src="vendor/leaflet/leaflet.js"></script>
+<script src="js/zones-data.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>

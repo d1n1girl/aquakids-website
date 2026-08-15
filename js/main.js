@@ -7,7 +7,111 @@ document.addEventListener("DOMContentLoaded", () => {
   setupBookingForm();
   setupFaq();
   setupScrollReveal();
+  setupZoneMap();
 });
+
+function smoothZoneShape(points, segmentsPerEdge) {
+  // Catmull-Rom-Spline durch die Eckpunkte einer geschlossenen Fläche, damit aus den
+  // Eckpunkten eine runde, weiche Kontur statt eckiger Linien wird.
+  const n = points.length;
+  const result = [];
+  for (let i = 0; i < n; i++) {
+    const p0 = points[(i - 1 + n) % n];
+    const p1 = points[i];
+    const p2 = points[(i + 1) % n];
+    const p3 = points[(i + 2) % n];
+    for (let t = 0; t < segmentsPerEdge; t++) {
+      const s = t / segmentsPerEdge;
+      const s2 = s * s;
+      const s3 = s2 * s;
+      const lat =
+        0.5 *
+        (2 * p1[0] +
+          (-p0[0] + p2[0]) * s +
+          (2 * p0[0] - 5 * p1[0] + 4 * p2[0] - p3[0]) * s2 +
+          (-p0[0] + 3 * p1[0] - 3 * p2[0] + p3[0]) * s3);
+      const lng =
+        0.5 *
+        (2 * p1[1] +
+          (-p0[1] + p2[1]) * s +
+          (2 * p0[1] - 5 * p1[1] + 4 * p2[1] - p3[1]) * s2 +
+          (-p0[1] + 3 * p1[1] - 3 * p2[1] + p3[1]) * s3);
+      result.push([lat, lng]);
+    }
+  }
+  return result;
+}
+
+function setupZoneMap() {
+  const el = document.getElementById("zone-leaflet-map");
+  if (!el || typeof L === "undefined" || typeof ZONES === "undefined") return;
+
+  const CENTER = ZONE_CENTER;
+
+  const map = L.map(el, { scrollWheelZoom: false, center: CENTER, zoom: 11, zoomControl: false });
+
+  L.control.zoom({ position: "topright" }).addTo(map);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "OpenStreetMap-Mitwirkende",
+    maxZoom: 18,
+  }).addTo(map);
+
+  const allPoints = [];
+  ZONES.forEach((zone) => {
+    const smooth = smoothZoneShape(zone.coords, 12);
+    L.polygon(smooth, {
+      color: zone.color,
+      weight: 3.5,
+      opacity: 0.95,
+      fillColor: zone.color,
+      fillOpacity: 0.45,
+      lineJoin: "round",
+      lineCap: "round",
+      smoothFactor: 1,
+      interactive: false,
+    }).addTo(map);
+    allPoints.push(...zone.coords);
+  });
+
+  ZONE_PLACES.forEach(([lat, lng, name]) => {
+    L.marker([lat, lng], {
+      icon: L.divIcon({ className: "zone-place-dot", iconSize: [8, 8] }),
+      interactive: false,
+    })
+      .addTo(map)
+      .bindTooltip(name, {
+        permanent: true,
+        direction: "top",
+        className: "zone-place-label",
+        offset: [0, -2],
+      });
+  });
+
+  if (allPoints.length) {
+    map.fitBounds(allPoints, { padding: [16, 16] });
+  } else {
+    map.setView(CENTER, 11);
+  }
+
+  const legend = document.getElementById("zone-legend");
+  if (legend) {
+    const prices = typeof ZONE_PRICES !== "undefined" ? ZONE_PRICES : {};
+    legend.innerHTML = ZONES.map((zone) => {
+      const price = prices[zone.name];
+      const priceText = typeof price === "number" ? price + " €" : "individuell auf Anfrage";
+      return (
+        '<span class="zone-legend-item"><span class="zone-dot" style="background:' +
+        zone.color +
+        '"></span> ' +
+        zone.name +
+        ": " +
+        priceText +
+        "</span>"
+      );
+    }).join("");
+  }
+}
 
 function setupMobileMenu() {
   const toggle = document.querySelector(".menu-toggle");
