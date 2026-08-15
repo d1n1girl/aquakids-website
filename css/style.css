@@ -708,6 +708,39 @@ table.schedule-table td.slot {
   margin-bottom: 0;
 }
 
+.kurs-toggle {
+  cursor: pointer;
+}
+
+.kurs-toggle summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.kurs-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.kurs-toggle summary h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.kurs-toggle summary h3::after {
+  content: "▾";
+  display: inline-block;
+  margin-left: 6px;
+  transition: transform 0.2s ease;
+}
+
+.kurs-toggle[open] summary h3::after {
+  transform: rotate(180deg);
+}
+
+.kurs-toggle .leistungen-list {
+  margin-top: 16px;
+}
+
 /* ---------- Preise ---------- */
 
 .price-grid {
