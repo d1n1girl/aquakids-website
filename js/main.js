@@ -11,19 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   setupKennenlernTermine();
   setupPreisUmschalter();
   setupFormPaketAuswahl();
+  setupPoolAngebotForm();
 });
 
 const PAKET_OPTIONEN = {
   einzel: [
     { value: "Schnupperstunde (30 € / 30 Min.)", label: "Schnupperstunde (30 € / 30 Min.)" },
-    { value: "Einzelstunde (70 € / 50 Min.)", label: "Einzelstunde (70 € / 50 Min.)" },
     { value: "10er-Karte Einzel (630 €)", label: "10er-Karte Einzel (630 €)" },
     { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
     { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
   ],
   duo: [
     { value: "Schnupperstunde Duo (30 € / 30 Min., für beide)", label: "Schnupperstunde Duo (30 € / 30 Min., für beide)" },
-    { value: "Duo-Einzelstunde (110 € / 50 Min.)", label: "Duo-Einzelstunde (110 € / 50 Min.)" },
     { value: "Duo-10er-Karte (480 € pro Kind)", label: "Duo-10er-Karte (480 € pro Kind)" },
     { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
     { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
@@ -85,7 +84,7 @@ function setupKennenlernTermine() {
 
   if (!KENNENLERNTERMINE.length) {
     el.innerHTML =
-      '<p class="kennenlern-termine-empty">Termine folgen in Kürze. Schreib mir gerne schon jetzt über WhatsApp oder das Formular, dann sag ich dir Bescheid, sobald der nächste Schnuppertag feststeht.</p>';
+      '<p class="kennenlern-termine-empty">Termine werden individuell vereinbart. Schreib mir gerne über WhatsApp oder das Formular, dann finden wir gemeinsam einen Termin.</p>';
     return;
   }
 
@@ -186,6 +185,52 @@ function setupKooperationForm() {
     }
 
     lines.push("", nachricht);
+
+    const text = encodeURIComponent(lines.join("\n"));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    if (status) {
+      status.textContent = "Du wirst zu WhatsApp weitergeleitet. Dort einfach die vorausgefüllte Nachricht abschicken.";
+      status.classList.add("visible");
+    }
+
+    window.open(url, "_blank", "noopener");
+  });
+}
+
+function setupPoolAngebotForm() {
+  const form = document.getElementById("pool-angebot-form");
+  const status = document.getElementById("pool-angebot-status");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const name = (data.get("name") || "").toString().trim();
+    const standort = (data.get("standort") || "").toString().trim();
+    const preis = (data.get("preis") || "").toString().trim();
+    const verfuegbarkeit = (data.get("verfuegbarkeit") || "").toString().trim();
+    const nachricht = (data.get("nachricht") || "").toString().trim();
+
+    const lines = [
+      "Hallo! Ich möchte meinen Pool als Lernort für Schwimmunterricht anbieten.",
+      "",
+      `Name: ${name}`,
+      `Standort: ${standort}`,
+    ];
+
+    if (preis) {
+      lines.push(`Gewünschter Preis pro Stunde: ${preis}`);
+    }
+
+    if (verfuegbarkeit) {
+      lines.push(`Verfügbarkeit: ${verfuegbarkeit}`);
+    }
+
+    if (nachricht) {
+      lines.push(`Nachricht: ${nachricht}`);
+    }
 
     const text = encodeURIComponent(lines.join("\n"));
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;

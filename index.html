@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=8" />
+<link rel="stylesheet" href="css/style.css?v=9" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,10 +40,11 @@
 <body>
 
 <header class="site-header">
+  <div class="header-ribbon">🐳 Nur noch wenige Plätze verfügbar</div>
   <div class="nav-wrap">
     <a href="#start" class="logo">
       <span class="logo-emoji">🏊</span>
-      AquaKids-rn.de
+      AquaKids-RN
     </a>
 
     <nav class="main-nav" aria-label="Hauptnavigation">
@@ -79,10 +80,10 @@
         <div class="availability-badge">Nur noch wenige Plätze frei</div>
         <h1>Schwimmen lernen mit Spaß in Mannheim &amp; Heidelberg</h1>
         <p class="lead">
-          Spielerischer 1:1-Schwimmunterricht für Kinder &amp; Erwachsene, ganz in deinem Tempo.
+          Spielerischer, privater 1:1-Unterricht für Kinder &ndash; ganz in ihrem Tempo.
         </p>
         <div class="hero-actions">
-          <a href="#preise" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+          <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
           <a href="#kontakt" class="btn btn-outline">Kontakt aufnehmen</a>
         </div>
       </div>
@@ -90,8 +91,8 @@
         <!-- Cartoon-Illustration. Kann später gegen ein eigenes Foto getauscht werden: img/hero.jpg -->
         <svg viewBox="0 0 480 360" role="img" aria-label="Cartoon einer schwimmenden Person im Wasser">
           <rect width="480" height="360" fill="var(--color-bg-alt)"/>
-          <circle cx="400" cy="60" r="46" fill="var(--color-yellow)" opacity="0.25"/>
-          <circle cx="400" cy="60" r="30" fill="var(--color-yellow)"/>
+          <circle cx="400" cy="60" r="46" fill="#ffd166" opacity="0.25"/>
+          <circle cx="400" cy="60" r="30" fill="#ffd166"/>
           <g fill="#ffffff" opacity="0.85">
             <ellipse cx="90" cy="55" rx="34" ry="16"/>
             <ellipse cx="118" cy="48" rx="24" ry="14"/>
@@ -161,12 +162,12 @@
           <h3>Sicherheit im Wasser</h3>
         </div>
         <div class="benefit-item">
-          <span class="benefit-icon">🚀</span>
-          <h3>Schnellere Fortschritte</h3>
+          <span class="benefit-icon">🎯</span>
+          <h3>Direktes Feedback für bessere Technik</h3>
         </div>
       </div>
       <div class="section-cta reveal">
-        <a href="#preise" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+        <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
       </div>
     </div>
   </section>
@@ -190,7 +191,7 @@
         <details class="card kurs-toggle reveal">
           <summary>
             <div class="emoji">🐠</div>
-            <span class="kurs-subline">Auf dem Weg zum Seepferdchen</span>
+            <span class="kurs-subline">Vorbereitung aufs Seepferdchen</span>
             <h3>Anfänger</h3>
             <p>
               Für Kinder, die noch nicht schwimmen können, ganz spielerisch und in ihrem eigenen
@@ -207,17 +208,18 @@
         <details class="card kurs-toggle reveal">
           <summary>
             <div class="emoji">🐬</div>
-            <span class="kurs-subline">Fit fürs nächste Schwimmabzeichen</span>
-            <h3>Fortgeschrittene</h3>
+            <span class="kurs-subline">Vorbereitung fürs nächste Schwimmabzeichen</span>
+            <h3>Abzeichen-Kurs</h3>
             <p>
-              Für Kinder, die bereits erste Schwimmerfahrungen haben und Technik &amp; Ausdauer
-              weiter ausbauen möchten.
+              Für Kinder, die bereits erste Schwimmerfahrungen haben und gezielt auf Seepferdchen,
+              Silber, Gold oder das Rettungsschwimmabzeichen hinarbeiten möchten.
             </p>
           </summary>
           <ul class="leistungen-list">
-            <li>Technikverbesserung</li>
-            <li>Kraftaufbau</li>
-            <li>Vorbereitung aufs Schwimmabzeichen</li>
+            <li>Technik</li>
+            <li>Verschiedene Schwimmtechniken</li>
+            <li>Sprünge</li>
+            <li>Sicherheit</li>
           </ul>
         </details>
       </div>
@@ -226,7 +228,7 @@
         ist auf Anfrage jederzeit möglich – schreib mir einfach.
       </p>
       <div class="section-cta reveal">
-        <a href="#preise" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+        <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
       </div>
     </div>
   </section>
@@ -236,7 +238,7 @@
     <div class="container">
       <h2 class="section-title reveal">Deine Ziele im Kurs</h2>
       <p class="section-subtitle reveal">
-        Darum lohnt sich Einzelunterricht: volle Aufmerksamkeit, dein Tempo, echte Fortschritte.
+        Darum lohnt sich Einzelunterricht.
       </p>
       <div class="card-grid">
         <div class="card reveal">
@@ -246,7 +248,7 @@
           </svg>
           <h3>100 % Aufmerksamkeit für schnellere Fortschritte</h3>
           <p>
-            In der Einzelstunde schwimmst du oder dein Kind mehr echte Meter und übt mehr
+            Im Einzelunterricht schwimmst du oder dein Kind mehr echte Meter und übt mehr
             Wiederholungen als in einer Gruppenstunde &ndash; hohe Übungsdichte plus direktes
             Feedback bringen schneller ans Ziel.
           </p>
@@ -289,9 +291,33 @@
           </svg>
           <h3>Sicherheit vor Abzeichen</h3>
           <p>
-            Selbstrettung wie Rückenlage, Atmen finden und den Beckenrand anpeilen stehen bei mir
-            vor Abzeichen-Symbolen im Fokus &ndash; ganz im Sinne der Ertrinkungsprävention, wie sie
-            auch die Weltgesundheitsorganisation und die American Academy of Pediatrics empfehlen.
+            Ertrinken geht oft erschreckend schnell und meist lautlos &ndash; genau deshalb stehen
+            bei mir Selbstrettung wie Rückenlage, Atmen finden und den Beckenrand anpeilen vor
+            Abzeichen-Symbolen im Fokus. Das kann im Ernstfall den entscheidenden Unterschied
+            machen, ganz im Sinne der Ertrinkungsprävention, wie sie auch die
+            Weltgesundheitsorganisation und die American Academy of Pediatrics empfehlen.
+          </p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
+            <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
+            <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Mehr Selbstvertrauen im Wasser</h3>
+          <p>
+            Ohne Vergleich mit anderen Kindern feiern wir jeden kleinen Fortschritt einzeln &ndash;
+            das stärkt das Selbstvertrauen genauso wie die Schwimmtechnik.
+          </p>
+        </div>
+        <div class="card reveal">
+          <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
+            <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
+            <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <h3>Enger Austausch mit dir als Elternteil</h3>
+          <p>
+            Nach jeder Einheit weißt du genau, woran wir gearbeitet haben und wie der Stand ist
+            &ndash; direkt von mir, nicht irgendwo in einer Gruppe untergegangen.
           </p>
         </div>
         <div class="card reveal">
@@ -307,7 +333,7 @@
         </div>
       </div>
       <div class="section-cta reveal">
-        <a href="#preise" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+        <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
       </div>
     </div>
   </section>
@@ -346,14 +372,43 @@
     </div>
   </section>
 
+  <!-- Das unterscheidet meinen Unterricht -->
+  <section id="unterscheidet">
+    <div class="container">
+      <h2 class="section-title reveal">Was meinen Unterricht besonders macht</h2>
+      <div class="steps-wrap reveal">
+        <svg class="steps-wave-bg" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,30 C150,-10 350,70 500,30 C650,-10 850,70 1000,30" fill="none" stroke="var(--color-accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
+        </svg>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h4>Feste Bezugsperson</h4>
+            <p>Du hast bei mir immer dieselbe Lehrkraft &ndash; kein Wechsel, keine versteckte Gruppengröße.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h4>Individuelle Arbeit</h4>
+            <p>Weil ich jedes Kind einzeln begleite, kann ich gezielt auf seine Stärken und Schwächen eingehen.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h4>Sofortige Anpassung</h4>
+            <p>Tempo, Übungen und die Korrektur von Fehlern passen sich direkt in der Stunde an &ndash; nichts wird auf später verschoben.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Über mich -->
   <section id="ueber-mich">
     <div class="container about-grid">
       <div class="reveal">
-        <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids-rn.de" class="ueber-mich-foto" />
+        <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids-rn.de" class="ueber-mich-foto" tabindex="0" />
         <div class="ueber-mich-galerie">
-          <img src="img/ueber-mich-portrait.jpg" alt="Nadine Reinhard, Portrait" />
-          <img src="img/ueber-mich-pool.jpg" alt="Nadine Reinhard beim Schwimmen mit ihrem Hund" />
+          <img src="img/ueber-mich-portrait.jpg" alt="Nadine Reinhard, Portrait" tabindex="0" />
+          <img src="img/ueber-mich-pool.jpg" alt="Nadine Reinhard beim Schwimmen mit ihrem Hund" tabindex="0" />
         </div>
       </div>
       <div class="reveal">
@@ -386,16 +441,17 @@
             </svg>
             <span>Rettungsschwimmabzeichen Silber</span>
           </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-coral)"/>
+              <path d="M24 14 L24 34 M14 24 L34 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span>Erste-Hilfe-Kurs, alle 2 Jahre aufgefrischt</span>
+          </li>
         </ul>
 
-        <p>
-          <strong>Das unterscheidet meinen Unterricht:</strong> Du hast bei mir immer dieselbe
-          feste Bezugsperson, kein Wechsel der Lehrkraft und keine versteckte Gruppengröße. Ich
-          komme flexibel zu Schwimmbädern in Mannheim und Heidelberg und richte Tempo sowie
-          Übungen ganz nach dir oder deinem Kind aus.
-        </p>
         <div class="section-cta reveal">
-          <a href="#preise" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+          <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
         </div>
       </div>
     </div>
@@ -428,19 +484,11 @@
           </div>
         </details>
         <div class="price-card reveal">
-          <h3>Einzelstunde</h3>
-          <div class="price">70&nbsp;€ <span>/ 50 Min.</span></div>
-          <p>Klassische Einzelstunde für Kinder oder Erwachsene.</p>
-        </div>
-        <div class="price-card reveal">
           <span class="price-card-savings">Du sparst 10&nbsp;%</span>
           <h3>10er-Karte</h3>
           <div class="price">63&nbsp;€ <span>/ Schwimmstunde</span></div>
-          <p class="price-card-total"><strong>Gesamt:</strong> 630&nbsp;€ für 10&nbsp;Einheiten</p>
-          <p class="price-card-goal">
-            <strong>Ziel:</strong> sichere Wassergewöhnung, saubere Technik und gezielte
-            Vorbereitung aufs nächste Schwimmabzeichen.
-          </p>
+          <p class="price-card-total">630&nbsp;€ für 10&nbsp;Einheiten</p>
+          <p class="price-card-goal">Vorbereitung aufs Schwimmabzeichen sowie saubere Technik.</p>
         </div>
       </div>
 
@@ -451,18 +499,13 @@
           <p>Für euch beide zusammen unverbindlich reinschnuppern.</p>
         </div>
         <div class="price-card reveal">
-          <h3>Duo-Einzelstunde</h3>
-          <div class="price">110&nbsp;€ <span>/ 50 Min.</span></div>
-          <p>Für Geschwister oder beste Freunde &ndash; gemeinsam in einer Einheit lernen.</p>
-        </div>
-        <div class="price-card reveal">
-          <span class="price-card-savings">Sparangebot</span>
+          <span class="price-card-savings price-card-savings-hot">15&nbsp;€ günstiger pro Kind</span>
           <h3>Duo-10er-Karte</h3>
           <div class="price">48&nbsp;€ <span>/ Kind &amp; Schwimmstunde</span></div>
-          <p class="price-card-total"><strong>Gesamt:</strong> 480&nbsp;€ pro Kind (960&nbsp;€ zusammen) für 10&nbsp;Einheiten</p>
+          <p class="price-card-total">480&nbsp;€ pro Kind (960&nbsp;€ zusammen) für 10&nbsp;Einheiten</p>
           <p class="price-card-goal">
-            <strong>Vorteil:</strong> 15&nbsp;€ günstiger pro Kind &amp; Stunde als einzeln &ndash;
-            ihr spart 300&nbsp;€ gegenüber zwei Einzelplätzen.
+            Ihr spart zusammen 300&nbsp;€ gegenüber zwei einzelnen 10er-Karten. Ideal für
+            Geschwister oder beste Freunde, die gemeinsam lernen möchten.
           </p>
         </div>
       </div>
@@ -472,12 +515,18 @@
         allen Preisen oben bereits enthalten &ndash; keine versteckten Zusatzkosten.
       </p>
       <p class="price-note price-note-small">
+        💳 Die 10er-Karte wird per Vorkasse bezahlt &ndash; per Überweisung oder PayPal.
+      </p>
+      <p class="price-note price-note-small">
         🏠 Unterricht lieber bei dir zu Hause im eigenen Pool? Geht auch, mit Rabatt auf den
-        Badeintritt &ndash; <a href="#kontakt">einfach anfragen</a>.
+        Badeintritt &ndash; <a href="#kontakt">einfach anfragen</a>. Oder möchtest du deinen
+        eigenen Pool als Lernort anbieten? Auch das ist möglich &ndash;
+        <a href="#pool-anbieten">hier anfragen</a>.
       </p>
       <div class="section-cta reveal">
         <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
       </div>
+      <p class="price-note price-note-small" style="margin-top:6px;">Nur noch wenige Plätze verfügbar.</p>
     </div>
   </section>
 
@@ -587,7 +636,11 @@
         <a href="https://wa.me/4915203611552" target="_blank" rel="noopener" class="btn btn-whatsapp">Jetzt unkompliziert Schnupperstunde anfragen</a>
 
         <div class="phone-box">
-          <span class="phone-icon" aria-hidden="true">📞</span>
+          <span class="phone-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="var(--color-primary-dark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
           <div>
             <a href="tel:+4915203611552" class="phone-number">+49&nbsp;1520&nbsp;3611552</a>
             <p>Du kannst mich jederzeit anrufen. Ich rufe so schnell wie möglich zurück.</p>
@@ -611,7 +664,7 @@
           <select id="unterricht" name="unterricht" required>
             <option value="">Bitte wählen</option>
             <option value="Anfänger (Kind)">Anfänger (Kind)</option>
-            <option value="Fortgeschrittene (Kind)">Fortgeschrittene (Kind)</option>
+            <option value="Abzeichen-Kurs (Kind)">Abzeichen-Kurs (Kind)</option>
             <option value="Erwachsene/r">Erwachsene/r</option>
           </select>
         </div>
@@ -665,6 +718,7 @@
         </div>
 
         <button type="submit" class="btn btn-whatsapp">Anfrage senden</button>
+        <p class="form-hint" style="font-weight:700;">🐳 Nur noch wenige Plätze verfügbar &ndash; jetzt anfragen.</p>
 
         <p class="form-status" role="status"></p>
         <p class="form-hint">
@@ -678,24 +732,16 @@
   <!-- Für Bäder: Kooperationsanfrage -->
   <section class="alt" id="kooperation">
     <div class="container">
-      <h2 class="section-title reveal">Für Schwimmbäder</h2>
+      <h2 class="section-title reveal">Für Bäder, Schulen &amp; Kindergärten</h2>
       <p class="section-subtitle reveal">
-        Du bist für ein Bad in der Region zuständig und hast Interesse an einer Kooperation für
-        privaten Schwimmunterricht? Schreib mir einfach.
+        Interesse an Schwimmunterricht in eurem Bad, eurer Schule oder eurem Kindergarten? Frag
+        hier an.
       </p>
     </div>
-    <div class="container contact-grid">
-      <div class="contact-info reveal">
-        <p>
-          Egal ob feste Bahnenzeiten, ein grundsätzliches Interesse oder erst mal nur Fragen: Über
-          das Formular erreichst du mich am schnellsten. Deine Nachricht wird als vorausgefüllte
-          WhatsApp-Nachricht an mich übergeben, du musst sie dort nur noch abschicken.
-        </p>
-      </div>
-
+    <div class="container" style="max-width:560px;">
       <form class="booking-form reveal" id="kooperation-form" autocomplete="off">
         <div class="form-group">
-          <label for="koop-bad">Name des Bads / Ansprechperson (optional)</label>
+          <label for="koop-bad">Name der Einrichtung / Ansprechperson (optional)</label>
           <input type="text" id="koop-bad" name="bad" />
         </div>
 
@@ -715,14 +761,68 @@
     </div>
   </section>
 
+  <!-- Für Poolbesitzer: eigenen Pool als Lernort anbieten -->
+  <section id="pool-anbieten">
+    <div class="container">
+      <h2 class="section-title reveal">Deinen Pool als Lernort anbieten</h2>
+      <p class="section-subtitle reveal">
+        Du hast einen eigenen Pool und möchtest ihn für privaten Schwimmunterricht zur Verfügung
+        stellen? Schreib mir gerne die Eckdaten.
+      </p>
+    </div>
+    <div class="container contact-grid">
+      <div class="contact-info reveal">
+        <p>
+          Über das Formular erreichst du mich am schnellsten. Deine Nachricht wird als
+          vorausgefüllte WhatsApp-Nachricht an mich übergeben, du musst sie dort nur noch
+          abschicken.
+        </p>
+      </div>
+
+      <form class="booking-form reveal" id="pool-angebot-form" autocomplete="off">
+        <div class="form-group">
+          <label for="pa-name">Dein Name</label>
+          <input type="text" id="pa-name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pa-standort">Wo ist der Pool?</label>
+          <input type="text" id="pa-standort" name="standort" placeholder="Ort / ungefähre Lage" required />
+        </div>
+
+        <div class="form-group">
+          <label for="pa-preis">Gewünschter Preis pro Stunde</label>
+          <input type="text" id="pa-preis" name="preis" placeholder="z. B. 15 € / Stunde" />
+        </div>
+
+        <div class="form-group">
+          <label for="pa-verfuegbarkeit">Wann steht der Pool zur Verfügung?</label>
+          <input type="text" id="pa-verfuegbarkeit" name="verfuegbarkeit" placeholder="z. B. Dienstag- und Freitagnachmittag" />
+        </div>
+
+        <div class="form-group">
+          <label for="pa-nachricht">Fragen oder Notizen (optional)</label>
+          <textarea id="pa-nachricht" name="nachricht" rows="4" placeholder="Größe/Tiefe des Pools, Beheizung, sonstige Hinweise..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-whatsapp">Anfrage senden</button>
+
+        <p class="form-status" id="pool-angebot-status" role="status"></p>
+        <p class="form-hint">
+          Beim Absenden öffnet sich WhatsApp mit einer vorausgefüllten Nachricht. Erst wenn du sie
+          dort abschickst, geht deine Anfrage bei mir ein.
+        </p>
+      </form>
+    </div>
+  </section>
+
   <!-- Schwimmabzeichen -->
   <section id="abzeichen">
     <div class="container">
       <h2 class="section-title reveal">Schwimmabzeichen</h2>
       <p class="section-subtitle reveal">
-        In meinem Unterricht lege ich die Grundlagen für diese Abzeichen und bereite dein Kind
-        gezielt darauf vor. Die offizielle Abnahme und Prüfung übernimmt die Aufsicht des
-        jeweiligen Schwimmbads bzw. eine offizielle Prüfstelle, nicht ich selbst.
+        Ich bereite dein Kind gezielt auf diese Abzeichen vor. Die offizielle Abnahme übernimmt
+        das Schwimmbad bzw. eine Prüfstelle.
       </p>
       <div class="card-grid">
         <div class="card reveal">
@@ -823,13 +923,14 @@
   <div class="container footer-inner">
     <div>
       <strong>AquaKids-rn.de</strong><br />
-      Privater Schwimmunterricht für Kinder, Erwachsene &amp; die Kleinsten
+      Privater Schwimmunterricht für Kinder &amp; Erwachsene
     </div>
     <ul class="footer-links">
       <li><a href="#angebot">Schwimmkurse</a></li>
       <li><a href="#faq">FAQ</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
       <li><a href="#kooperation">Für Bäder</a></li>
+      <li><a href="#kooperation">Für Schulen &amp; Kindergärten</a></li>
       <li><a href="impressum.html">Impressum</a></li>
       <li><a href="datenschutz.html">Datenschutz</a></li>
       <li><a href="agb.html">AGB</a></li>
