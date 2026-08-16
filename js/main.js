@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupFotoZoom();
   setupSeifenblasen();
   setupKopierschutz();
+  setupButtonBlaeschen();
 });
 
 function setupKopierschutz() {
@@ -90,6 +91,23 @@ function seifenblaseErzeugen(x, y) {
   blase.addEventListener("click", platzenLassen);
   blase.addEventListener("animationend", (event) => {
     if (event.animationName !== "seifenblase-platzen") blase.remove();
+  });
+}
+
+function setupButtonBlaeschen() {
+  const buttons = document.querySelectorAll(
+    ".btn-coral, .btn-whatsapp, .btn-nav-cta, .price-toggle-btn"
+  );
+
+  buttons.forEach((button) => {
+    button.addEventListener("mouseenter", () => {
+      const rect = button.getBoundingClientRect();
+      for (let i = 0; i < 4; i++) {
+        const x = rect.left + Math.random() * rect.width;
+        const y = rect.top + rect.height * 0.3 + Math.random() * rect.height * 0.4;
+        setTimeout(() => seifenblaseErzeugen(x, y), i * 80);
+      }
+    });
   });
 }
 

@@ -908,6 +908,10 @@ table.schedule-table td.slot {
 
 /* ---------- Preise ---------- */
 
+#preise {
+  position: relative;
+}
+
 .price-grid[hidden] {
   display: none;
 }
@@ -1186,6 +1190,10 @@ table.schedule-table td.slot {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+}
+
+#unterscheidet .steps {
+  grid-template-columns: repeat(5, 1fr);
 }
 
 .step {
@@ -1575,6 +1583,10 @@ footer.site-footer a {
   .steps {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  #unterscheidet .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .kontakt-mit-badge {
@@ -1641,6 +1653,10 @@ footer.site-footer a {
   .card-grid,
   .price-grid,
   .steps {
+    grid-template-columns: 1fr;
+  }
+
+  #unterscheidet .steps {
     grid-template-columns: 1fr;
   }
 
