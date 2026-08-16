@@ -1,4 +1,4 @@
-// AquaKids Rhein-Neckar: Mini-Interaktivität (kein Build-Schritt nötig)
+// AquaKids-rn.de: Mini-Interaktivität (kein Build-Schritt nötig)
 
 const WHATSAPP_NUMBER = "4915203611552"; // Format: Ländercode + Nummer, ohne + oder 0 am Anfang
 
@@ -133,7 +133,7 @@ function setupBookingForm() {
     const nachricht = (data.get("nachricht") || "").toString().trim();
 
     const lines = [
-      "Hallo AquaKids Rhein-Neckar! Ich möchte gerne einen Termin anfragen.",
+      "Hallo AquaKids-rn.de! Ich möchte gerne einen Termin anfragen.",
       "",
       `Name: ${name}`,
     ];

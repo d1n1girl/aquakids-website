@@ -1,4 +1,4 @@
-# AquaKids Rhein-Neckar
+# AquaKids-rn.de
 
 Statische Website für privaten Schwimmunterricht (Kleingewerbe) in Mannheim & Heidelberg.
 Kein Build-Schritt nötig – reines HTML/CSS/JS.
