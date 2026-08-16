@@ -32,6 +32,7 @@ function setupSeifenblasen() {
   let mausX = 0;
   let mausY = 0;
   let intervall = null;
+  let letzteSpawnZeit = 0;
 
   document.addEventListener("contextmenu", (event) => event.preventDefault());
 
@@ -49,6 +50,14 @@ function setupSeifenblasen() {
   document.addEventListener("mousemove", (event) => {
     mausX = event.clientX;
     mausY = event.clientY;
+
+    if (rechtsGedrueckt) {
+      const jetzt = Date.now();
+      if (jetzt - letzteSpawnZeit > 45) {
+        letzteSpawnZeit = jetzt;
+        seifenblaseErzeugen(mausX, mausY);
+      }
+    }
   });
 
   const stoppen = () => {
@@ -71,7 +80,17 @@ function seifenblaseErzeugen(x, y) {
   blase.style.left = x - groesse / 2 + "px";
   blase.style.top = y - groesse / 2 + "px";
   document.body.appendChild(blase);
-  blase.addEventListener("animationend", () => blase.remove());
+
+  const platzenLassen = (event) => {
+    if (event) event.stopPropagation();
+    blase.classList.add("seifenblase-platzt");
+    setTimeout(() => blase.remove(), 220);
+  };
+
+  blase.addEventListener("click", platzenLassen);
+  blase.addEventListener("animationend", (event) => {
+    if (event.animationName !== "seifenblase-platzen") blase.remove();
+  });
 }
 
 function setupUeberMichFotoTausch() {

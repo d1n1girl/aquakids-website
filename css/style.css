@@ -298,7 +298,8 @@ nav.main-nav a:hover {
 
 .seifenblase {
   position: fixed;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
   z-index: 9999;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(23, 163, 201, 0.35));
@@ -306,10 +307,19 @@ nav.main-nav a:hover {
   animation: seifenblase-auf 1.4s ease-out forwards;
 }
 
+.seifenblase.seifenblase-platzt {
+  animation: seifenblase-platzen 0.22s ease-out forwards;
+}
+
 @keyframes seifenblase-auf {
   0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
   80% { opacity: 0.8; }
   100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
+}
+
+@keyframes seifenblase-platzen {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(1.8); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -867,7 +877,7 @@ table.schedule-table td.slot {
 
 .kurs-toggle summary h3 {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .kurs-toggle summary h3::after {
