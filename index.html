@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=9" />
+<link rel="stylesheet" href="css/style.css?v=11" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -88,47 +88,104 @@
         </div>
       </div>
       <div class="hero-illustration">
-        <!-- Cartoon-Illustration. Kann später gegen ein eigenes Foto getauscht werden: img/hero.jpg -->
-        <svg viewBox="0 0 480 360" role="img" aria-label="Cartoon einer schwimmenden Person im Wasser">
-          <rect width="480" height="360" fill="var(--color-bg-alt)"/>
-          <circle cx="400" cy="60" r="46" fill="#ffd166" opacity="0.25"/>
-          <circle cx="400" cy="60" r="30" fill="#ffd166"/>
-          <g fill="#ffffff" opacity="0.85">
+        <!-- Cartoon-Illustration: zwei Kinder im Wasser bei Sonnenuntergang -->
+        <svg viewBox="0 0 480 360" role="img" aria-label="Illustration: Zwei Kinder schwimmen bei Sonnenuntergang im Meer, ein Delfin springt aus dem Wasser">
+          <defs>
+            <linearGradient id="heroSky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff4e8"/>
+              <stop offset="100%" stop-color="var(--color-coral)"/>
+            </linearGradient>
+            <linearGradient id="heroSea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="var(--color-accent)"/>
+              <stop offset="100%" stop-color="var(--color-primary-dark)"/>
+            </linearGradient>
+          </defs>
+
+          <rect width="480" height="360" fill="url(#heroSky)"/>
+
+          <!-- Sonne -->
+          <circle cx="378" cy="205" r="52" fill="#ffb347" opacity="0.22"/>
+          <circle cx="378" cy="205" r="32" fill="#ffb347"/>
+
+          <!-- Wolken -->
+          <g fill="#ffffff" opacity="0.55">
             <ellipse cx="90" cy="55" rx="34" ry="16"/>
             <ellipse cx="118" cy="48" rx="24" ry="14"/>
             <ellipse cx="65" cy="48" rx="20" ry="12"/>
           </g>
-          <!-- Schwimmreifen -->
-          <g transform="translate(90,190)">
-            <circle r="34" fill="none" stroke="var(--color-coral)" stroke-width="14"/>
-            <circle r="34" fill="none" stroke="#ffffff" stroke-width="14" stroke-dasharray="12 14"/>
+
+          <!-- Delfin springt -->
+          <g transform="translate(400,170) rotate(-35)">
+            <ellipse cx="0" cy="0" rx="42" ry="14" fill="#8aa4b8"/>
+            <path d="M40,-3 L60,0 L40,7 Z" fill="#8aa4b8"/>
+            <path d="M-6,-12 L4,-32 L15,-12 Z" fill="#8aa4b8"/>
+            <path d="M-38,-4 L-56,-18 L-42,2 Z" fill="#8aa4b8"/>
+            <path d="M-38,4 L-56,18 L-42,-2 Z" fill="#8aa4b8"/>
+            <circle cx="24" cy="-3" r="2.2" fill="#274156"/>
           </g>
-          <path d="M0,230 C80,205 160,255 240,230 C320,205 400,255 480,230 L480,360 L0,360 Z" fill="var(--color-accent)"/>
-          <path d="M0,255 C80,235 160,275 240,255 C320,235 400,275 480,255 L480,360 L0,360 Z" fill="var(--color-primary)" opacity="0.85"/>
-          <g fill="#ffffff" opacity="0.35">
-            <ellipse cx="120" cy="270" rx="26" ry="6"/>
-            <ellipse cx="330" cy="290" rx="34" ry="7"/>
-            <ellipse cx="230" cy="315" rx="40" ry="8"/>
+          <g fill="#ffffff" opacity="0.7">
+            <circle cx="378" cy="230" r="4"/>
+            <circle cx="392" cy="238" r="3"/>
+            <circle cx="368" cy="240" r="3"/>
           </g>
-          <g transform="translate(220,150) rotate(-8)">
-            <rect x="-58" y="-8" width="46" height="16" rx="8" fill="#ffcf9e"/>
-            <ellipse cx="0" cy="20" rx="24" ry="34" fill="var(--color-primary-dark)"/>
+
+          <!-- Meer -->
+          <path d="M0,230 C80,210 160,250 240,230 C320,210 400,250 480,230 L480,360 L0,360 Z" fill="url(#heroSea)"/>
+          <path d="M0,252 C80,238 160,266 240,252 C320,238 400,266 480,252 L480,360 L0,360 Z" fill="var(--color-primary-dark)" opacity="0.45"/>
+          <g stroke="#ffffff" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round">
+            <path d="M20,282 Q40,274 60,282 T100,282"/>
+            <path d="M330,300 Q350,292 370,300 T410,300"/>
+          </g>
+
+          <!-- Fisch -->
+          <g transform="translate(68,300)">
+            <path d="M0,0 C14,-9 30,-9 40,0 C30,9 14,9 0,0 Z" fill="var(--color-coral)"/>
+            <path d="M0,0 L-12,-7 L-12,7 Z" fill="var(--color-coral)"/>
+            <circle cx="30" cy="-2" r="2" fill="#274156"/>
+          </g>
+
+          <!-- Kind auf der Luftmatratze -->
+          <g transform="translate(112,272)">
+            <rect x="-56" y="-15" width="150" height="32" rx="16" fill="#ffd166"/>
+            <rect x="-56" y="-15" width="150" height="32" rx="16" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="9 8"/>
+            <ellipse cx="-8" cy="-8" rx="19" ry="24" fill="var(--color-coral)"/>
+            <rect x="6" y="-20" width="34" height="13" rx="6.5" fill="#ffcf9e" transform="rotate(12 6 -20)"/>
+            <circle cx="-8" cy="-34" r="15" fill="#ffcf9e"/>
+            <path d="M-22,-40 Q-8,-54 6,-40 Q2,-47 -8,-47 Q-19,-47 -22,-40 Z" fill="#7a4a2b"/>
+            <circle cx="-13" cy="-35" r="2.3" fill="#274156"/>
+            <circle cx="-3" cy="-35" r="2.3" fill="#274156"/>
+            <path d="M-11,-27 Q-8,-24 -5,-27" stroke="#7a4a2b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+          </g>
+
+          <!-- Kind schwimmt mit Schwimmfluegeln -->
+          <g transform="translate(250,150) rotate(-8)">
             <rect x="10" y="-30" width="52" height="16" rx="8" fill="#ffcf9e" transform="rotate(-25 10 -22)"/>
+            <rect x="-58" y="-8" width="46" height="16" rx="8" fill="#ffcf9e"/>
+            <circle cx="54" cy="-40" r="13" fill="var(--color-coral)"/>
+            <circle cx="54" cy="-40" r="13" fill="none" stroke="#ffffff" stroke-width="3"/>
+            <circle cx="-52" cy="-2" r="13" fill="var(--color-coral)"/>
+            <circle cx="-52" cy="-2" r="13" fill="none" stroke="#ffffff" stroke-width="3"/>
             <rect x="-14" y="46" width="16" height="46" rx="8" fill="#ffcf9e" transform="rotate(18 -14 46)"/>
             <rect x="6" y="46" width="16" height="46" rx="8" fill="#ffcf9e" transform="rotate(-10 6 46)"/>
+            <ellipse cx="0" cy="20" rx="24" ry="34" fill="var(--color-primary-dark)"/>
+            <path d="M-20,-30 Q-31,-8 -22,16" stroke="#f2c14e" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M20,-30 Q31,-6 24,18" stroke="#f2c14e" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M-4,-35 Q0,-45 6,-35" stroke="#f2c14e" stroke-width="6" fill="none" stroke-linecap="round"/>
             <circle cx="0" cy="-20" r="22" fill="#ffcf9e"/>
-            <path d="M-22,-24 A22,22 0 0 1 22,-24 Z" fill="var(--color-coral)"/>
-            <circle cx="-7" cy="-18" r="4.5" fill="#274156"/>
-            <circle cx="7" cy="-18" r="4.5" fill="#274156"/>
-            <rect x="-3" y="-19" width="6" height="3" fill="#274156"/>
+            <ellipse cx="-8" cy="-20" rx="7" ry="6" fill="#ffffff" opacity="0.9"/>
+            <ellipse cx="8" cy="-20" rx="7" ry="6" fill="#ffffff" opacity="0.9"/>
+            <path d="M-1,-20 L1,-20" stroke="#274156" stroke-width="2"/>
+            <circle cx="-8" cy="-20" r="3.2" fill="#274156"/>
+            <circle cx="8" cy="-20" r="3.2" fill="#274156"/>
+            <path d="M-15,-24 L-24,-26" stroke="#274156" stroke-width="2"/>
+            <path d="M15,-24 L24,-26" stroke="#274156" stroke-width="2"/>
             <path d="M-6,-8 Q0,-3 6,-8" stroke="#7a4a2b" stroke-width="2" fill="none" stroke-linecap="round"/>
           </g>
+
           <g fill="#ffffff" opacity="0.9">
-            <circle cx="270" cy="120" r="4"/>
-            <circle cx="284" cy="108" r="3"/>
-            <circle cx="258" cy="100" r="2.5"/>
-            <circle cx="150" cy="205" r="4"/>
-            <circle cx="138" cy="218" r="3"/>
+            <circle cx="290" cy="118" r="4"/>
+            <circle cx="304" cy="106" r="3"/>
+            <circle cx="278" cy="98" r="2.5"/>
           </g>
         </svg>
       </div>
@@ -172,6 +229,222 @@
     </div>
   </section>
 
+  <!-- Über mich -->
+  <section id="ueber-mich">
+    <div class="container about-grid">
+      <div class="reveal ueber-mich-dreieck">
+        <img src="img/ueber-mich-portrait.jpg" alt="Nadine Reinhard, Portrait" class="foto-oben" tabindex="0" />
+        <div class="foto-unten-reihe">
+          <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids-rn.de" class="foto-unten" tabindex="0" />
+          <img src="img/ueber-mich-pool.jpg" alt="Nadine Reinhard beim Schwimmen mit ihrem Hund" class="foto-unten" tabindex="0" />
+        </div>
+      </div>
+      <div class="reveal">
+        <h2 class="section-title" style="text-align:left">Über mich</h2>
+        <p style="font-size:1.08rem;font-weight:600;color:var(--color-primary-dark);">
+          „Mir ist wichtig, dass Kinder sich im Wasser sicher fühlen und gleichzeitig Spaß am
+          Lernen haben.“
+        </p>
+        <p>
+          Ich bin Nadine, 22 Jahre alt aus Mannheim. Ich gebe meine Erfahrung als geduldiger,
+          spielerischer Einzelunterricht weiter, ganz im Tempo meiner Schüler:innen.
+        </p>
+
+        <ul class="qualifications">
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <path d="M18 4 L24 16 L30 4" fill="none" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="24" cy="30" r="14" fill="#b0bfc6" stroke="#8a99a1" stroke-width="2"/>
+              <path d="M24 22 L26.5 27.5 L32.5 28.2 L28 32.3 L29.3 38.2 L24 35 L18.7 38.2 L20 32.3 L15.5 28.2 L21.5 27.5 Z" fill="#eef3f5"/>
+            </svg>
+            <span>Schwimmabzeichen Silber</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <path d="M18 4 L24 16 L30 4" fill="none" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="24" cy="30" r="14" fill="#b0bfc6" stroke="#8a99a1" stroke-width="2"/>
+              <path d="M24 22 L26.5 27.5 L32.5 28.2 L28 32.3 L29.3 38.2 L24 35 L18.7 38.2 L20 32.3 L15.5 28.2 L21.5 27.5 Z" fill="#eef3f5"/>
+            </svg>
+            <span>Rettungsschwimmabzeichen Silber</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-coral)"/>
+              <path d="M24 14 L24 34 M14 24 L34 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
+            </svg>
+            <span>Erste-Hilfe-Kurs, alle 2 Jahre aufgefrischt</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
+              <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>10 Monate Berufserfahrung in einer Schwimmschule</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
+              <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Kurse für Kinder von 4 Monaten bis 12 Jahren</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
+              <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Aqua-Fitness- und Dancing-Kurse</span>
+          </li>
+        </ul>
+
+        <div class="section-cta reveal">
+          <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ablauf -->
+  <section class="alt" id="ablauf">
+    <div class="container">
+      <h2 class="section-title reveal">So läuft der Unterricht ab</h2>
+      <div class="steps-wrap reveal">
+        <svg class="steps-wave-bg" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,30 C150,-10 350,70 500,30 C650,-10 850,70 1000,30" fill="none" stroke="var(--color-accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
+        </svg>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h4>Kennenlernen</h4>
+            <p>Fragen vorab geklärt</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h4>Wassergewöhnung</h4>
+            <p>Vertrauen zum Wasser aufbauen</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h4>Erste Schwimmübungen</h4>
+            <p>Schritt für Schritt Technik und Sicherheit aufbauen</p>
+          </div>
+          <div class="step">
+            <div class="step-number">04</div>
+            <h4>Selbstständiges Schwimmen</h4>
+            <p>Sicher und alleine durchs Wasser</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Das unterscheidet meinen Unterricht -->
+  <section id="unterscheidet">
+    <div class="container">
+      <h2 class="section-title reveal">Was meinen Unterricht besonders macht</h2>
+      <div class="steps-wrap reveal">
+        <svg class="steps-wave-bg" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0,30 C150,-10 350,70 500,30 C650,-10 850,70 1000,30" fill="none" stroke="var(--color-accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
+        </svg>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">01</div>
+            <h4>Feste Bezugsperson</h4>
+            <p>Immer dieselbe Lehrkraft</p>
+          </div>
+          <div class="step">
+            <div class="step-number">02</div>
+            <h4>Individuelle Arbeit</h4>
+            <p>Eingehen auf Stärken und Schwächen</p>
+          </div>
+          <div class="step">
+            <div class="step-number">03</div>
+            <h4>Sofortige Anpassung</h4>
+            <p>Tempo und Übungen werden direkt angepasst</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preise -->
+  <section class="alt" id="preise">
+    <div class="container">
+      <h2 class="section-title reveal">Preise</h2>
+      <p class="section-subtitle reveal">
+        Faire Preise für individuellen Privatunterricht, ganz ohne versteckte Kosten. Nur noch
+        wenige Plätze verfügbar.
+      </p>
+
+      <div class="preis-umschalter reveal" role="tablist">
+        <button type="button" class="preis-tab active" data-preis-ziel="einzel" role="tab" aria-selected="true">Einzelunterricht</button>
+        <button type="button" class="preis-tab" data-preis-ziel="duo" role="tab" aria-selected="false">Duo-Unterricht</button>
+      </div>
+
+      <div class="price-grid" data-preis-gruppe="einzel">
+        <details class="price-card price-card-toggle featured reveal">
+          <summary>
+            <h3>Schnupperstunde</h3>
+            <div class="price">30&nbsp;€ <span>/ 30 Min.</span></div>
+            <p>Unverbindlich reinschnuppern, bevor es richtig losgeht.</p>
+            <span class="btn btn-outline price-toggle-btn">Jetzt vereinbaren</span>
+          </summary>
+          <div class="kennenlern-termine" id="kennenlern-termine">
+            <!-- wird automatisch aus js/termine-data.js befüllt -->
+          </div>
+        </details>
+        <div class="price-card reveal">
+          <h3>10er-Karte</h3>
+          <div class="price">65&nbsp;€ <span>/ Schwimmstunde</span></div>
+          <p class="price-card-total">650&nbsp;€ für 10&nbsp;Einheiten</p>
+          <p class="price-card-goal">Vorbereitung aufs Schwimmabzeichen sowie saubere Technik.</p>
+        </div>
+      </div>
+
+      <div class="price-grid" data-preis-gruppe="duo" hidden>
+        <div class="price-card reveal">
+          <h3>Schnupperstunde</h3>
+          <div class="price">30&nbsp;€ <span>/ 30 Min.</span></div>
+          <p>Für euch beide zusammen unverbindlich reinschnuppern.</p>
+        </div>
+        <div class="price-card reveal">
+          <span class="price-card-savings">15&nbsp;€ günstiger pro Kind</span>
+          <h3>Duo-10er-Karte</h3>
+          <div class="price">50&nbsp;€ <span>/ Kind &amp; Schwimmstunde</span></div>
+          <p class="price-card-total">500&nbsp;€ pro Kind (1.000&nbsp;€ zusammen) für 10&nbsp;Einheiten</p>
+          <p class="price-card-goal">
+            Ihr spart zusammen 300&nbsp;€ gegenüber zwei einzelnen 10er-Karten. Ideal für
+            Geschwister oder beste Freunde, die gemeinsam lernen möchten.
+          </p>
+          <p class="price-card-goal">
+            Auch beim Duo-Unterricht trage ich die Verantwortung für zwei Kinder gleichzeitig, die
+            zudem unterschiedlich alt oder unterschiedlich weit sein können. Deshalb ist der Preis
+            pro Kind nicht stark reduziert.
+          </p>
+        </div>
+      </div>
+
+      <p class="price-note">
+        <strong>Inklusivpreis:</strong> Der Eintritt fürs Schwimmbad und die Anfahrt sind in
+        allen Preisen oben bereits enthalten &ndash; keine versteckten Zusatzkosten.
+      </p>
+      <p class="price-note price-note-small">
+        💳 Die 10er-Karte wird per Vorkasse bezahlt &ndash; per Überweisung oder PayPal.
+      </p>
+      <p class="price-note price-note-small">
+        🏠 Unterricht lieber bei dir zu Hause im eigenen Pool? Geht auch, mit Rabatt auf den
+        Badeintritt &ndash; <a href="#kontakt">einfach anfragen</a>. Oder möchtest du deinen
+        eigenen Pool als Lernort anbieten? Auch das ist möglich &ndash;
+        <a href="#pool-anbieten">hier anfragen</a>.
+      </p>
+      <div class="section-cta reveal">
+        <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
+      </div>
+      <p class="price-note price-note-small" style="margin-top:6px;">Nur noch wenige Plätze verfügbar.</p>
+    </div>
+  </section>
+
+
   <!-- Meine Schwimmkurse -->
   <section class="alt has-bubbles" id="angebot">
     <div class="bubble-field" aria-hidden="true">
@@ -191,8 +464,8 @@
         <details class="card kurs-toggle reveal">
           <summary>
             <div class="emoji">🐠</div>
-            <span class="kurs-subline">Vorbereitung aufs Seepferdchen</span>
-            <h3>Anfänger</h3>
+            <h3>Vorbereitung aufs Seepferdchen</h3>
+            <span class="kurs-subline">Anfänger</span>
             <p>
               Für Kinder, die noch nicht schwimmen können, ganz spielerisch und in ihrem eigenen
               Tempo.
@@ -207,9 +480,9 @@
         </details>
         <details class="card kurs-toggle reveal">
           <summary>
-            <div class="emoji">🐬</div>
-            <span class="kurs-subline">Vorbereitung fürs nächste Schwimmabzeichen</span>
-            <h3>Abzeichen-Kurs</h3>
+            <div class="emoji">🥇</div>
+            <h3>Vorbereitung fürs nächste Schwimmabzeichen</h3>
+            <span class="kurs-subline">Abzeichen-Kurs</span>
             <p>
               Für Kinder, die bereits erste Schwimmerfahrungen haben und gezielt auf Seepferdchen,
               Silber, Gold oder das Rettungsschwimmabzeichen hinarbeiten möchten.
@@ -247,11 +520,10 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>100 % Aufmerksamkeit für schnellere Fortschritte</h3>
-          <p>
-            Im Einzelunterricht schwimmst du oder dein Kind mehr echte Meter und übt mehr
-            Wiederholungen als in einer Gruppenstunde &ndash; hohe Übungsdichte plus direktes
-            Feedback bringen schneller ans Ziel.
-          </p>
+          <ul class="leistungen-list">
+            <li>Mehr Übung pro Stunde</li>
+            <li>Direktes Feedback</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -259,11 +531,10 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Dein Tempo statt Gruppendruck</h3>
-          <p>
-            Gerade bei Wasserangst oder besonderem Förderbedarf hilft das ruhige 1:1-Setting mit
-            kleinen, klaren Zwischenschritten &ndash; vom ersten Wasser im Gesicht bis zum sicheren
-            Antrieb.
-          </p>
+          <ul class="leistungen-list">
+            <li>Ideal bei Wasserangst</li>
+            <li>Kleine, klare Zwischenschritte</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -271,7 +542,9 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Termine flexibel nach deinem Alltag</h3>
-          <p>Kein festes Kursraster: wir vereinbaren Zeiten, die wirklich zu deinem Alltag passen.</p>
+          <ul class="leistungen-list">
+            <li>Kein festes Kursraster</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -279,10 +552,10 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Direktes Feedback für bessere Technik</h3>
-          <p>
-            Atmung, Kopfhaltung und Arm-/Beinkoordination lassen sich 1:1 präzise korrigieren,
-            bevor sich falsche Bewegungsmuster festsetzen.
-          </p>
+          <ul class="leistungen-list">
+            <li>Atmung, Haltung, Koordination</li>
+            <li>Sofort korrigiert</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -290,13 +563,11 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Sicherheit vor Abzeichen</h3>
-          <p>
-            Ertrinken geht oft erschreckend schnell und meist lautlos &ndash; genau deshalb stehen
-            bei mir Selbstrettung wie Rückenlage, Atmen finden und den Beckenrand anpeilen vor
-            Abzeichen-Symbolen im Fokus. Das kann im Ernstfall den entscheidenden Unterschied
-            machen, ganz im Sinne der Ertrinkungsprävention, wie sie auch die
-            Weltgesundheitsorganisation und die American Academy of Pediatrics empfehlen.
-          </p>
+          <ul class="leistungen-list">
+            <li>Ertrinken geht oft lautlos</li>
+            <li>Im Ernstfall zählt jede Sekunde</li>
+            <li>Fokus auf Ertrinkungsprävention</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -304,10 +575,10 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Mehr Selbstvertrauen im Wasser</h3>
-          <p>
-            Ohne Vergleich mit anderen Kindern feiern wir jeden kleinen Fortschritt einzeln &ndash;
-            das stärkt das Selbstvertrauen genauso wie die Schwimmtechnik.
-          </p>
+          <ul class="leistungen-list">
+            <li>Kein Vergleich mit anderen</li>
+            <li>Jeder Fortschritt zählt</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -315,10 +586,9 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Enger Austausch mit dir als Elternteil</h3>
-          <p>
-            Nach jeder Einheit weißt du genau, woran wir gearbeitet haben und wie der Stand ist
-            &ndash; direkt von mir, nicht irgendwo in einer Gruppe untergegangen.
-          </p>
+          <ul class="leistungen-list">
+            <li>Update nach jeder Einheit</li>
+          </ul>
         </div>
         <div class="card reveal">
           <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true" style="margin:0 auto 10px;">
@@ -326,10 +596,11 @@
             <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <h3>Gut für Körper und Kopf</h3>
-          <p>
-            Schwimmen ist ein gelenkschonendes Ganzkörpertraining &ndash; es stärkt Kraft und
-            Ausdauer, verbessert die Koordination und tut der Gesundheit rundum gut.
-          </p>
+          <ul class="leistungen-list">
+            <li>Gelenkschonendes Ganzkörpertraining</li>
+            <li>Stärkt Kraft und Ausdauer</li>
+            <li>Verbessert die Koordination</li>
+          </ul>
         </div>
       </div>
       <div class="section-cta reveal">
@@ -338,205 +609,6 @@
     </div>
   </section>
 
-  <!-- Ablauf -->
-  <section class="alt" id="ablauf">
-    <div class="container">
-      <h2 class="section-title reveal">So läuft der Unterricht ab</h2>
-      <div class="steps-wrap reveal">
-        <svg class="steps-wave-bg" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,30 C150,-10 350,70 500,30 C650,-10 850,70 1000,30" fill="none" stroke="var(--color-accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
-        </svg>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">01</div>
-            <h4>Kennenlernen</h4>
-            <p>Wir lernen uns in Ruhe kennen und klären alle Fragen vorab.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <h4>Wassergewöhnung</h4>
-            <p>Vertrauen zum Wasser aufbauen, ganz ohne Druck.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <h4>Erste Schwimmübungen</h4>
-            <p>Schritt für Schritt Technik und Sicherheit aufbauen.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">04</div>
-            <h4>Selbstständiges Schwimmen</h4>
-            <p>Sicher und mit Freude allein durchs Wasser.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Das unterscheidet meinen Unterricht -->
-  <section id="unterscheidet">
-    <div class="container">
-      <h2 class="section-title reveal">Was meinen Unterricht besonders macht</h2>
-      <div class="steps-wrap reveal">
-        <svg class="steps-wave-bg" viewBox="0 0 1000 60" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0,30 C150,-10 350,70 500,30 C650,-10 850,70 1000,30" fill="none" stroke="var(--color-accent)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 14"/>
-        </svg>
-        <div class="steps">
-          <div class="step">
-            <div class="step-number">01</div>
-            <h4>Feste Bezugsperson</h4>
-            <p>Du hast bei mir immer dieselbe Lehrkraft &ndash; kein Wechsel, keine versteckte Gruppengröße.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">02</div>
-            <h4>Individuelle Arbeit</h4>
-            <p>Weil ich jedes Kind einzeln begleite, kann ich gezielt auf seine Stärken und Schwächen eingehen.</p>
-          </div>
-          <div class="step">
-            <div class="step-number">03</div>
-            <h4>Sofortige Anpassung</h4>
-            <p>Tempo, Übungen und die Korrektur von Fehlern passen sich direkt in der Stunde an &ndash; nichts wird auf später verschoben.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Über mich -->
-  <section id="ueber-mich">
-    <div class="container about-grid">
-      <div class="reveal">
-        <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids-rn.de" class="ueber-mich-foto" tabindex="0" />
-        <div class="ueber-mich-galerie">
-          <img src="img/ueber-mich-portrait.jpg" alt="Nadine Reinhard, Portrait" tabindex="0" />
-          <img src="img/ueber-mich-pool.jpg" alt="Nadine Reinhard beim Schwimmen mit ihrem Hund" tabindex="0" />
-        </div>
-      </div>
-      <div class="reveal">
-        <h2 class="section-title" style="text-align:left">Über mich</h2>
-        <p style="font-size:1.08rem;font-weight:600;color:var(--color-primary-dark);">
-          „Mir ist wichtig, dass Kinder sich im Wasser sicher fühlen und gleichzeitig Spaß am
-          Lernen haben.“
-        </p>
-        <p>
-          Ich bin Nadine, 22 Jahre alt aus Mannheim, und habe zehn Monate als angestellte
-          Schwimmlehrerin Kinder, Erwachsene und die Kleinsten ans Wasser herangeführt. Jetzt gebe
-          ich diese Erfahrung als geduldiger, spielerischer Einzelunterricht weiter, ganz im Tempo
-          meiner Schüler:innen.
-        </p>
-
-        <ul class="qualifications">
-          <li class="qualification-item">
-            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
-              <path d="M18 4 L24 16 L30 4" fill="none" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="24" cy="30" r="14" fill="#b0bfc6" stroke="#8a99a1" stroke-width="2"/>
-              <path d="M24 22 L26.5 27.5 L32.5 28.2 L28 32.3 L29.3 38.2 L24 35 L18.7 38.2 L20 32.3 L15.5 28.2 L21.5 27.5 Z" fill="#eef3f5"/>
-            </svg>
-            <span>Schwimmabzeichen Silber</span>
-          </li>
-          <li class="qualification-item">
-            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
-              <path d="M18 4 L24 16 L30 4" fill="none" stroke="var(--color-primary)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="24" cy="30" r="14" fill="#b0bfc6" stroke="#8a99a1" stroke-width="2"/>
-              <path d="M24 22 L26.5 27.5 L32.5 28.2 L28 32.3 L29.3 38.2 L24 35 L18.7 38.2 L20 32.3 L15.5 28.2 L21.5 27.5 Z" fill="#eef3f5"/>
-            </svg>
-            <span>Rettungsschwimmabzeichen Silber</span>
-          </li>
-          <li class="qualification-item">
-            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
-              <circle cx="24" cy="24" r="20" fill="var(--color-coral)"/>
-              <path d="M24 14 L24 34 M14 24 L34 24" stroke="#ffffff" stroke-width="4" stroke-linecap="round"/>
-            </svg>
-            <span>Erste-Hilfe-Kurs, alle 2 Jahre aufgefrischt</span>
-          </li>
-        </ul>
-
-        <div class="section-cta reveal">
-          <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Preise -->
-  <section class="alt" id="preise">
-    <div class="container">
-      <h2 class="section-title reveal">Preise</h2>
-      <p class="section-subtitle reveal">
-        Faire Preise für individuellen Privatunterricht, ganz ohne versteckte Kosten. Nur noch
-        wenige Plätze verfügbar.
-      </p>
-
-      <div class="preis-umschalter reveal" role="tablist">
-        <button type="button" class="preis-tab active" data-preis-ziel="einzel" role="tab" aria-selected="true">Einzelunterricht</button>
-        <button type="button" class="preis-tab" data-preis-ziel="duo" role="tab" aria-selected="false">Duo-Unterricht</button>
-      </div>
-
-      <div class="price-grid" data-preis-gruppe="einzel">
-        <details class="price-card price-card-toggle featured reveal">
-          <summary>
-            <h3>Schnupperstunde</h3>
-            <div class="price">30&nbsp;€ <span>/ 30 Min.</span></div>
-            <p>Unverbindlich reinschnuppern, bevor es richtig losgeht.</p>
-            <span class="btn btn-outline price-toggle-btn">Jetzt vereinbaren</span>
-          </summary>
-          <div class="kennenlern-termine" id="kennenlern-termine">
-            <!-- wird automatisch aus js/termine-data.js befüllt -->
-          </div>
-        </details>
-        <div class="price-card reveal">
-          <span class="price-card-savings">Du sparst 10&nbsp;%</span>
-          <h3>10er-Karte</h3>
-          <div class="price">63&nbsp;€ <span>/ Schwimmstunde</span></div>
-          <p class="price-card-total">630&nbsp;€ für 10&nbsp;Einheiten</p>
-          <p class="price-card-goal">Vorbereitung aufs Schwimmabzeichen sowie saubere Technik.</p>
-        </div>
-      </div>
-
-      <div class="price-grid" data-preis-gruppe="duo" hidden>
-        <div class="price-card reveal">
-          <h3>Schnupperstunde</h3>
-          <div class="price">30&nbsp;€ <span>/ 30 Min.</span></div>
-          <p>Für euch beide zusammen unverbindlich reinschnuppern.</p>
-        </div>
-        <div class="price-card reveal">
-          <span class="price-card-savings price-card-savings-hot">15&nbsp;€ günstiger pro Kind</span>
-          <h3>Duo-10er-Karte</h3>
-          <div class="price">48&nbsp;€ <span>/ Kind &amp; Schwimmstunde</span></div>
-          <p class="price-card-total">480&nbsp;€ pro Kind (960&nbsp;€ zusammen) für 10&nbsp;Einheiten</p>
-          <p class="price-card-goal">
-            Ihr spart zusammen 300&nbsp;€ gegenüber zwei einzelnen 10er-Karten. Ideal für
-            Geschwister oder beste Freunde, die gemeinsam lernen möchten.
-          </p>
-        </div>
-      </div>
-
-      <p class="price-note">
-        <strong>Inklusivpreis:</strong> Der Eintritt fürs Schwimmbad und die Anfahrt sind in
-        allen Preisen oben bereits enthalten &ndash; keine versteckten Zusatzkosten.
-      </p>
-      <p class="price-note price-note-small">
-        💳 Die 10er-Karte wird per Vorkasse bezahlt &ndash; per Überweisung oder PayPal.
-      </p>
-      <p class="price-note price-note-small">
-        🏠 Unterricht lieber bei dir zu Hause im eigenen Pool? Geht auch, mit Rabatt auf den
-        Badeintritt &ndash; <a href="#kontakt">einfach anfragen</a>. Oder möchtest du deinen
-        eigenen Pool als Lernort anbieten? Auch das ist möglich &ndash;
-        <a href="#pool-anbieten">hier anfragen</a>.
-      </p>
-      <div class="section-cta reveal">
-        <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
-      </div>
-      <p class="price-note price-note-small" style="margin-top:6px;">Nur noch wenige Plätze verfügbar.</p>
-    </div>
-  </section>
-
-
-  <!-- Wo & wann ich unterrichte -->
-  <!--
-    Platzhalter-Zeitplan: Sobald die Bäder feststehen, hier die Legende (Namen/Orte) anpassen
-    und in der Tabelle die passenden Zellen mit class="slot pool-a" / "pool-b" / "pool-c" und dem
-    jeweiligen Bad-Namen befüllen. Leere Zellen bleiben einfach <td></td>.
-  -->
   <!-- FAQ -->
   <section id="faq" class="faq-compact">
     <div class="container">

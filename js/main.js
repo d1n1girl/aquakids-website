@@ -17,13 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
 const PAKET_OPTIONEN = {
   einzel: [
     { value: "Schnupperstunde (30 € / 30 Min.)", label: "Schnupperstunde (30 € / 30 Min.)" },
-    { value: "10er-Karte Einzel (630 €)", label: "10er-Karte Einzel (630 €)" },
+    { value: "10er-Karte Einzel (650 €)", label: "10er-Karte Einzel (650 €)" },
     { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
     { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
   ],
   duo: [
     { value: "Schnupperstunde Duo (30 € / 30 Min., für beide)", label: "Schnupperstunde Duo (30 € / 30 Min., für beide)" },
-    { value: "Duo-10er-Karte (480 € pro Kind)", label: "Duo-10er-Karte (480 € pro Kind)" },
+    { value: "Duo-10er-Karte (500 € pro Kind)", label: "Duo-10er-Karte (500 € pro Kind)" },
     { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
     { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
   ],

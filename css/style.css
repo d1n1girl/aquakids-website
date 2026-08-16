@@ -8,7 +8,6 @@
   --color-primary-dark: #0b6fa8;
   --color-accent: #34c9b7;
   --color-coral: #ff9770;
-  --color-alert: #e5484d;
   --color-bg: #ffffff;
   --color-bg-alt: #eaf7fb;
   --color-white: #ffffff;
@@ -385,33 +384,43 @@ nav.main-nav a:hover {
   min-height: 280px;
 }
 
-.ueber-mich-foto {
-  width: 100%;
+.ueber-mich-dreieck {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.foto-oben {
+  width: 72%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  object-position: center 0%;
+  object-position: center 15%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.ueber-mich-foto:hover,
-.ueber-mich-foto:focus-visible {
-  transform: scale(1.04);
+.foto-oben:hover,
+.foto-oben:focus-visible {
+  transform: scale(1.4);
   box-shadow: var(--shadow-hover);
+  z-index: 5;
 }
 
-.ueber-mich-galerie {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  max-width: 260px;
-  margin: 12px auto 0;
-}
-
-.ueber-mich-galerie img {
+.foto-unten-reihe {
+  display: flex;
+  gap: 16px;
   width: 100%;
+  justify-content: center;
+}
+
+.foto-unten {
+  width: 46%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center 20%;
@@ -419,14 +428,14 @@ nav.main-nav a:hover {
   box-shadow: var(--shadow);
   cursor: pointer;
   position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
-.ueber-mich-galerie img:hover,
-.ueber-mich-galerie img:focus-visible {
-  transform: scale(1.15);
+.foto-unten:hover,
+.foto-unten:focus-visible {
+  transform: scale(1.4);
   box-shadow: var(--shadow-hover);
-  z-index: 2;
+  z-index: 5;
 }
 
 .hero-illustration svg {
@@ -844,7 +853,7 @@ table.schedule-table td.slot {
   padding: 32px 24px;
   text-align: center;
   box-shadow: var(--shadow);
-  border-top: 4px solid var(--color-accent);
+  border-top: 4px solid var(--color-primary-dark);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
 }
 
@@ -859,10 +868,6 @@ table.schedule-table td.slot {
   padding: 5px 12px;
   border-radius: 999px;
   box-shadow: var(--shadow);
-}
-
-.price-card-savings-hot {
-  background: var(--color-alert);
 }
 
 .price-card-total {
@@ -923,7 +928,7 @@ table.schedule-table td.slot {
   background: transparent;
   padding: 9px 14px;
   border-radius: 999px;
-  font-family: var(--font-body);
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.88rem;
   color: var(--color-primary-dark);
