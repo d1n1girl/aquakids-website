@@ -12,7 +12,73 @@ document.addEventListener("DOMContentLoaded", () => {
   setupPreisUmschalter();
   setupFormPaketAuswahl();
   setupPoolAngebotForm();
+  setupUeberMichFotoTausch();
+  setupSeifenblasen();
 });
+
+function setupSeifenblasen() {
+  let rechtsGedrueckt = false;
+  let mausX = 0;
+  let mausY = 0;
+  let intervall = null;
+
+  document.addEventListener("contextmenu", (event) => event.preventDefault());
+
+  document.addEventListener("mousedown", (event) => {
+    if (event.button !== 2) return;
+    rechtsGedrueckt = true;
+    mausX = event.clientX;
+    mausY = event.clientY;
+    seifenblaseErzeugen(mausX, mausY);
+    intervall = setInterval(() => {
+      if (rechtsGedrueckt) seifenblaseErzeugen(mausX, mausY);
+    }, 120);
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    mausX = event.clientX;
+    mausY = event.clientY;
+  });
+
+  const stoppen = () => {
+    rechtsGedrueckt = false;
+    if (intervall) {
+      clearInterval(intervall);
+      intervall = null;
+    }
+  };
+  document.addEventListener("mouseup", stoppen);
+  document.addEventListener("mouseleave", stoppen);
+}
+
+function seifenblaseErzeugen(x, y) {
+  const blase = document.createElement("div");
+  blase.className = "seifenblase";
+  const groesse = 10 + Math.random() * 18;
+  blase.style.width = groesse + "px";
+  blase.style.height = groesse + "px";
+  blase.style.left = x - groesse / 2 + "px";
+  blase.style.top = y - groesse / 2 + "px";
+  document.body.appendChild(blase);
+  blase.addEventListener("animationend", () => blase.remove());
+}
+
+function setupUeberMichFotoTausch() {
+  const fotoOben = document.querySelector(".foto-oben");
+  const fotosUnten = document.querySelectorAll(".foto-unten");
+  if (!fotoOben || !fotosUnten.length) return;
+
+  fotosUnten.forEach((foto) => {
+    foto.addEventListener("click", () => {
+      const obenSrc = fotoOben.src;
+      const obenAlt = fotoOben.alt;
+      fotoOben.src = foto.src;
+      fotoOben.alt = foto.alt;
+      foto.src = obenSrc;
+      foto.alt = obenAlt;
+    });
+  });
+}
 
 const PAKET_OPTIONEN = {
   einzel: [

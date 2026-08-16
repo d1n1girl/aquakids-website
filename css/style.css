@@ -281,6 +281,29 @@ nav.main-nav a:hover {
   }
 }
 
+.seifenblase {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.95), rgba(23, 163, 201, 0.35));
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  animation: seifenblase-auf 1.4s ease-out forwards;
+}
+
+@keyframes seifenblase-auf {
+  0% { transform: translateY(0) scale(0.6); opacity: 0.9; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(-120px) scale(1.1); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .seifenblase {
+    animation: none;
+    display: none;
+  }
+}
+
 /* ---------- Buttons ---------- */
 
 .btn {
@@ -1130,6 +1153,36 @@ table.schedule-table td.slot {
   font-size: 0.92rem;
 }
 
+.preise-mehr-infos {
+  max-width: 560px;
+  margin: 28px auto 0;
+  text-align: center;
+}
+
+.preise-mehr-infos summary {
+  cursor: pointer;
+  list-style: none;
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.preise-mehr-infos summary::-webkit-details-marker {
+  display: none;
+}
+
+.preise-mehr-infos summary::after {
+  content: " ▾";
+}
+
+.preise-mehr-infos[open] summary::after {
+  content: " ▴";
+}
+
+.preise-mehr-infos .price-note {
+  margin-top: 16px;
+}
+
 .abzeichen-subtitle {
   text-align: center;
   color: var(--color-primary-dark);
@@ -1550,7 +1603,33 @@ footer.site-footer a {
   }
 }
 
+.kontakt-mit-badge {
+  position: relative;
+}
+
+.ecke-badge {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: var(--color-coral);
+  color: var(--color-white);
+  font-weight: 700;
+  font-size: 0.78rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  transform: rotate(-4deg);
+  z-index: 2;
+}
+
 @media (max-width: 640px) {
+  .ecke-badge {
+    position: static;
+    display: inline-block;
+    transform: none;
+    margin: 0 auto 14px;
+  }
+
   nav.main-nav {
     position: fixed;
     top: 62px;
