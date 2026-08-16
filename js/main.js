@@ -8,14 +8,24 @@ document.addEventListener("DOMContentLoaded", () => {
   setupKooperationForm();
   setupFaq();
   setupScrollReveal();
-  setupKennenlernTermine();
   setupPreisUmschalter();
   setupFormPaketAuswahl();
   setupPoolAngebotForm();
   setupUeberMichFotoTausch();
   setupFotoZoom();
   setupSeifenblasen();
+  setupKopierschutz();
 });
+
+function setupKopierschutz() {
+  document.addEventListener("copy", (event) => {
+    const ziel = event.target;
+    const istEingabefeld = ziel && (ziel.tagName === "INPUT" || ziel.tagName === "TEXTAREA");
+    if (!istEingabefeld) {
+      event.preventDefault();
+    }
+  });
+}
 
 function setupSeifenblasen() {
   let rechtsGedrueckt = false;
@@ -172,26 +182,6 @@ function setupPreisUmschalter() {
       });
     });
   });
-}
-
-function setupKennenlernTermine() {
-  const el = document.getElementById("kennenlern-termine");
-  if (!el || typeof KENNENLERNTERMINE === "undefined") return;
-
-  if (!KENNENLERNTERMINE.length) {
-    el.innerHTML =
-      '<p class="kennenlern-termine-empty">Termine werden individuell vereinbart. Schreib mir gerne über WhatsApp oder das Formular, dann finden wir gemeinsam einen Termin.</p>';
-    return;
-  }
-
-  el.innerHTML = KENNENLERNTERMINE.map(
-    (t) =>
-      '<div class="kennenlern-termin-item">' +
-      '<strong>' + t.datum + '</strong>' +
-      '<span>' + t.bad + '</span>' +
-      '<span>' + t.zeiten + '</span>' +
-      "</div>"
-  ).join("");
 }
 
 function setupMobileMenu() {

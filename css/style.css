@@ -38,6 +38,16 @@ body {
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.65;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  user-select: text;
 }
 
 h1, h2, h3, h4,
@@ -1018,82 +1028,9 @@ table.schedule-table td.slot {
   color: var(--color-text-light);
 }
 
-.price-card-toggle {
-  text-align: left;
-  cursor: pointer;
-}
-
-.price-card-toggle summary {
-  cursor: pointer;
-  list-style: none;
-  text-align: center;
-}
-
-.price-card-toggle summary::-webkit-details-marker {
-  display: none;
-}
-
-.price-card-toggle summary h3 {
-  position: relative;
-}
-
-.price-card-toggle summary h3::after {
-  content: "▾";
-  display: inline-block;
-  margin-left: 6px;
-  transition: transform 0.2s ease;
-  color: var(--color-primary);
-}
-
-.price-card-toggle[open] summary h3::after {
-  transform: rotate(180deg);
-}
-
-.price-toggle-bullets {
-  margin: 12px 0 0;
-  padding-left: 20px;
-  color: var(--color-text-light);
-  font-size: 0.92rem;
-}
-
-.price-toggle-bullets li {
-  margin-bottom: 6px;
-}
-
-.price-toggle-bullets li:last-child {
-  margin-bottom: 0;
-}
-
 .price-toggle-btn {
   display: inline-block;
   margin-top: 14px;
-  pointer-events: none;
-}
-
-.kennenlern-termine {
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 2px dashed var(--color-bg-alt);
-}
-
-.kennenlern-termine-empty {
-  color: var(--color-text-light);
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-.kennenlern-termin-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  padding: 10px 0;
-  border-bottom: 1px solid var(--color-bg-alt);
-  font-size: 0.9rem;
-}
-
-.kennenlern-termin-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
 }
 
 .kennenlern-termin-item strong {

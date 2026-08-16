@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=13" />
+<link rel="stylesheet" href="css/style.css?v=14" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -397,17 +397,12 @@
       </div>
 
       <div class="price-grid" data-preis-gruppe="einzel">
-        <details class="price-card price-card-toggle featured reveal">
-          <summary>
-            <h3>Schnupperstunde</h3>
-            <div class="price">30&nbsp;€ <span>/ 30 Min.</span></div>
-            <p>Unverbindlich reinschnuppern, bevor es richtig losgeht.</p>
-            <span class="btn btn-outline price-toggle-btn">Jetzt vereinbaren</span>
-          </summary>
-          <div class="kennenlern-termine" id="kennenlern-termine">
-            <!-- wird automatisch aus js/termine-data.js befüllt -->
-          </div>
-        </details>
+        <div class="price-card featured reveal">
+          <h3>Schnupperstunde</h3>
+          <div class="price">30&nbsp;€ <span>/ 30 Min.</span></div>
+          <p>Unverbindlich reinschnuppern, bevor es richtig losgeht.</p>
+          <a href="#kontakt" class="btn btn-outline price-toggle-btn">Jetzt vereinbaren</a>
+        </div>
         <div class="price-card reveal">
           <h3>10er-Karte</h3>
           <div class="price">65&nbsp;€ <span>/ Schwimmstunde</span></div>
@@ -1027,7 +1022,6 @@
   <p class="footer-bottom">&copy; 2026 AquaKids-rn.de</p>
 </footer>
 
-<script src="js/termine-data.js?v=1"></script>
 <script src="js/main.js?v=3"></script>
 </body>
 </html>
