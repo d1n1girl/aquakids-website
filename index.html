@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css?v=12" />
+<link rel="stylesheet" href="css/style.css?v=13" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +40,6 @@
 <body>
 
 <header class="site-header">
-  <div class="header-ribbon">🐳 Nur noch wenige Plätze verfügbar</div>
   <div class="nav-wrap">
     <a href="#start" class="logo">
       <span class="logo-emoji">🏊</span>
@@ -59,9 +58,12 @@
     </nav>
 
     <div class="nav-actions">
-      <a class="btn-nav-cta" href="#kontakt">
-        <span class="long">Platz anfragen</span>
-      </a>
+      <div class="nav-cta-gruppe">
+        <a class="btn-nav-cta" href="#kontakt">
+          <span class="long">Platz anfragen</span>
+        </a>
+        <span class="nav-cta-hinweis">Wenige Plätze verfügbar</span>
+      </div>
       <button class="menu-toggle" aria-label="Menü öffnen" aria-expanded="false">☰</button>
     </div>
   </div>
@@ -80,7 +82,7 @@
         <div class="availability-badge">Nur noch wenige Plätze frei</div>
         <h1>Schwimmen lernen mit Spaß in Mannheim &amp; Heidelberg</h1>
         <p class="lead">
-          Spielerischer, privater 1:1-Unterricht für Kinder &ndash; ganz in ihrem Tempo.
+          Spielerischer, privater 1:1-Unterricht für Kinder, ganz in ihrem Tempo.
         </p>
         <div class="hero-actions">
           <a href="#kontakt" class="btn btn-coral">🐳 Schnupperkurs vereinbaren</a>
@@ -233,10 +235,16 @@
   <section id="ueber-mich">
     <div class="container about-grid">
       <div class="reveal ueber-mich-dreieck">
-        <img src="img/ueber-mich-portrait.jpg" alt="Nadine Reinhard, Portrait" class="foto-oben" tabindex="0" />
+        <div class="foto-wrapper foto-wrapper-oben" tabindex="0">
+          <img src="img/ueber-mich-portrait.jpg" alt="Nadine Reinhard, Portrait" class="foto-oben" />
+        </div>
         <div class="foto-unten-reihe">
-          <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids-rn.de" class="foto-unten" tabindex="0" />
-          <img src="img/ueber-mich-pool.jpg" alt="Nadine Reinhard beim Schwimmen mit ihrem Hund" class="foto-unten" tabindex="0" />
+          <div class="foto-wrapper foto-wrapper-unten" tabindex="0">
+            <img src="img/ueber-mich.jpg" alt="Nadine Reinhard, Schwimmlehrerin bei AquaKids-rn.de" class="foto-unten" />
+          </div>
+          <div class="foto-wrapper foto-wrapper-unten" tabindex="0">
+            <img src="img/ueber-mich-pool.jpg" alt="Nadine Reinhard beim Schwimmen mit ihrem Hund" class="foto-unten" />
+          </div>
         </div>
       </div>
       <div class="reveal">
@@ -286,14 +294,21 @@
               <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
               <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Kurse für Kinder von 4 Monaten bis 12 Jahren</span>
+            <span>Kurse für Kinder von 2 Monaten bis 12 Jahren</span>
           </li>
           <li class="qualification-item">
             <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
               <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
               <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
-            <span>Aqua-Fitness- und Dancing-Kurse</span>
+            <span>Aquafitness und Wassertanzen</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-primary)"/>
+              <path d="M15 24 L21 30 L33 17" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Auch Erwachsene und Senioren unterrichtet, inklusive Aquajogging</span>
           </li>
         </ul>
 
@@ -428,16 +443,10 @@
         <summary>Mehr Infos zu den Preisen</summary>
         <p class="price-note">
           <strong>Inklusivpreis:</strong> Der Eintritt fürs Schwimmbad und die Anfahrt sind in
-          allen Preisen oben bereits enthalten &ndash; keine versteckten Zusatzkosten.
+          allen Preisen oben bereits enthalten. Keine versteckten Zusatzkosten.
         </p>
         <p class="price-note price-note-small">
-          💳 Die 10er-Karte wird per Vorkasse bezahlt &ndash; per Überweisung oder PayPal.
-        </p>
-        <p class="price-note price-note-small">
-          🏠 Unterricht lieber bei dir zu Hause im Pool? Geht auch, mit Rabatt &ndash;
-          <a href="#kontakt">einfach anfragen</a>.<br>
-          Du möchtest deinen eigenen Pool als Lernort anbieten?
-          <a href="#pool-anbieten">Hier anfragen</a>.
+          💳 Die 10er-Karte wird per Vorkasse bezahlt, per Überweisung oder PayPal.
         </p>
       </details>
       <div class="section-cta reveal">
@@ -460,7 +469,7 @@
         Zum Aufklappen antippen, um zu sehen, woran wir konkret arbeiten.
       </p>
       <p class="abzeichen-promo reveal">
-        🏅 <strong>Gezielte Vorbereitung aufs nächste Schwimmabzeichen</strong> &ndash; vom
+        🏅 <strong>Gezielte Vorbereitung aufs nächste Schwimmabzeichen:</strong> vom
         Seepferdchen bis zum Fahrtenschwimmer, in jedem Kurs mit im Fokus.
       </p>
       <div class="card-grid">
@@ -468,16 +477,13 @@
           <summary>
             <div class="emoji">
               <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
-                <path d="M22 41c-7 1-11-4-9-9 1.3-3 4.4-3.6 6-2.2" fill="none" stroke="var(--color-coral)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M19 29c-3.5-2-4.5-6.5-1.5-9.5 3-3 8-2.5 9 1" fill="none" stroke="var(--color-coral)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M26.5 20.5c2.5-2 3.5-5.5 1.5-8.5" fill="none" stroke="var(--color-coral)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="30" cy="9" r="5.5" fill="var(--color-coral)"/>
-                <path d="M31 9.5 L38 12.5" stroke="var(--color-coral)" stroke-width="3.5" stroke-linecap="round"/>
-                <circle cx="31.5" cy="7.5" r="1.1" fill="#ffffff"/>
+                <circle cx="24" cy="24" r="20" fill="var(--color-coral)"/>
+                <path d="M14 20c2-3 5-3 7 0s5 3 7 0 5-3 7 0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M14 28c2-3 5-3 7 0s5 3 7 0 5-3 7 0" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
               </svg>
             </div>
-            <h3>Seepferdchenkurs</h3>
             <span class="kurs-subline">Vorbereitung auf Seepferdchen</span>
+            <h3>Seepferdchenkurs</h3>
             <p>Für Nichtschwimmer: Wassergewöhnung, erste Schwimmtechniken</p>
           </summary>
           <ul class="leistungen-list">
@@ -490,9 +496,9 @@
         <details class="card kurs-toggle reveal">
           <summary>
             <div class="emoji">🥇</div>
-            <h3>Vorbereitung fürs nächste Schwimmabzeichen</h3>
-            <span class="kurs-subline">Abzeichen-Kurs</span>
-            <p>Vorbereitung auf Gold, Silber, Rettungsschwimmer und weitere Abzeichen</p>
+            <span class="kurs-subline">Vorbereitung fürs nächste Schwimmabzeichen</span>
+            <h3>Abzeichenkurs</h3>
+            <p>Gold, Silber, Rettungsschwimmer und mehr</p>
           </summary>
           <ul class="leistungen-list">
             <li>Technik</li>
@@ -656,7 +662,7 @@
             <p>
               Das ist sehr unterschiedlich und hängt vom Alter, der Wassergewöhnung und dem
               persönlichen Tempo ab. Nach der Schnupperstunde kann ich dir eine realistische
-              Einschätzung geben, wie viele Einheiten sinnvoll sind &ndash; die 10er-Karte ist dafür
+              Einschätzung geben, wie viele Einheiten sinnvoll sind. Die 10er-Karte ist dafür
               meist der beste Einstieg.
             </p>
           </div>
@@ -796,7 +802,7 @@
         </div>
 
         <button type="submit" class="btn btn-whatsapp">Anfrage senden</button>
-        <p class="form-hint" style="font-weight:700;">🐳 Nur noch wenige Plätze verfügbar &ndash; jetzt anfragen.</p>
+        <p class="form-hint" style="font-weight:700;">🐳 Nur noch wenige Plätze verfügbar, jetzt anfragen.</p>
 
         <p class="form-status" role="status"></p>
         <p class="form-hint">
@@ -846,6 +852,10 @@
       <p class="section-subtitle reveal">
         Du hast einen eigenen Pool und möchtest ihn für privaten Schwimmunterricht zur Verfügung
         stellen? Schreib mir gerne die Eckdaten.
+      </p>
+      <p class="price-note price-note-small reveal">
+        🏠 Oder soll ich einfach bei dir zu Hause unterrichten? Geht auch, mit Rabatt.
+        <a href="#kontakt">Einfach anfragen</a>.
       </p>
     </div>
     <div class="container contact-grid">
