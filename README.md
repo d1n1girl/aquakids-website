@@ -8,6 +8,8 @@ Kein Build-Schritt nötig – reines HTML/CSS/JS.
 - `index.html` – Startseite (Hero, Über mich, Angebot, Preise, Ablauf, Kontakt/Terminanfrage)
 - `impressum.html`, `datenschutz.html` – rechtliche Pflichtseiten (**mit Platzhaltern, unbedingt ausfüllen!**)
 - `css/style.css`, `js/main.js` – Design und Interaktivität (mobiles Menü, WhatsApp-Formular)
+- `js/preise-data.js` – **zentrale Preisliste**: Preise nur hier ändern; Preiskarten,
+  Formular-Optionen und WhatsApp-Anfragetexte werden automatisch daraus erzeugt
 - `img/` – hier kommen deine eigenen Fotos rein (siehe `img/LIESMICH.txt`)
 
 ## Wie das Terminformular funktioniert
@@ -28,7 +30,9 @@ einer Nummernänderung an allen Stellen austauschen.
    (Name, Adresse, Kontakt, Gewerbe-/USt-Angaben). Im Zweifel eRecht24 oder eine Anwältin/einen
    Anwalt für IT-Recht konsultieren.
 3. **Über-mich-Text** in `index.html` ergänzen (aktuell Platzhalter in eckigen Klammern).
-4. **Preise/Details prüfen** – Erwachsenen- und Babypreise sind aktuell "auf Anfrage".
+4. **Preise/Details prüfen** – Festpreise stehen zentral in `js/preise-data.js`
+   (Kennenlernstunde, Privatunterricht, Duo inkl. Zehnerkarten). Erwachsenen- und
+   Babypreise sind weiterhin "auf Anfrage".
 5. **WhatsApp Business App einrichten** (empfohlen, aber optional) – Firmenprofil,
    automatische Begrüßungsnachricht, Labels für Anfragen.
 6. **Domain + Hosting.** Für den Start reicht kostenloses Hosting, z. B.:

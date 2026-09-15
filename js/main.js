@@ -3,12 +3,12 @@
 const WHATSAPP_NUMBER = "4915203611552"; // Format: Ländercode + Nummer, ohne + oder 0 am Anfang
 
 document.addEventListener("DOMContentLoaded", () => {
+  renderPreisKarten();
   setupMobileMenu();
   setupBookingForm();
   setupKooperationForm();
   setupFaq();
   setupScrollReveal();
-  setupPreisUmschalter();
   setupFormPaketAuswahl();
   setupPoolAngebotForm();
   setupUeberMichFotoTausch();
@@ -96,7 +96,7 @@ function seifenblaseErzeugen(x, y) {
 
 function setupButtonBlaeschen() {
   const buttons = document.querySelectorAll(
-    ".btn-coral, .btn-whatsapp, .btn-nav-cta, .price-toggle-btn"
+    ".btn-coral, .btn-whatsapp, .btn-nav-cta"
   );
 
   buttons.forEach((button) => {
@@ -157,30 +157,115 @@ function setupFotoZoom() {
   });
 }
 
-const PAKET_OPTIONEN = {
-  einzel: [
-    { value: "Schnupperstunde (30 € / 30 Min.)", label: "Schnupperstunde (30 € / 30 Min.)" },
-    { value: "10er-Karte Einzel (650 €)", label: "10er-Karte Einzel (650 €)" },
-    { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
-    { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
-  ],
-  duo: [
-    { value: "Schnupperstunde Duo (30 € / 30 Min., für beide)", label: "Schnupperstunde Duo (30 € / 30 Min., für beide)" },
-    { value: "Duo-10er-Karte (500 € pro Kind)", label: "Duo-10er-Karte (500 € pro Kind)" },
-    { value: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)", label: "Unterricht im eigenen Pool (5 € Rabatt pro Einheit)" },
-    { value: "Noch unsicher / bitte beraten", label: "Noch unsicher / bitte beraten" },
-  ],
-};
+// Beträge kommen zentral aus js/preise-data.js (PREISE) - dort pflegen, nicht hier.
+
+function euroBetrag(betrag) {
+  const hatCent = betrag % 1 !== 0;
+  return (
+    betrag.toLocaleString("de-DE", {
+      minimumFractionDigits: hatCent ? 2 : 0,
+      maximumFractionDigits: 2,
+    }) + " €"
+  );
+}
+
+function whatsappLink(text) {
+  return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
+}
+
+function renderPreisKarten() {
+  const container = document.getElementById("preis-karten");
+  if (!container || typeof PREISE === "undefined") return;
+
+  const kennenlern = PREISE.kennenlern;
+  const privat = PREISE.privat;
+  const duo = PREISE.duo;
+  const duoStundeGesamt = duo.preisProKind * duo.kinder;
+  const duoZehnerGesamt = duo.zehnerkarteProKind * duo.kinder;
+
+  container.innerHTML = `
+    <article class="price-card preis-karte reveal">
+      <h3>${kennenlern.name}</h3>
+      <p class="preis-dauer">${kennenlern.dauerMinuten} Minuten · einmalig pro Kind</p>
+      <div class="price">${euroBetrag(kennenlern.preis)}</div>
+      <p class="preis-text">Wassergewöhnung und Einschätzung des Levels – ganz ohne Verpflichtung.</p>
+      <div class="karten-fuss">
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener"
+           href="${whatsappLink(`Hallo! Ich möchte gerne eine ${kennenlern.name} (${kennenlern.dauerMinuten} Min., ${euroBetrag(kennenlern.preis)}) für mein Kind vereinbaren.`)}">Per WhatsApp anfragen</a>
+      </div>
+    </article>
+
+    <article class="price-card preis-karte reveal">
+      <h3>${privat.name}</h3>
+      <p class="preis-dauer">${privat.dauerMinuten} Minuten · 1:1</p>
+      <div class="price">${euroBetrag(privat.preis)}</div>
+      <p class="preis-text">Dauer individuell: bei guter Konzentration bis 50 Minuten.</p>
+      <div class="zehnerkarte">
+        <span class="spar-badge">Du sparst ${euroBetrag(privat.zehnerkarteErsparnis)}</span>
+        <p class="zehnerkarte-preis"><strong>Zehnerkarte:</strong> ${euroBetrag(privat.zehnerkarte)}</p>
+      </div>
+      <div class="karten-fuss">
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener"
+           href="${whatsappLink(`Hallo! Ich interessiere mich für ${privat.name} (${privat.dauerMinuten} Min., ${euroBetrag(privat.preis)}).`)}">Per WhatsApp anfragen</a>
+      </div>
+    </article>
+
+    <article class="price-card preis-karte preis-karte-empfohlen reveal">
+      <span class="empfehlung-badge">💙 Beliebteste Wahl</span>
+      <h3>${duo.name}</h3>
+      <p class="preis-dauer">${duo.dauerMinuten} Minuten · zwei Kinder</p>
+      <div class="price">${euroBetrag(duo.preisProKind)} <span>pro Kind</span></div>
+      <p class="preis-abrechnung">Abgerechnet als ${euroBetrag(duoStundeGesamt)} je Stunde für beide Kinder zusammen.</p>
+      <p class="preis-text">Zwei Kinder mit ähnlichem Können – gemeinsam lernen motiviert.</p>
+      <div class="zehnerkarte">
+        <span class="spar-badge">Du sparst ${euroBetrag(duo.zehnerkarteErsparnisProKind)} pro Kind</span>
+        <p class="zehnerkarte-preis"><strong>Zehnerkarte:</strong> ${euroBetrag(duo.zehnerkarteProKind)} pro Kind</p>
+        <p class="preis-abrechnung">Abgerechnet als ${euroBetrag(duoZehnerGesamt)} für beide Kinder zusammen.</p>
+      </div>
+      <div class="karten-fuss">
+        <a class="btn btn-whatsapp" target="_blank" rel="noopener"
+           href="${whatsappLink(`Hallo! Ich interessiere mich für ${duo.name} (${duo.dauerMinuten} Min., ${euroBetrag(duo.preisProKind)} pro Kind).`)}">Per WhatsApp anfragen</a>
+      </div>
+    </article>
+  `;
+}
+
+function paketOptionen() {
+  if (typeof PREISE === "undefined") return { einzel: [], duo: [] };
+  const kennenlern = PREISE.kennenlern;
+  const privat = PREISE.privat;
+  const duo = PREISE.duo;
+  const beratung = "Noch unsicher / bitte beraten";
+
+  const alsOption = (text) => ({ value: text, label: text });
+
+  return {
+    einzel: [
+      `${kennenlern.name} (${kennenlern.dauerMinuten} Min., ${euroBetrag(kennenlern.preis)})`,
+      `${privat.name} (${privat.dauerMinuten} Min., ${euroBetrag(privat.preis)})`,
+      `Zehnerkarte Privat (${euroBetrag(privat.zehnerkarte)})`,
+      beratung,
+    ].map(alsOption),
+    duo: [
+      `${kennenlern.name} (${kennenlern.dauerMinuten} Min., ${euroBetrag(kennenlern.preis)} pro Kind)`,
+      `${duo.name} (${duo.dauerMinuten} Min., ${euroBetrag(duo.preisProKind)} pro Kind)`,
+      `Zehnerkarte Duo (${euroBetrag(duo.zehnerkarteProKind)} pro Kind)`,
+      beratung,
+    ].map(alsOption),
+  };
+}
 
 function setupFormPaketAuswahl() {
   const tabs = document.querySelectorAll(".form-modus-tab");
   const select = document.getElementById("paket");
   if (!tabs.length || !select) return;
 
+  const optionen = paketOptionen();
+
   const fuelleOptionen = (modus) => {
     select.innerHTML =
       '<option value="">Bitte wählen</option>' +
-      PAKET_OPTIONEN[modus]
+      optionen[modus]
         .map((o) => '<option value="' + o.value + '">' + o.label + "</option>")
         .join("");
   };
@@ -199,26 +284,6 @@ function setupFormPaketAuswahl() {
   });
 
   fuelleOptionen("einzel");
-}
-
-function setupPreisUmschalter() {
-  const tabs = document.querySelectorAll(".preis-tab");
-  if (!tabs.length) return;
-
-  tabs.forEach((tab) => {
-    tab.addEventListener("click", () => {
-      const ziel = tab.dataset.preisZiel;
-
-      tabs.forEach((t) => {
-        t.classList.toggle("active", t === tab);
-        t.setAttribute("aria-selected", t === tab ? "true" : "false");
-      });
-
-      document.querySelectorAll("[data-preis-gruppe]").forEach((gruppe) => {
-        gruppe.hidden = gruppe.dataset.preisGruppe !== ziel;
-      });
-    });
-  });
 }
 
 function setupMobileMenu() {

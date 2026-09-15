@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /admin-gebiete.html
 
 Sitemap: https://www.aquakids-rhein-neckar.de/sitemap.xml
