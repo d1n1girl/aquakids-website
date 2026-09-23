@@ -169,6 +169,15 @@ function euroBetrag(betrag) {
   );
 }
 
+// Dauer als Text. Hat ein Angebot in preise-data.js ein "dauerBisMinuten",
+// entsteht eine Spanne ("45-50 Minuten"), sonst die feste Dauer.
+function dauerText(angebot, einheit) {
+  const von = angebot.dauerMinuten;
+  const bis = angebot.dauerBisMinuten;
+  const spanne = bis && bis !== von ? von + "–" + bis : String(von);
+  return spanne + " " + (einheit || "Minuten");
+}
+
 function whatsappLink(text) {
   return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
 }
@@ -213,7 +222,7 @@ function renderPreisKarten() {
     <article class="price-card preis-karte preis-karte-empfohlen reveal">
       <span class="empfehlung-badge">💙 Beliebteste Wahl</span>
       <h3>${duo.name}</h3>
-      <p class="preis-dauer">${duo.dauerMinuten} Minuten · zwei Kinder</p>
+      <p class="preis-dauer">${dauerText(duo)} · zwei Kinder</p>
       <div class="price">${euroBetrag(duo.preisProKind)} <span>pro Kind</span></div>
       <p class="preis-abrechnung">Abgerechnet als ${euroBetrag(duoStundeGesamt)} je Stunde für beide Kinder zusammen.</p>
       <p class="preis-text">Zwei Kinder mit ähnlichem Können – gemeinsam lernen motiviert.</p>
@@ -224,7 +233,7 @@ function renderPreisKarten() {
       </div>
       <div class="karten-fuss">
         <a class="btn btn-whatsapp" target="_blank" rel="noopener"
-           href="${whatsappLink(`Hallo! Ich interessiere mich für ${duo.name} (${duo.dauerMinuten} Min., ${euroBetrag(duo.preisProKind)} pro Kind).`)}">Per WhatsApp anfragen</a>
+           href="${whatsappLink(`Hallo! Ich interessiere mich für ${duo.name} (${dauerText(duo, "Min.")}, ${euroBetrag(duo.preisProKind)} pro Kind).`)}">Per WhatsApp anfragen</a>
       </div>
     </article>
   `;
@@ -248,7 +257,7 @@ function paketOptionen() {
     ].map(alsOption),
     duo: [
       `${kennenlern.name} (${kennenlern.dauerMinuten} Min., ${euroBetrag(kennenlern.preis)} pro Kind)`,
-      `${duo.name} (${duo.dauerMinuten} Min., ${euroBetrag(duo.preisProKind)} pro Kind)`,
+      `${duo.name} (${dauerText(duo, "Min.")}, ${euroBetrag(duo.preisProKind)} pro Kind)`,
       `Zehnerkarte Duo (${euroBetrag(duo.zehnerkarteProKind)} pro Kind)`,
       beratung,
     ].map(alsOption),

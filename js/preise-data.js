@@ -1,7 +1,7 @@
 // Zentrale Preisliste: Preise NUR hier ändern.
 // Die Preiskarten unter "Preise", die Paket-Auswahl im Kontaktformular und die
 // WhatsApp-Anfrage-Buttons werden beim Laden der Seite automatisch daraus erzeugt.
-// Beträge in Euro; Nachkommastellen mit Punkt schreiben (62.5 = 62,50 €).
+// Beträge in Euro; Nachkommastellen mit Punkt schreiben (z. B. 62.5 wird zu "62,50 €").
 const PREISE = {
   kennenlern: {
     name: "Kennenlernstunde",
@@ -17,10 +17,11 @@ const PREISE = {
   },
   duo: {
     name: "Duo-Unterricht",
-    dauerMinuten: 50,
-    preisProKind: 62.5,
-    zehnerkarteProKind: 575,
+    dauerMinuten: 45,
+    dauerBisMinuten: 50, // ergibt die Anzeige "45–50 Minuten"; weglassen für feste Dauer
+    preisProKind: 60,
+    zehnerkarteProKind: 550,
     zehnerkarteErsparnisProKind: 50,
-    kinder: 2, // Gesamtbeträge (125 € / 1.150 €) werden daraus automatisch berechnet
+    kinder: 2, // Gesamtbeträge (120 € / 1.100 €) werden daraus automatisch berechnet
   },
 };
