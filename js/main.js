@@ -1,4 +1,4 @@
-// AquaKids-rn.de: Mini-Interaktivität (kein Build-Schritt nötig)
+// AquaKids Rhein-Neckar: Mini-Interaktivität (kein Build-Schritt nötig)
 
 const WHATSAPP_NUMBER = "4915203611552"; // Format: Ländercode + Nummer, ohne + oder 0 am Anfang
 
@@ -434,7 +434,7 @@ function setupBookingForm() {
     const nachricht = (data.get("nachricht") || "").toString().trim();
 
     const lines = [
-      "Hallo AquaKids-rn.de! Ich möchte gerne einen Termin anfragen.",
+      "Hallo AquaKids Rhein-Neckar! Ich möchte gerne einen Termin anfragen.",
       "",
       `Name: ${name}`,
     ];
@@ -494,7 +494,7 @@ function setupFerienForm() {
     const art = wert("art");
 
     const lines = [
-      `Hallo AquaKids-rn.de! Ich möchte für den Intensivkurs Sommerferien (Seckenheim, Privatpool): ${art}.`,
+      `Hallo AquaKids Rhein-Neckar! Ich möchte für den Intensivkurs Sommerferien (Seckenheim, Privatpool): ${art}.`,
       "",
       `Name: ${wert("name")}`,
       `Name des Kindes: ${wert("kindname")}`,

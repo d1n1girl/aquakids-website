@@ -1,10 +1,10 @@
-// AquaKids-rn.de: Gemeinsame Werkzeuge für die digitalen Formulare
+// AquaKids Rhein-Neckar: Gemeinsame Werkzeuge für die digitalen Formulare
 // (vertrag.html, foto-einwilligung.html): Unterschriftsfeld, PDF-Layout, PDF-Datei, Teilen.
 // Alles läuft im Browser – es wird nichts an einen Server geschickt.
 
 const KURSLEITUNG = {
   name: "Nadine Reinhard",
-  firma: "AquaKids-rn.de",
+  firma: "AquaKids Rhein-Neckar",
   strasse: "Schillerstraße 21",
   ort: "68535 Edingen",
   telefon: "+49 1520 3611552",

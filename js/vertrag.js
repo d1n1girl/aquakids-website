@@ -1,4 +1,4 @@
-// AquaKids-rn.de: Digitaler Schwimmunterrichtsvertrag (vertrag.html)
+// AquaKids Rhein-Neckar: Digitaler Schwimmunterrichtsvertrag (vertrag.html)
 // Vertragstexte stehen hier zentral und werden sowohl auf der Seite als auch im PDF verwendet.
 // Preise kommen aus js/preise-data.js, Kontaktdaten/IBAN aus js/vertrag-werkzeuge.js.
 
@@ -170,7 +170,7 @@ function vertragsParagrafen() {
       absaetze: [
         "Mit dem Zusenden dieses unterschriebenen Vertrags geben die Eltern ein verbindliches Angebot ab. Der Vertrag kommt zustande, wenn die Kursleitung ihn in Textform bestätigt, in der Regel durch Rücksendung des gegengezeichneten Vertrags per E-Mail vor der ersten Stunde.",
         "Änderungen und Ergänzungen dieses Vertrags bedürfen der Textform (z. B. E-Mail oder WhatsApp).",
-        "Ergänzend gelten die AGB von AquaKids-rn.de. Bei Widersprüchen geht dieser Vertrag vor.",
+        "Ergänzend gelten die AGB von AquaKids Rhein-Neckar. Bei Widersprüchen geht dieser Vertrag vor.",
         "Sollte eine Bestimmung dieses Vertrags unwirksam sein, bleibt der Vertrag im Übrigen wirksam; an die Stelle der unwirksamen Bestimmung tritt die gesetzliche Regelung.",
         "Es gilt das Recht der Bundesrepublik Deutschland.",
       ],
@@ -471,7 +471,7 @@ async function vertragPdf(daten) {
   const w = (schluessel) => (leer ? null : daten[schluessel]);
   const pdf = new PdfLayout(
     "Schwimmunterrichtsvertrag",
-    leer ? "Schwimmunterrichtsvertrag AquaKids-rn.de" : `Vertrags-Nr. ${daten.nummer} · Kind: ${daten.kind_vorname} ${daten.kind_nachname}`
+    leer ? "Schwimmunterrichtsvertrag AquaKids Rhein-Neckar" : `Vertrags-Nr. ${daten.nummer} · Kind: ${daten.kind_vorname} ${daten.kind_nachname}`
   );
 
   pdf.titel(
@@ -583,7 +583,7 @@ async function gesundheitserklaerungPdf(daten, vertragsnummer) {
   const nummer = leer ? vertragsnummer || "" : daten.nummer;
   const pdf = new PdfLayout(
     "Gesundheitserklärung",
-    nummer ? `Gesundheitserklärung zu Vertrags-Nr. ${nummer}` : "Gesundheitserklärung AquaKids-rn.de"
+    nummer ? `Gesundheitserklärung zu Vertrags-Nr. ${nummer}` : "Gesundheitserklärung AquaKids Rhein-Neckar"
   );
 
   pdf.titel("Gesundheitserklärung", nummer ? `zum Schwimmunterrichtsvertrag Nr. ${nummer}` : "zum Schwimmunterrichtsvertrag");

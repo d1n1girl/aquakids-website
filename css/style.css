@@ -2475,3 +2475,44 @@ nav.main-nav ul {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
+
+/* ---------- Name "AquaKids Rhein-Neckar" in der Kopfzeile ---------- */
+
+.logo {
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1200px) {
+  nav.main-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-white);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    display: none;
+    flex-direction: column;
+  }
+
+  nav.main-nav.open {
+    display: flex;
+  }
+
+  nav.main-nav ul {
+    flex-direction: column;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+@media (max-width: 640px) {
+  .logo {
+    font-size: 1rem;
+    white-space: normal;
+    line-height: 1.15;
+  }
+}
