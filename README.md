@@ -14,7 +14,8 @@ Kein Build-Schritt nötig, reines HTML/CSS/JS. Live unter https://aquakids-rn.de
 - `fonts/`: Schriftarten lokal gehostet (kein Abruf bei Google, wichtig für den Datenschutz)
 - `img/`: Fotos (vor dem Einfügen auf passende Größe verkleinern, ca. 600–800 px Breite reichen)
 - `_headers`, `_redirects`: Sicherheits-Header und Weiterleitungen für Netlify
-- `favicon.svg`, `robots.txt`, `sitemap.xml`: Browser-Icon und Suchmaschinen-Angaben (Domain: aquakids-rn.de)
+- `img/logo.png` (Logo komplett), `img/logo-mark.png` (nur Schwimmer-Symbol, Kopfzeile), `favicon.png`, `apple-touch-icon.png`: Logo und Browser-Icons
+- `robots.txt`, `sitemap.xml`: Suchmaschinen-Angaben (Domain: aquakids-rn.de)
 
 ## Wie die Formulare funktionieren
 
