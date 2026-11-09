@@ -2272,8 +2272,9 @@ footer.site-footer a:focus-visible {
 
 .logo-mark {
   display: block;
-  height: 36px;
+  height: 42px;
   width: auto;
+  max-width: none;
   flex-shrink: 0;
 }
 
@@ -2289,6 +2290,6 @@ footer.site-footer a:focus-visible {
 
 @media (max-width: 640px) {
   .logo-mark {
-    height: 30px;
+    height: 34px;
   }
 }
