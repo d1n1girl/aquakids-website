@@ -2354,3 +2354,38 @@ nav.main-nav ul {
     display: block;
   }
 }
+
+/* ---------- Kopfzeile auf dem Handy: passt bis 320px Breite ---------- */
+
+@media (max-width: 640px) {
+  .nav-wrap {
+    padding-left: 14px;
+    padding-right: 14px;
+    gap: 10px;
+  }
+
+  .logo {
+    gap: 8px;
+    font-size: 1rem;
+  }
+
+  .logo-mark {
+    height: 26px;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logo {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 360px) {
+  .nav-cta-hinweis {
+    display: none;
+  }
+}
