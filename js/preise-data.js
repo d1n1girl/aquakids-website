@@ -18,7 +18,7 @@ const PREISE = {
   duo: {
     name: "Duo-Unterricht",
     dauerMinuten: 45,
-    dauerBisMinuten: 50, // ergibt die Anzeige "45–50 Minuten"; weglassen für feste Dauer
+    dauerBisMinuten: 50, // ergibt die Anzeige "45 bis 50 Minuten"; weglassen für feste Dauer
     preisProKind: 60,
     zehnerkarteProKind: 550,
     zehnerkarteErsparnisProKind: 50,
@@ -26,8 +26,8 @@ const PREISE = {
   },
 };
 
-// Aktionen rund um die Preise. Jede lässt sich mit aktiv: false abschalten –
-// sie verschwindet dann von der Seite, ohne dass am HTML etwas zu ändern ist.
+// Aktionen rund um die Preise. Jede lässt sich mit aktiv: false abschalten.
+// Sie verschwindet dann von der Seite, ohne dass am HTML etwas zu ändern ist.
 const AKTIONEN = {
   // Hinweis auf der Duo-Karte: Ich suche ein passendes Partnerkind.
   // Duo bringt pro Zeitstunde deutlich mehr als Privatunterricht, deshalb

@@ -280,7 +280,7 @@ function euroBetrag(betrag) {
 function dauerText(angebot, einheit) {
   const von = angebot.dauerMinuten;
   const bis = angebot.dauerBisMinuten;
-  const spanne = bis && bis !== von ? von + "–" + bis : String(von);
+  const spanne = bis && bis !== von ? von + " bis " + bis : String(von);
   return spanne + " " + (einheit || "Minuten");
 }
 
@@ -315,7 +315,7 @@ function renderPreisKarten() {
          <a target="_blank" rel="noopener"
             href="${whatsappLink(
               "Hallo! Ich interessiere mich für Duo-Unterricht, habe aber noch kein Partnerkind. Alter und Schwimmstand meines Kindes: "
-            )}">Ich suche ein passendes Partnerkind</a> – sag mir Alter und Stand.</p>`
+            )}">Ich suche ein passendes Partnerkind</a>. Sag mir Alter und Stand.</p>`
     : "";
 
   container.innerHTML = `
