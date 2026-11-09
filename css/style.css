@@ -2516,3 +2516,8 @@ nav.main-nav ul {
     line-height: 1.15;
   }
 }
+
+/* Kopfzeile darf breiter sein als der Inhalt, damit der längere Name auf Laptops in eine Zeile passt */
+.nav-wrap {
+  max-width: 1200px;
+}
