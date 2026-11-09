@@ -36,12 +36,14 @@ const AKTIONEN = {
     aktiv: true,
   },
 
-  // Empfehlungsprämie: Beide Familien bekommen eine Einheit geschenkt,
-  // sobald die geworbene Familie eine Zehnerkarte bucht. Die Kopplung an die
-  // Zehnerkarte sorgt dafür, dass die Prämie erst bei einem echten Abschluss
-  // anfällt und nicht schon bei der Kennenlernstunde.
+  // Empfehlungsprämie als Rabatt in Euro, nicht als geschenkte Einheit: Eine
+  // freie Stunde kostet bei vollem Kalender einen Termin, ein Rabatt nur Geld.
+  // Ausgezahlt wird erst, wenn die geworbene Familie eine Zehnerkarte bucht,
+  // damit die Prämie nicht schon bei der Kennenlernstunde anfällt.
   empfehlung: {
     aktiv: true,
+    rabattWerbend: 30, // Euro für die Familie, die empfiehlt
+    rabattGeworben: 20, // Euro für die neu geworbene Familie
   },
 
   // Geschenkgutschein über einen frei wählbaren Betrag.
