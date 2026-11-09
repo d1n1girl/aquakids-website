@@ -25,3 +25,28 @@ const PREISE = {
     kinder: 2, // Gesamtbeträge (120 € / 1.100 €) werden daraus automatisch berechnet
   },
 };
+
+// Aktionen rund um die Preise. Jede lässt sich mit aktiv: false abschalten –
+// sie verschwindet dann von der Seite, ohne dass am HTML etwas zu ändern ist.
+const AKTIONEN = {
+  // Hinweis auf der Duo-Karte: Ich suche ein passendes Partnerkind.
+  // Duo bringt pro Zeitstunde deutlich mehr als Privatunterricht, deshalb
+  // lohnt es sich, Eltern ohne Partnerkind aktiv abzuholen.
+  duoVermittlung: {
+    aktiv: true,
+  },
+
+  // Empfehlungsprämie: Beide Familien bekommen eine Einheit geschenkt,
+  // sobald die geworbene Familie eine Zehnerkarte bucht. Die Kopplung an die
+  // Zehnerkarte sorgt dafür, dass die Prämie erst bei einem echten Abschluss
+  // anfällt und nicht schon bei der Kennenlernstunde.
+  empfehlung: {
+    aktiv: true,
+  },
+
+  // Geschenkgutschein über einen frei wählbaren Betrag.
+  gutschein: {
+    aktiv: true,
+    mindestbetrag: 40,
+  },
+};

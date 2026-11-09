@@ -4,6 +4,7 @@ const WHATSAPP_NUMBER = "4915203611552"; // Format: Ländercode + Nummer, ohne +
 
 document.addEventListener("DOMContentLoaded", () => {
   renderPreisKarten();
+  renderAktionen();
   setupMobileMenu();
   setupBookingForm();
   setupKooperationForm();
@@ -287,6 +288,16 @@ function whatsappLink(text) {
   return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text);
 }
 
+// Ist eine Aktion aus preise-data.js eingeschaltet? Faellt auf "aus" zurueck,
+// wenn ein Browser noch eine aeltere preise-data.js im Cache hat.
+function aktionAktiv(name) {
+  return (
+    typeof AKTIONEN !== "undefined" &&
+    Boolean(AKTIONEN[name]) &&
+    AKTIONEN[name].aktiv === true
+  );
+}
+
 function renderPreisKarten() {
   const container = document.getElementById("preis-karten");
   if (!container || typeof PREISE === "undefined") return;
@@ -296,6 +307,16 @@ function renderPreisKarten() {
   const duo = PREISE.duo;
   const duoStundeGesamt = duo.preisProKind * duo.kinder;
   const duoZehnerGesamt = duo.zehnerkarteProKind * duo.kinder;
+
+  // Haeufigster Grund gegen Duo ist nicht der Preis, sondern das fehlende
+  // zweite Kind. Deshalb hier direkt die Vermittlung anbieten.
+  const duoVermittlung = aktionAktiv("duoVermittlung")
+    ? `<p class="preis-vermittlung">Kein zweites Kind zur Hand?
+         <a target="_blank" rel="noopener"
+            href="${whatsappLink(
+              "Hallo! Ich interessiere mich für Duo-Unterricht, habe aber noch kein Partnerkind. Alter und Schwimmstand meines Kindes: "
+            )}">Ich suche ein passendes Partnerkind</a> – sag mir Alter und Stand.</p>`
+    : "";
 
   container.innerHTML = `
     <article class="price-card preis-karte reveal">
@@ -336,12 +357,63 @@ function renderPreisKarten() {
         <p class="zehnerkarte-preis"><strong>Zehnerkarte:</strong> ${euroBetrag(duo.zehnerkarteProKind)} pro Kind</p>
         <p class="preis-abrechnung">Abrechnung: ${euroBetrag(duoZehnerGesamt)} für beide Kinder.</p>
       </div>
+      ${duoVermittlung}
       <div class="karten-fuss">
         <a class="btn btn-whatsapp" target="_blank" rel="noopener"
            href="${whatsappLink(`Hallo! Ich interessiere mich für ${duo.name} (${dauerText(duo, "Min.")}, ${euroBetrag(duo.preisProKind)} pro Kind).`)}">Per WhatsApp anfragen</a>
       </div>
     </article>
   `;
+}
+
+// Empfehlungspraemie und Geschenkgutschein unter den Preisen.
+// Inhalte und Schalter stehen in AKTIONEN (js/preise-data.js).
+function renderAktionen() {
+  const container = document.getElementById("preis-aktionen");
+  if (!container || typeof PREISE === "undefined") return;
+
+  const karten = [];
+
+  if (aktionAktiv("empfehlung")) {
+    karten.push(`
+      <article class="aktion-karte">
+        <span class="aktion-icon" aria-hidden="true">💙</span>
+        <h4>Weiterempfehlen lohnt sich</h4>
+        <p>
+          Empfiehlst du mich weiter und die neue Familie bucht eine Zehnerkarte,
+          bekommt ihr beide eine Einheit geschenkt. Die Familie muss bei der
+          Anfrage nur deinen Namen nennen.
+        </p>
+      </article>`);
+  }
+
+  if (aktionAktiv("gutschein")) {
+    const mindest = euroBetrag(AKTIONEN.gutschein.mindestbetrag);
+    karten.push(`
+      <article class="aktion-karte">
+        <span class="aktion-icon" aria-hidden="true">🎁</span>
+        <h4>Schwimmstunden verschenken</h4>
+        <p>
+          Gutschein über einen frei wählbaren Betrag ab ${mindest}, anrechenbar auf
+          jedes Angebot. Schön von Großeltern, zum Geburtstag oder zur Einschulung.
+        </p>
+        <a class="aktion-link" target="_blank" rel="noopener"
+           href="${whatsappLink(
+             "Hallo! Ich möchte gerne einen Gutschein für Schwimmunterricht verschenken. Wunschbetrag: "
+           )}">Gutschein anfragen</a>
+      </article>`);
+  }
+
+  if (!karten.length) {
+    container.innerHTML = "";
+    return;
+  }
+
+  container.innerHTML = `
+    <h3>Extras</h3>
+    <div class="aktion-grid">${karten.join("")}</div>
+  `;
+  container.classList.add("reveal");
 }
 
 function paketOptionen() {
