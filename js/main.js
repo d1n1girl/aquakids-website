@@ -17,12 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
   setupKopierschutz();
   setupButtonBlaeschen();
   renderKursorte();
+  setupWunschortAuswahl();
   setupDetailsPerAnker();
 });
 
 function renderKursorte() {
   const container = document.getElementById("kursorte-liste");
-  if (!container || typeof POOLS === "undefined" || !POOLS.length) return;
+  if (!container || typeof KURSORTE === "undefined") return;
 
   const zeile = (karte, label, text) => {
     if (!text) return;
@@ -35,27 +36,31 @@ function renderKursorte() {
   };
 
   const zuhause = container.querySelector(".kursort-zuhause-karte");
-  container.querySelectorAll(".kursort-stadt-karte").forEach((karte) => karte.remove());
 
-  POOLS.forEach((pool) => {
+  KURSORTE.forEach((eintrag) => {
     const karte = document.createElement("article");
     karte.className = "card kursort-karte";
 
+    const tag = document.createElement("span");
+    tag.className = "kurs-subline";
+    tag.textContent = eintrag.tag;
+    karte.appendChild(tag);
+
     const h = document.createElement("h3");
-    h.textContent = pool.name;
+    h.textContent = eintrag.ort;
     karte.appendChild(h);
 
-    if (pool.stadt) {
-      const stadt = document.createElement("p");
-      stadt.textContent = pool.stadt;
-      karte.appendChild(stadt);
+    if (eintrag.zusatz) {
+      const p = document.createElement("p");
+      p.textContent = eintrag.zusatz;
+      karte.appendChild(p);
     }
-    zeile(karte, "Öffnungszeiten", pool.oeffnungszeiten);
-    zeile(karte, "Eintritt", pool.eintritt);
+    zeile(karte, "Öffnungszeiten", eintrag.oeffnungszeiten);
+    zeile(karte, "Eintritt", eintrag.eintritt);
 
-    if (pool.mapsUrl && /^https:\/\//.test(pool.mapsUrl)) {
+    if (eintrag.mapsUrl && /^https:\/\//.test(eintrag.mapsUrl)) {
       const link = document.createElement("a");
-      link.href = pool.mapsUrl;
+      link.href = eintrag.mapsUrl;
       link.target = "_blank";
       link.rel = "noopener";
       link.className = "kursort-route";
@@ -63,6 +68,22 @@ function renderKursorte() {
       karte.appendChild(link);
     }
     container.insertBefore(karte, zuhause);
+  });
+}
+
+// Wunschort im Anfrageformular: kommt aus demselben Wochenplan wie das Kapitel "Kursorte".
+function setupWunschortAuswahl() {
+  const select = document.getElementById("ort");
+  if (!select || typeof KURSORTE === "undefined") return;
+
+  const texte = KURSORTE.map((e) => e.ort + " (" + e.tag + ")");
+  texte.push("Bei mir zu Hause (eigener Pool)", "Flexibel");
+
+  texte.forEach((text) => {
+    const option = document.createElement("option");
+    option.value = text;
+    option.textContent = text;
+    select.appendChild(option);
   });
 }
 

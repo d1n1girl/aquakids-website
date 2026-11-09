@@ -11,6 +11,8 @@ Kein Build-Schritt nötig, reines HTML/CSS/JS. Live unter https://aquakids-rn.de
 - `css/style.css`, `js/main.js`: Design und Interaktivität (Menü, WhatsApp-Formulare, Preiskarten)
 - `js/preise-data.js`: **zentrale Preisliste**. Preise nur hier ändern; Preiskarten,
   Formular-Optionen und WhatsApp-Anfragetexte werden automatisch daraus erzeugt
+- `js/pools-data.js`: **Kursorte** (Wochenplan). Orte und Wochentage nur hier ändern; Kapitel "Kursorte" und die
+  Auswahl "Wunschort" im Formular werden automatisch daraus erzeugt
 - `fonts/`: Schriftarten lokal gehostet (kein Abruf bei Google, wichtig für den Datenschutz)
 - `img/`: Fotos (vor dem Einfügen auf passende Größe verkleinern, ca. 600–800 px Breite reichen)
 - `_headers`, `_redirects`: Sicherheits-Header und Weiterleitungen für Netlify

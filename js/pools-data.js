@@ -1,15 +1,18 @@
-// Kursorte: Bäder hier nach und nach eintragen. Solange die Liste leer ist, zeigt die Seite
-// die Karten "Mannheim", "Heidelberg" und "Bei dir zu Hause". Sobald Bäder drin stehen,
-// ersetzen sie die Städte-Karten (die Karte "Bei dir zu Hause" bleibt immer).
+// Kursorte: Wochenplan. Die Reihenfolge hier ist die Reihenfolge auf der Seite (Kapitel
+// "Kursorte") und im Anfrageformular (Feld "Wunschort").
 //
-// mapsUrl: Link zum Bad in Google Maps (in Google Maps auf "Teilen" klicken, Link kopieren).
-// Alle Felder außer name sind optional.
-const POOLS = [
-  // {
-  //   name: "Name des Bads",
-  //   stadt: "Mannheim",
-  //   mapsUrl: "https://maps.app.goo.gl/...",
-  //   oeffnungszeiten: "Mo-Fr 6-21 Uhr, Sa-So 8-20 Uhr",
-  //   eintritt: "5,50 €",
-  // },
+// tag:     Wochentag (oder z. B. "Sommerferien")
+// ort:     Ort bzw. Stadtteil
+// zusatz:  optional, z. B. die Stadt
+// Optional je Eintrag (erscheint dann auf der Karte):
+// mapsUrl:         Link zum Bad in Google Maps (in Google Maps auf "Teilen" klicken, Link kopieren)
+// oeffnungszeiten: z. B. "Mo-Fr 6-21 Uhr, Sa-So 8-20 Uhr"
+// eintritt:        z. B. "5,50 €"
+const KURSORTE = [
+  { tag: "Dienstag", ort: "Neckarau", zusatz: "Mannheim" },
+  { tag: "Mittwoch", ort: "Eppelheim" },
+  { tag: "Donnerstag", ort: "Heddesheim" },
+  { tag: "Freitag", ort: "Weinheim" },
+  { tag: "Samstag", ort: "Rohrbach", zusatz: "Heidelberg" },
+  { tag: "Sommerferien", ort: "Seckenheim", zusatz: "Intensivkurs, ohne Badeintritt" },
 ];

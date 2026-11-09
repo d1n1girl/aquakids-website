@@ -2293,3 +2293,21 @@ footer.site-footer a:focus-visible {
     height: 34px;
   }
 }
+
+/* ---------- Kursorte: Wochenplan (Di-Sa + Zuhause) ---------- */
+
+.kursorte-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (max-width: 900px) {
+  .kursorte-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .kursorte-grid {
+    grid-template-columns: 1fr;
+  }
+}

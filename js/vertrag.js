@@ -81,7 +81,7 @@ function vertragsParagrafen() {
       titel: "§ 2 Angebote und Preise",
       absaetze: [
         `Es gelten folgende Festpreise:\n${angebotsListe().map((a) => `– ${a.name}: ${a.details}`).join("\n")}`,
-        "Es fallen keine Fahrtkosten und keine Zuschläge an. Der Eintritt ins Schwimmbad für das Kind ist nicht im Preis enthalten und wird vor Ort bezahlt.",
+        "Es fallen keine Fahrtkosten und keine Zuschläge an. Der Eintritt ins Schwimmbad für das Kind ist nicht im Preis enthalten und wird vor Ort bezahlt. Beim Intensivkurs in Seckenheim fällt kein Badeintritt an.",
         "Die Kursleitung ist Kleinunternehmerin nach § 19 UStG; es wird keine Umsatzsteuer berechnet.",
         "Preisänderungen gelten nur für künftige Buchungen und werden mindestens vier Wochen vorher in Textform angekündigt. Bereits gebuchte Leistungen bleiben unberührt.",
       ],

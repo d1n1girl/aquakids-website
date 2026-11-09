@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://aquakids-rn.de/" />
 <meta property="og:image" content="https://aquakids-rn.de/img/hero-unterwasser.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="css/style.css?v=22" />
+<link rel="stylesheet" href="css/style.css?v=23" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -31,7 +31,10 @@
   "priceRange": "40€-85€",
   "areaServed": [
     { "@type": "City", "name": "Mannheim" },
-    { "@type": "City", "name": "Heidelberg" }
+    { "@type": "City", "name": "Heidelberg" },
+    { "@type": "City", "name": "Weinheim" },
+    { "@type": "City", "name": "Eppelheim" },
+    { "@type": "City", "name": "Heddesheim" }
   ],
   "image": "https://aquakids-rn.de/img/hero-unterwasser.jpg",
   "logo": "https://aquakids-rn.de/img/logo.png"
@@ -131,7 +134,7 @@
               <circle cx="24" cy="30" r="14" fill="#b0bfc6" stroke="#8a99a1" stroke-width="2"/>
               <path d="M24 22 L26.5 27.5 L32.5 28.2 L28 32.3 L29.3 38.2 L24 35 L18.7 38.2 L20 32.3 L15.5 28.2 L21.5 27.5 Z" fill="#eef3f5"/>
             </svg>
-            <span>Schwimmabzeichen Silber</span>
+            <span>Schwimmabzeichen Bronze, Silber und Gold</span>
           </li>
           <li class="qualification-item">
             <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
@@ -140,6 +143,16 @@
               <path d="M24 22 L26.5 27.5 L32.5 28.2 L28 32.3 L29.3 38.2 L24 35 L18.7 38.2 L20 32.3 L15.5 28.2 L21.5 27.5 Z" fill="#eef3f5"/>
             </svg>
             <span>Rettungsschwimmabzeichen Silber</span>
+          </li>
+          <li class="qualification-item">
+            <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
+              <circle cx="24" cy="24" r="20" fill="var(--color-accent)"/>
+              <circle cx="24" cy="24" r="14" fill="#ffffff"/>
+              <line x1="24" y1="24" x2="24" y2="15" stroke="var(--color-primary-dark)" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="24" y1="24" x2="30" y2="26" stroke="var(--color-primary-dark)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="24" cy="24" r="2" fill="var(--color-primary-dark)"/>
+            </svg>
+            <span>Trainerlizenz bei der DLRG: in Ausbildung</span>
           </li>
           <li class="qualification-item">
             <svg viewBox="0 0 48 48" width="40" height="40" aria-hidden="true">
@@ -225,7 +238,7 @@
         <span>✔ Keine versteckten Kosten.</span>
       </p>
       <p class="preis-fussnote reveal">
-        Endpreise, keine Umsatzsteuer (§ 19 UStG). Der Badeintritt ist nicht enthalten.
+        Endpreise, keine Umsatzsteuer (§ 19 UStG). Der Badeintritt ist nicht enthalten, beim Intensivkurs in Seckenheim fällt keiner an.
       </p>
 
       <!-- Die Preiskarten entstehen automatisch aus js/preise-data.js – Preise NUR dort ändern. -->
@@ -238,7 +251,7 @@
           <li><span aria-hidden="true">📅</span> Absage bis 24&nbsp;Std. vorher kostenfrei, danach wird die Einheit berechnet</li>
           <li><span aria-hidden="true">🤝</span> Duo ab Wassergewöhnung, Nichtschwimmer starten im Privatunterricht</li>
           <li><span aria-hidden="true">⏱️</span> Je nach Kind ca. 5&nbsp;Min. Pause, die übrige Zeit für Absprachen und Feedback</li>
-          <li><span aria-hidden="true">💳</span> Zahlung per Überweisung: Einzelstunden bis zu 2&nbsp;Wochen nach der Stunde, Zehnerkarte vorab</li>
+          <li><span aria-hidden="true">💳</span> Zahlung per Überweisung, bald auch per PayPal: Einzelstunden bis zu 2&nbsp;Wochen nach der Stunde, Zehnerkarte vorab</li>
         </ul>
       </div>
 
@@ -266,10 +279,10 @@
               </svg>
             </div>
             <span class="kurs-subline">Vorbereitung auf Seepferdchen</span>
-            <h3>Seepferdchenkurs</h3>
+            <h3>Wassergewöhnung</h3>
           </summary>
           <ul class="leistungen-list">
-            <li>Wassergewöhnung</li>
+            <li>Sicher im Wasser fühlen</li>
             <li>Auftriebsübungen</li>
             <li>Vorankommen im Wasser</li>
             <li>Erste Schwimmtechniken</li>
@@ -291,15 +304,17 @@
           <summary>
             <div class="emoji" aria-hidden="true">⚡</div>
             <span class="kurs-subline">Schnelle Fortschritte in kurzer Zeit</span>
-            <h3>Intensivkurs</h3>
+            <h3>Intensivkurs Sommerferien</h3>
           </summary>
           <ul class="leistungen-list">
-            <li>Mehrere Einheiten pro Woche, z.&nbsp;B. in den Ferien</li>
-            <li>Schneller Lernerfolg</li>
-            <li>Umfang, Termine und Preis nach Absprache</li>
+            <li>2 bis 3 Schwimmstunden pro Woche</li>
+            <li>Voranmeldung möglich</li>
+            <li>In Seckenheim, ohne Badeintritt</li>
+            <li>Termine und Preis nach Absprache</li>
           </ul>
         </details>
       </div>
+      <p class="price-note">Schwimmbrillen, Tauchequipment und Schlori-Schwimmkissen stelle ich zu jeder Einheit.</p>
       <p class="price-note">Erwachsene unterrichte ich auf Anfrage.</p>
 
       <details class="abzeichen-details" id="abzeichen">
@@ -397,24 +412,15 @@
   <section id="kursorte">
     <div class="container">
       <h2 class="section-title reveal">Kursorte</h2>
+      <!-- Wochenplan (Dienstag bis Samstag): Orte und Wochentage in js/pools-data.js pflegen -->
       <div class="card-grid kursorte-grid" id="kursorte-liste">
-        <article class="card kursort-stadt-karte reveal">
-          <div class="emoji" aria-hidden="true">🏊</div>
-          <h3>Mannheim</h3>
-          <p>Schwimmbäder in Mannheim</p>
-        </article>
-        <article class="card kursort-stadt-karte reveal">
-          <div class="emoji" aria-hidden="true">🏊</div>
-          <h3>Heidelberg</h3>
-          <p>Schwimmbäder in Heidelberg</p>
-        </article>
         <article class="card kursort-zuhause-karte reveal">
-          <div class="emoji" aria-hidden="true">🏠</div>
+          <span class="kurs-subline">Nach Absprache</span>
           <h3>Bei dir zu Hause</h3>
           <p>Im eigenen Pool, zum gleichen Festpreis</p>
         </article>
       </div>
-      <p class="price-note">Das genaue Bad stimmen wir bei der Anfrage ab. Der Badeintritt wird vor Ort bezahlt.</p>
+      <p class="price-note">Die Uhrzeit stimmen wir bei der Anfrage ab. Der Badeintritt wird vor Ort bezahlt, außer in Seckenheim.</p>
     </div>
   </section>
 
@@ -447,7 +453,7 @@
             <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Badekleidung, ein Handtuch und je nach Alter eine Schwimmbrille.</p>
+            <p>Badekleidung und ein Handtuch. Schwimmbrille und Zubehör stelle ich.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -525,9 +531,9 @@
           <label for="unterricht">Gewünschter Kurs</label>
           <select id="unterricht" name="unterricht" required>
             <option value="">Bitte wählen</option>
-            <option value="Anfänger (Kind)">Anfänger (Kind)</option>
-            <option value="Abzeichen-Kurs (Kind)">Abzeichen-Kurs (Kind)</option>
-            <option value="Intensivkurs">Intensivkurs</option>
+            <option value="Wassergewöhnung (Kind)">Wassergewöhnung (Kind)</option>
+            <option value="Abzeichenkurs (Kind)">Abzeichenkurs (Kind)</option>
+            <option value="Intensivkurs Sommerferien">Intensivkurs Sommerferien</option>
             <option value="Erwachsene/r">Erwachsene/r</option>
           </select>
         </div>
@@ -541,9 +547,6 @@
           <label for="ort">Wunschort</label>
           <select id="ort" name="ort" required>
             <option value="">Bitte wählen</option>
-            <option value="Mannheim">Mannheim</option>
-            <option value="Heidelberg">Heidelberg</option>
-            <option value="Flexibel">Flexibel</option>
           </select>
         </div>
 
@@ -678,7 +681,7 @@
 </footer>
 
 <script src="js/preise-data.js?v=1"></script>
-<script src="js/pools-data.js?v=2"></script>
-<script src="js/main.js?v=6"></script>
+<script src="js/pools-data.js?v=3"></script>
+<script src="js/main.js?v=7"></script>
 </body>
 </html>
