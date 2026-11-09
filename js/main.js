@@ -376,6 +376,7 @@ function renderAktionen() {
 
   if (aktionAktiv("empfehlung")) {
     const werbend = euroBetrag(AKTIONEN.empfehlung.rabattWerbend);
+    const weitere = euroBetrag(AKTIONEN.empfehlung.rabattWerbendWeitere);
     const geworben = euroBetrag(AKTIONEN.empfehlung.rabattGeworben);
     karten.push(`
       <article class="aktion-karte">
@@ -384,8 +385,8 @@ function renderAktionen() {
         <p>
           Empfiehlst du mich weiter und die neue Familie bucht eine Zehnerkarte,
           bekommst du ${werbend} Rabatt auf deine nächste Buchung und die empfohlene
-          Familie ${geworben} auf ihre Zehnerkarte. Sie muss bei der Anfrage nur
-          deinen Namen nennen.
+          Familie ${geworben} auf ihre Zehnerkarte. Ab der zweiten Empfehlung sind es
+          ${weitere} für dich. Sie muss bei der Anfrage nur deinen Namen nennen.
         </p>
       </article>`);
   }

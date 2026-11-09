@@ -40,10 +40,13 @@ const AKTIONEN = {
   // freie Stunde kostet bei vollem Kalender einen Termin, ein Rabatt nur Geld.
   // Ausgezahlt wird erst, wenn die geworbene Familie eine Zehnerkarte bucht,
   // damit die Prämie nicht schon bei der Kennenlernstunde anfällt.
+  // ACHTUNG: Diese drei Beträge stehen auch in AGB Ziffer 6. Wer sie hier
+  // ändert, muss die AGB mit ändern, sonst widersprechen sich beide Texte.
   empfehlung: {
     aktiv: true,
-    rabattWerbend: 30, // Euro für die Familie, die empfiehlt
-    rabattGeworben: 20, // Euro für die neu geworbene Familie
+    rabattWerbend: 30, // Euro für die erste Empfehlung
+    rabattWerbendWeitere: 15, // Euro für jede weitere Empfehlung
+    rabattGeworben: 20, // Euro für die neu geworbene Familie, immer gleich
   },
 
   // Geschenkgutschein über einen frei wählbaren Betrag.
