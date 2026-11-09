@@ -72,6 +72,7 @@ function vertragsParagrafen() {
       absaetze: [
         `Die Kursleitung (${KURSLEITUNG.name}, ${KURSLEITUNG.firma}) erteilt dem angemeldeten Kind privaten Schwimmunterricht im gebuchten Umfang. Vertragspartner der Kursleitung ist die unterschreibende erziehungsberechtigte Person („Eltern“), nicht das Kind.`,
         "Geschuldet ist ein sorgfältiger und altersgerechter Unterricht, nicht ein bestimmter Lernerfolg wie das Bestehen eines Schwimmabzeichens.",
+        "Bei Kindern mit geistiger oder körperlicher Behinderung können Fortschrittseinschätzungen (z. B. zur Zahl der benötigten Einheiten) entfallen. Auch eine Zehnerkarte kann dann genutzt werden, wenn das Kind am Ende noch nicht schwimmen kann.",
         "Je nach Kind und Tagesform kann innerhalb einer Einheit eine Pause von etwa 5 Minuten liegen. Zur Leistung gehören außerdem Absprachen mit den Eltern, Planung, Terminfindung und Rückmeldung zum Lernstand.",
         "Unterrichtet wird in öffentlichen Bädern in Mannheim, Heidelberg und Umgebung oder nach Absprache in einem privaten Pool. Es gilt die Haus- und Badeordnung des jeweiligen Bades.",
       ],
@@ -89,7 +90,7 @@ function vertragsParagrafen() {
       titel: "§ 3 Zahlung und Zehnerkarten",
       absaetze: [
         `Die Zahlung erfolgt per Überweisung ${bankverbindungText()}.`,
-        "Kennenlernstunde und Einzelstunden sind innerhalb von sieben Tagen nach der Stunde zu zahlen. Zehnerkarten und Intensivkurse sind vollständig vor der ersten Einheit zu zahlen.",
+        "Kennenlernstunde und Einzelstunden sind innerhalb von vierzehn Tagen nach der Stunde zu zahlen. Zehnerkarten und Intensivkurse sind vollständig vor der ersten Einheit zu zahlen.",
         "Zehnerkarten sind sechs Monate ab Kaufdatum gültig. Bei einem wichtigen Grund (z. B. längere Erkrankung oder Verletzung des Kindes) verlängert die Kursleitung die Gültigkeit auf Anfrage angemessen.",
         `Endet eine Zehnerkarte vorzeitig – durch Beendigung nach § 9 oder durch Ablauf der Gültigkeit –, werden die genommenen Einheiten zum Einzelpreis abgerechnet (Privatunterricht ${euro(privat.preis)}, Duo ${euro(duo.preisProKind)} je Kind), und das Restguthaben wird erstattet. Der Rabatt der Zehnerkarte entfällt dann, weil er an die Abnahme von zehn Einheiten geknüpft ist. Beispiel: Nach 4 Einheiten Privatunterricht werden 4 × ${euro(privat.preis)} = ${euro(4 * privat.preis)} berechnet; von ${euro(privat.zehnerkarte)} werden ${euro(beispielErstattung)} erstattet. Ein ersatzloser Verfall bezahlter Einheiten findet nicht statt.`,
       ],
