@@ -19,12 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function setupKopierschutz() {
+  // Kopieren ist erlaubt in Eingabefeldern, auf den rechtlichen Seiten und bei den
+  // Kontaktdaten (Telefonnummer), alles andere bleibt geschützt.
+  const erlaubt = (el) =>
+    el && el.closest && el.closest("input, textarea, .legal-page, .phone-box, .allow-copy");
+
   document.addEventListener("copy", (event) => {
-    const ziel = event.target;
-    const istEingabefeld = ziel && (ziel.tagName === "INPUT" || ziel.tagName === "TEXTAREA");
-    if (!istEingabefeld) {
-      event.preventDefault();
-    }
+    const auswahl = window.getSelection();
+    const knoten = auswahl && auswahl.anchorNode;
+    const startEl = knoten ? (knoten.nodeType === 1 ? knoten : knoten.parentElement) : null;
+    if (erlaubt(event.target) || erlaubt(startEl)) return;
+    event.preventDefault();
   });
 }
 
@@ -35,7 +40,13 @@ function setupSeifenblasen() {
   let intervall = null;
   let letzteSpawnZeit = 0;
 
-  document.addEventListener("contextmenu", (event) => event.preventDefault());
+  // Das Kontextmenü bleibt auf Links, Eingabefeldern und den rechtlichen Seiten erhalten
+  // (z. B. "Link in neuem Tab öffnen"); überall sonst erzeugt Rechtsklick Seifenblasen.
+  document.addEventListener("contextmenu", (event) => {
+    const el = event.target;
+    if (el && el.closest && el.closest("a, input, textarea, select, button, .legal-page")) return;
+    event.preventDefault();
+  });
 
   document.addEventListener("mousedown", (event) => {
     if (event.button !== 2) return;
@@ -118,6 +129,12 @@ function setupUeberMichFotoTausch() {
   if (!fotoOben || !wrapperUnten.length) return;
 
   wrapperUnten.forEach((wrapper) => {
+    wrapper.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        wrapper.click();
+      }
+    });
     wrapper.addEventListener("click", () => {
       const fotoUnten = wrapper.querySelector("img");
       const obenSrc = fotoOben.src;
@@ -141,6 +158,8 @@ function setupFotoZoom() {
     wrapper.addEventListener(
       "wheel",
       (event) => {
+        // Nur mit gedrückter Strg-/Cmd-Taste zoomen, sonst scrollt die Seite normal weiter.
+        if (!(event.ctrlKey || event.metaKey)) return;
         const img = wrapper.querySelector("img");
         if (!img) return;
         event.preventDefault();

@@ -1,0 +1,2 @@
+Schriftarten Baloo 2 und Nunito, lokal gehostet (kein Abruf bei Google Fonts).
+Lizenz: SIL Open Font License 1.1 (https://openfontlicense.org), frei auch fuer kommerzielle Nutzung.

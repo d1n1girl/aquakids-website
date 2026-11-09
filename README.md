@@ -1,42 +1,38 @@
 # AquaKids-rn.de
 
 Statische Website für privaten Schwimmunterricht (Kleingewerbe) in Mannheim & Heidelberg.
-Kein Build-Schritt nötig – reines HTML/CSS/JS.
+Kein Build-Schritt nötig, reines HTML/CSS/JS. Live unter https://aquakids-rn.de.
 
 ## Struktur
 
-- `index.html` – Startseite (Hero, Über mich, Angebot, Preise, Ablauf, Kontakt/Terminanfrage)
-- `impressum.html`, `datenschutz.html` – rechtliche Pflichtseiten (**mit Platzhaltern, unbedingt ausfüllen!**)
-- `css/style.css`, `js/main.js` – Design und Interaktivität (mobiles Menü, WhatsApp-Formular)
-- `js/preise-data.js` – **zentrale Preisliste**: Preise nur hier ändern; Preiskarten,
+- `index.html`: Startseite (Hero, Über mich, Ablauf, Preise, Kurse, Ziele, FAQ, Kontakt, Abzeichen)
+- `impressum.html`, `datenschutz.html`, `agb.html`: rechtliche Seiten (inkl. Widerrufsbelehrung in den AGB)
+- `404.html`: eigene Fehlerseite
+- `css/style.css`, `js/main.js`: Design und Interaktivität (Menü, WhatsApp-Formulare, Preiskarten)
+- `js/preise-data.js`: **zentrale Preisliste**. Preise nur hier ändern; Preiskarten,
   Formular-Optionen und WhatsApp-Anfragetexte werden automatisch daraus erzeugt
-- `img/` – hier kommen deine eigenen Fotos rein (siehe `img/LIESMICH.txt`)
+- `fonts/`: Schriftarten lokal gehostet (kein Abruf bei Google, wichtig für den Datenschutz)
+- `img/`: Fotos (vor dem Einfügen auf passende Größe verkleinern, ca. 600–800 px Breite reichen)
+- `_headers`, `_redirects`: Sicherheits-Header und Weiterleitungen für Netlify
+- `favicon.svg`, `robots.txt`, `sitemap.xml`: Browser-Icon und Suchmaschinen-Angaben (Domain: aquakids-rn.de)
 
-## Wie das Terminformular funktioniert
+## Wie die Formulare funktionieren
 
 Es gibt keinen Server/Backend. Beim Absenden baut `js/main.js` aus den Formularfeldern eine
 vorausgefüllte WhatsApp-Nachricht und öffnet `https://wa.me/<Nummer>?text=...`. Die Anfrage geht
 erst bei dir ein, wenn die Person die Nachricht in WhatsApp tatsächlich abschickt.
 
 Die WhatsApp-Nummer ist zentral in `js/main.js` (`WHATSAPP_NUMBER`) hinterlegt und wird außerdem
-in `index.html`, `impressum.html` und `datenschutz.html` in den WhatsApp-Links verwendet – bei
-einer Nummernänderung an allen Stellen austauschen.
+in den HTML-Dateien in den WhatsApp-Links verwendet. Bei einer Nummernänderung überall austauschen.
 
-## Bevor die Seite live geht
+## Veröffentlichen
 
-1. **Eigene Fotos einfügen** – siehe `img/LIESMICH.txt`. Die gestrichelten Platzhalter-Kästen in
-   `index.html` durch `<img src="img/....jpg" alt="...">` ersetzen.
-2. **Impressum & Datenschutz ausfüllen.** Alle `[Platzhalter]` durch echte Daten ersetzen
-   (Name, Adresse, Kontakt, Gewerbe-/USt-Angaben). Im Zweifel eRecht24 oder eine Anwältin/einen
-   Anwalt für IT-Recht konsultieren.
-3. **Über-mich-Text** in `index.html` ergänzen (aktuell Platzhalter in eckigen Klammern).
-4. **Preise/Details prüfen** – Festpreise stehen zentral in `js/preise-data.js`
-   (Kennenlernstunde, Privatunterricht, Duo inkl. Zehnerkarten). Erwachsenen- und
-   Babypreise sind weiterhin "auf Anfrage".
-5. **WhatsApp Business App einrichten** (empfohlen, aber optional) – Firmenprofil,
-   automatische Begrüßungsnachricht, Labels für Anfragen.
-6. **Domain + Hosting.** Für den Start reicht kostenloses Hosting, z. B.:
-   - [Netlify](https://www.netlify.com/) oder [Vercel](https://vercel.com/) – Ordner hochladen, fertig.
-   - [GitHub Pages](https://pages.github.com/) – kostenlos, braucht ein GitHub-Repo.
-7. **Lokal testen:** Ordner mit einem einfachen Server öffnen, z. B.
-   `python -m http.server 8000` im Projektordner, dann `http://localhost:8000` im Browser öffnen.
+Ein Push auf den Branch `main` (GitHub: `d1n1girl/aquakids-website`) wird von Netlify
+automatisch auf https://aquakids-rn.de veröffentlicht. Die Domain liegt bei STRATO (DNS zeigt auf Netlify).
+
+Wenn sich `css/style.css` oder `js/main.js` ändern, in den HTML-Dateien die Versionsnummer
+(`?v=…`) hochzählen, damit Browser nicht die alte Datei zeigen.
+
+## Lokal testen
+
+Im Projektordner `python -m http.server 8000` starten und `http://localhost:8000` öffnen.
