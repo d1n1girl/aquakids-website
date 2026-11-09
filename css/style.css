@@ -1233,6 +1233,16 @@ table.schedule-table td.slot {
   color: var(--color-text-light);
 }
 
+/* Verweis auf die AGB unter der Liste: Einzelheiten stehen dort, nicht hier. */
+.preis-rahmen > p {
+  margin: 16px 0 0;
+  padding-top: 12px;
+  border-top: 1px dashed var(--color-border);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+}
+
 /* ---------- Aktionen: Empfehlung, Gutschein, Duo-Vermittlung ---------- */
 
 .preis-vermittlung {

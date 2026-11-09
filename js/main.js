@@ -314,8 +314,8 @@ function renderPreisKarten() {
     ? `<p class="preis-vermittlung">Kein zweites Kind zur Hand?
          <a target="_blank" rel="noopener"
             href="${whatsappLink(
-              "Hallo! Ich interessiere mich für Duo-Unterricht, habe aber noch kein Partnerkind. Alter und Schwimmstand meines Kindes: "
-            )}">Ich suche ein passendes Partnerkind</a>. Sag mir Alter und Stand.</p>`
+              "Hallo! Ich interessiere mich für Duo-Unterricht, habe aber noch kein Partnerkind."
+            )}">Ich suche ein passendes Partnerkind</a>.</p>`
     : "";
 
   container.innerHTML = `

@@ -18,7 +18,7 @@ const PREISE = {
   duo: {
     name: "Duo-Unterricht",
     dauerMinuten: 45,
-    dauerBisMinuten: 50, // ergibt die Anzeige "45 bis 50 Minuten"; weglassen für feste Dauer
+    // Optional moeglich: dauerBisMinuten: 50 ergaebe die Anzeige "45 bis 50 Minuten".
     preisProKind: 60,
     zehnerkarteProKind: 550,
     zehnerkarteErsparnisProKind: 50,
