@@ -15,7 +15,8 @@ Kein Build-Schritt nötig, reines HTML/CSS/JS. Live unter https://aquakids-rn.de
   Auswahl "Wunschort" im Formular werden automatisch daraus erzeugt
 - `fonts/`: Schriftarten lokal gehostet (kein Abruf bei Google, wichtig für den Datenschutz)
 - `img/`: Fotos (vor dem Einfügen auf passende Größe verkleinern, ca. 600–800 px Breite reichen)
-- `_headers`, `_redirects`: Sicherheits-Header und Weiterleitungen für Netlify
+- `_headers`, `_redirects`: Reste von Netlify, werden bei GitHub Pages nicht ausgewertet (können gelöscht werden)
+- `CNAME`: Domain für GitHub Pages (aquakids-rn.de), nicht löschen
 - `img/logo.png` (Logo komplett), `img/logo-mark.png` (nur Schwimmer-Symbol, Kopfzeile), `favicon.png`, `apple-touch-icon.png`: Logo und Browser-Icons
 - `robots.txt`, `sitemap.xml`: Suchmaschinen-Angaben (Domain: aquakids-rn.de)
 
@@ -30,8 +31,9 @@ in den HTML-Dateien in den WhatsApp-Links verwendet. Bei einer Nummernänderung 
 
 ## Veröffentlichen
 
-Ein Push auf den Branch `main` (GitHub: `d1n1girl/aquakids-website`) wird von Netlify
-automatisch auf https://aquakids-rn.de veröffentlicht. Die Domain liegt bei STRATO (DNS zeigt auf Netlify).
+Ein Push auf den Branch `main` (GitHub: `d1n1girl/aquakids-website`) wird von GitHub Pages
+automatisch auf https://aquakids-rn.de veröffentlicht. Die Domain und die E-Mail liegen bei STRATO
+(DNS: A-Record 185.199.108.153, `www` als CNAME auf `d1n1girl.github.io`).
 
 Wenn sich `css/style.css` oder `js/main.js` ändern, in den HTML-Dateien die Versionsnummer
 (`?v=…`) hochzählen, damit Browser nicht die alte Datei zeigen.
