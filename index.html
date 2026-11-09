@@ -18,7 +18,7 @@
 <meta property="og:url" content="https://aquakids-rn.de/" />
 <meta property="og:image" content="https://aquakids-rn.de/img/hero-unterwasser.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
-<link rel="stylesheet" href="css/style.css?v=26" />
+<link rel="stylesheet" href="css/style.css?v=27" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -316,9 +316,10 @@
           <ul class="leistungen-list">
             <li>2 bis 3 Schwimmstunden pro Woche</li>
             <li>Voranmeldung möglich</li>
-            <li>In Seckenheim, ohne Badeintritt</li>
+            <li>In Seckenheim im Privatpool, ohne Badeintritt</li>
             <li>Termine und Preis nach Absprache</li>
           </ul>
+          <a href="#ferien-reservierung" class="btn btn-coral kurs-cta">Platz reservieren oder Warteliste</a>
         </details>
       </div>
       <p class="price-note">Schwimmbrillen, Tauchequipment und Schlori-Schwimmkissen stelle ich zu jeder Einheit.</p>
@@ -600,6 +601,82 @@
     </div>
 
     <div class="container kontakt-extra-wrap">
+      <details class="kontakt-extra" id="ferien-reservierung">
+        <summary>Intensivkurs Sommerferien: Platz reservieren oder Warteliste</summary>
+        <form class="booking-form" id="ferien-form" autocomplete="off">
+        <fieldset class="wahl-gruppe">
+          <legend>Ich möchte</legend>
+          <div class="wahl-optionen">
+          <label class="wahl-option"><input type="radio" name="art" value="Platz reservieren" required /><span>Platz reservieren</span></label>
+          <label class="wahl-option"><input type="radio" name="art" value="Auf die Warteliste" /><span>Auf die Warteliste</span></label>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="fe-name">Dein Name</label>
+          <input type="text" id="fe-name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="fe-kind">Name des Kindes</label>
+          <input type="text" id="fe-kind" name="kindname" required />
+        </div>
+
+        <div class="form-group">
+          <label for="fe-alter">Alter des Kindes</label>
+          <input type="text" id="fe-alter" name="alter" placeholder="z. B. 7 Jahre" required />
+        </div>
+
+        <fieldset class="wahl-gruppe">
+          <legend>Termine pro Woche</legend>
+          <div class="wahl-optionen">
+          <label class="wahl-option"><input type="radio" name="termine" value="2" required /><span>2 Termine</span></label>
+          <label class="wahl-option"><input type="radio" name="termine" value="3" /><span>3 Termine</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="wahl-gruppe">
+          <legend>Uhrzeit</legend>
+          <div class="wahl-optionen">
+          <label class="wahl-option"><input type="radio" name="zeit" value="Vormittags" required /><span>Vormittags</span></label>
+          <label class="wahl-option"><input type="radio" name="zeit" value="Nachmittags" /><span>Nachmittags</span></label>
+          <label class="wahl-option"><input type="radio" name="zeit" value="Beides möglich" /><span>Beides möglich</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="wahl-gruppe" id="fe-tage">
+          <legend>Gewünschte Tage (mehrere möglich)</legend>
+          <div class="wahl-optionen">
+          <label class="wahl-option"><input type="checkbox" name="tage" value="Montag" /><span>Montag</span></label>
+          <label class="wahl-option"><input type="checkbox" name="tage" value="Dienstag" /><span>Dienstag</span></label>
+          <label class="wahl-option"><input type="checkbox" name="tage" value="Mittwoch" /><span>Mittwoch</span></label>
+          <label class="wahl-option"><input type="checkbox" name="tage" value="Donnerstag" /><span>Donnerstag</span></label>
+          <label class="wahl-option"><input type="checkbox" name="tage" value="Freitag" /><span>Freitag</span></label>
+          <label class="wahl-option"><input type="checkbox" name="tage" value="Samstag" /><span>Samstag</span></label>
+          </div>
+        </fieldset>
+
+        <div class="form-group">
+          <label for="fe-nachricht">Nachricht (optional)</label>
+          <textarea id="fe-nachricht" name="nachricht" rows="3" placeholder="Gewünschte Ferienwochen, Schwimmerfahrung, sonstige Wünsche..."></textarea>
+        </div>
+
+        <div class="form-group-checkbox">
+          <input type="checkbox" id="fe-agb" name="agb" required />
+          <label for="fe-agb">
+            Ich akzeptiere die <a href="agb.html" target="_blank" rel="noopener">AGB</a> und die
+            <a href="datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-whatsapp">Anfrage senden</button>
+
+        <p class="form-status" id="ferien-status" role="status"></p>
+        <p class="form-hint">
+          Beim Absenden öffnet sich WhatsApp mit vorausgefüllter Nachricht. Erst wenn du sie dort abschickst, erreicht sie mich. Ein Platz ist erst nach meiner Bestätigung reserviert.
+        </p>
+      </form>
+      </details>
       <details class="kontakt-extra" id="kooperation">
         <summary>Für Bäder, Schulen &amp; Kindergärten</summary>
         <form class="booking-form" id="kooperation-form" autocomplete="off">
@@ -688,7 +765,7 @@
 </footer>
 
 <script src="js/preise-data.js?v=1"></script>
-<script src="js/pools-data.js?v=3"></script>
-<script src="js/main.js?v=7"></script>
+<script src="js/pools-data.js?v=4"></script>
+<script src="js/main.js?v=8"></script>
 </body>
 </html>

@@ -14,5 +14,5 @@ const KURSORTE = [
   { tag: "Donnerstag", ort: "Heddesheim" },
   { tag: "Freitag", ort: "Weinheim" },
   { tag: "Samstag", ort: "Rohrbach", zusatz: "Heidelberg" },
-  { tag: "Sommerferien", ort: "Seckenheim", zusatz: "Intensivkurs, ohne Badeintritt" },
+  { tag: "Sommerferien", ort: "Seckenheim", zusatz: "Intensivkurs im Privatpool, ohne Badeintritt" },
 ];

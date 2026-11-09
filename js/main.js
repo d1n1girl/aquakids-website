@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupMobileMenu();
   setupBookingForm();
   setupKooperationForm();
+  setupFerienForm();
   setupFaq();
   setupScrollReveal();
   setupFormPaketAuswahl();
@@ -453,6 +454,59 @@ function setupBookingForm() {
 
     if (nachricht) {
       lines.push(`Nachricht: ${nachricht}`);
+    }
+
+    const text = encodeURIComponent(lines.join("\n"));
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+
+    if (status) {
+      status.textContent = "Du wirst zu WhatsApp weitergeleitet. Dort einfach die vorausgefüllte Nachricht abschicken.";
+      status.classList.add("visible");
+    }
+
+    window.open(url, "_blank", "noopener");
+  });
+}
+
+// Intensivkurs Sommerferien: Platz reservieren oder Warteliste (geht wie die anderen Formulare per WhatsApp raus)
+function setupFerienForm() {
+  const form = document.getElementById("ferien-form");
+  const status = document.getElementById("ferien-status");
+  if (!form) return;
+
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const data = new FormData(form);
+    const tage = data.getAll("tage").map((t) => t.toString());
+
+    if (tage.length === 0) {
+      if (status) {
+        status.textContent = "Bitte wähle mindestens einen Wunschtag aus.";
+        status.classList.add("visible");
+      }
+      const ersteBox = form.querySelector('input[name="tage"]');
+      if (ersteBox) ersteBox.focus();
+      return;
+    }
+
+    const wert = (name) => (data.get(name) || "").toString().trim();
+    const art = wert("art");
+
+    const lines = [
+      `Hallo AquaKids-rn.de! Ich möchte für den Intensivkurs Sommerferien (Seckenheim, Privatpool): ${art}.`,
+      "",
+      `Name: ${wert("name")}`,
+      `Name des Kindes: ${wert("kindname")}`,
+      `Alter: ${wert("alter")}`,
+      `Termine pro Woche: ${wert("termine")}`,
+      `Uhrzeit: ${wert("zeit")}`,
+      `Wunschtage: ${tage.join(", ")}`,
+      "AGB & Datenschutz akzeptiert: Ja",
+    ];
+
+    if (wert("nachricht")) {
+      lines.push(`Nachricht: ${wert("nachricht")}`);
     }
 
     const text = encodeURIComponent(lines.join("\n"));
