@@ -1863,6 +1863,27 @@ footer.site-footer a {
   margin: 20px 0 34px;
 }
 
+/* Absatznummern der AGB. Sie machen einzelne Stellen im Elternvertrag
+   zitierfähig ("siehe AGB Ziffer 6.3") und sind zugleich Sprungziele. */
+.agb-nr {
+  display: inline-block;
+  min-width: 2.9em;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.legal-page p[id^="zi-"] {
+  scroll-margin-top: 90px;
+}
+
+@media (max-width: 640px) {
+  .agb-nr {
+    display: block;
+    min-width: 0;
+    margin-bottom: 2px;
+  }
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
