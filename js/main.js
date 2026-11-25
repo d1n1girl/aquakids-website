@@ -547,29 +547,53 @@ function setupBookingForm() {
 
 // Kartenliste und Formularauswahl der Ferien-Intensivkurse, gespeist aus
 // FERIENKURSE in js/preise-data.js.
-function ferienkursZeile(kurs) {
-  const teile = [kurs.rhythmus];
-  if (kurs.zusatz) teile.push(kurs.zusatz);
-  teile.push(
-    kurs.preis === null || kurs.preis === undefined
-      ? "Preis nach Absprache"
-      : euroBetrag(kurs.preis) + " je Einheit"
-  );
-  const titel = kurs.ort ? kurs.name + " in " + kurs.ort : kurs.name;
-  return "<strong>" + titel + ":</strong> " + teile.join(", ");
+function ferienzeitZeile(kurs) {
+  if (!kurs.ort) return kurs.name;
+  const ort = kurs.zusatz ? kurs.ort + " (" + kurs.zusatz + ")" : kurs.ort;
+  return kurs.name + " in " + ort;
 }
 
 function renderFerienkurse() {
   if (typeof FERIENKURSE === "undefined" || !FERIENKURSE.length) return;
+  if (typeof FERIEN_INTENSIV === "undefined") return;
 
+  const intensiv = FERIEN_INTENSIV;
   const liste = document.getElementById("ferienkurs-liste");
   if (liste) {
-    const punkte = FERIENKURSE.map((k) => "<li>" + ferienkursZeile(k) + "</li>");
-    if (FERIENKURSE.some((k) => k.zusehen)) {
-      punkte.push("<li>Platz zum Zusehen für die Eltern</li>");
-    }
-    punkte.push("<li>Voranmeldung möglich</li>");
+    const punkte = [
+      "<li>" +
+        intensiv.format +
+        ", " +
+        euroBetrag(intensiv.preisProKind) +
+        " pro Kind je " +
+        intensiv.dauerMinuten +
+        " Minuten</li>",
+      "<li>" + intensiv.termineProWoche.join(" oder ") + " Termine pro Woche</li>",
+    ];
+    if (intensiv.ferienkarte) punkte.push("<li>Als Ferienkarte buchbar</li>");
+    if (intensiv.zusehen) punkte.push("<li>Platz zum Zusehen für die Eltern</li>");
+    punkte.push(
+      "<li><strong>Ferienzeiten:</strong> " +
+        FERIENKURSE.map(ferienzeitZeile).join(" · ") +
+        "</li>"
+    );
     liste.innerHTML = punkte.join("");
+  }
+
+  const termine = document.getElementById("fe-termine-optionen");
+  if (termine) {
+    termine.innerHTML = intensiv.termineProWoche
+      .map(
+        (anzahl, i) =>
+          '<label class="wahl-option"><input type="radio" name="termine" value="' +
+          anzahl +
+          '"' +
+          (i === 0 ? " required" : "") +
+          " /><span>" +
+          anzahl +
+          " Termine</span></label>"
+      )
+      .join("");
   }
 
   const auswahl = document.getElementById("fe-ferien-optionen");

@@ -638,10 +638,8 @@
 
         <fieldset class="wahl-gruppe">
           <legend>Termine pro Woche</legend>
-          <div class="wahl-optionen">
-          <label class="wahl-option"><input type="radio" name="termine" value="2" required /><span>2 Termine</span></label>
-          <label class="wahl-option"><input type="radio" name="termine" value="3" /><span>3 Termine</span></label>
-          </div>
+          <!-- Die Auswahl entsteht aus FERIEN_INTENSIV in js/preise-data.js -->
+          <div class="wahl-optionen" id="fe-termine-optionen"></div>
         </fieldset>
 
         <fieldset class="wahl-gruppe">
@@ -773,8 +771,8 @@
   <p class="footer-bottom">&copy; 2026 AquaKids Rhein-Neckar</p>
 </footer>
 
-<script src="js/preise-data.js?v=6"></script>
+<script src="js/preise-data.js?v=7"></script>
 <script src="js/pools-data.js?v=4"></script>
-<script src="js/main.js?v=14"></script>
+<script src="js/main.js?v=15"></script>
 </body>
 </html>

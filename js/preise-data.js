@@ -56,34 +56,33 @@ const AKTIONEN = {
   },
 };
 
-// Intensivkurse in den Ferien. Die Reihenfolge hier ist die Reihenfolge auf der
+// Konditionen des Ferien-Intensivkurses. Sie gelten für alle Ferienzeiten
+// gleich, deshalb stehen sie hier nur einmal.
+//
+// format:          Kurzbeschreibung, erscheint als erster Punkt auf der Karte
+// dauerMinuten:    Länge einer Einheit
+// preisProKind:    Euro je Kind und Einheit
+// termineProWoche: zur Auswahl stehende Rhythmen
+// ferienkarte:     true, wenn der Kurs als Ferienkarte gebucht wird
+// zusehen:         true, wenn Eltern zuschauen können
+const FERIEN_INTENSIV = {
+  format: "Duo-Unterricht für zwei Kinder",
+  dauerMinuten: 30,
+  preisProKind: 30,
+  termineProWoche: [2, 3],
+  ferienkarte: true,
+  zusehen: true,
+};
+
+// Die Ferienzeiten selbst. Die Reihenfolge hier ist die Reihenfolge auf der
 // Seite und im Reservierungsformular. Eine Ferienzeit streichen heißt: Eintrag
 // löschen, dann verschwindet sie überall. Eine neue dazu: Eintrag ergänzen.
 //
-// name:     Titel, erscheint auf der Karte und als Auswahl im Formular
-// rhythmus: wie oft und wie lange, z. B. "2 Termine pro Woche à 30 Minuten"
-// preis:    Euro je Einheit; null bedeutet "Preis nach Absprache"
-// ort:      optional; fehlt er, steht kein Ort auf der Karte
-// zusatz:   optional, eine weitere Zeile auf der Karte
-// zusehen:  true, wenn Eltern zuschauen können
+// name:   Titel, erscheint auf der Karte und als Auswahl im Formular
+// ort:    optional; fehlt er, steht kein Ort dabei
+// zusatz: optional, Klammerzusatz hinter dem Ort
 const FERIENKURSE = [
-  {
-    name: "Osterferien",
-    rhythmus: "2 Termine pro Woche à 30 Minuten",
-    preis: 40,
-    zusehen: true,
-  },
-  {
-    name: "Pfingstferien",
-    rhythmus: "2 Termine pro Woche à 30 Minuten",
-    preis: 40,
-    zusehen: true,
-  },
-  {
-    name: "Sommerferien",
-    rhythmus: "2 bis 3 Schwimmstunden pro Woche",
-    preis: null,
-    ort: "Seckenheim",
-    zusatz: "Privatpool, ohne Badeintritt",
-  },
+  { name: "Osterferien" },
+  { name: "Pfingstferien" },
+  { name: "Sommerferien", ort: "Seckenheim", zusatz: "Privatpool, ohne Badeintritt" },
 ];
