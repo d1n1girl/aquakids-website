@@ -314,15 +314,11 @@
           <summary>
             <div class="emoji" aria-hidden="true">⚡</div>
             <span class="kurs-subline">Schnelle Fortschritte in kurzer Zeit</span>
-            <h3>Intensivkurs Sommerferien</h3>
+            <h3>Intensivkurs in den Ferien</h3>
           </summary>
-          <ul class="leistungen-list">
-            <li>2 bis 3 Schwimmstunden pro Woche</li>
-            <li>Voranmeldung möglich</li>
-            <li>In Seckenheim im Privatpool, ohne Badeintritt</li>
-            <li>Termine und Preis nach Absprache</li>
-          </ul>
-          <a href="#ferien-reservierung" class="btn btn-coral kurs-cta">Platz reservieren oder Warteliste</a>
+          <!-- Die Punkte entstehen aus FERIENKURSE in js/preise-data.js -->
+          <ul class="leistungen-list" id="ferienkurs-liste"></ul>
+          <a href="#ferien-reservierung" class="btn btn-coral kurs-cta">Platz sichern oder Warteliste</a>
         </details>
       </div>
       <p class="price-note">Schwimmbrillen, Tauchequipment und Schlori-Schwimmkissen stelle ich zu jeder Einheit.</p>
@@ -446,7 +442,11 @@
             <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
           <div class="faq-answer">
-            <p>Ab 6 Jahren. Erwachsene unterrichte ich auf Anfrage.</p>
+            <p>
+              Ab 6 Jahren. Für jüngere Kinder empfehle ich dir Illona von „Babys in Bewegung",
+              sie gibt Schwimmunterricht für Kinder unter 6 Jahren. Sprich mich an, ich stelle
+              gerne den Kontakt her. Erwachsene unterrichte ich auf Anfrage.
+            </p>
           </div>
         </div>
         <div class="faq-item">
@@ -544,7 +544,7 @@
             <option value="">Bitte wählen</option>
             <option value="Wassergewöhnung (Kind)">Wassergewöhnung (Kind)</option>
             <option value="Abzeichenkurs (Kind)">Abzeichenkurs (Kind)</option>
-            <option value="Intensivkurs Sommerferien">Intensivkurs Sommerferien</option>
+            <option value="Intensivkurs in den Ferien">Intensivkurs in den Ferien</option>
             <option value="Erwachsene/r">Erwachsene/r</option>
           </select>
         </div>
@@ -605,8 +605,14 @@
 
     <div class="container kontakt-extra-wrap">
       <details class="kontakt-extra" id="ferien-reservierung">
-        <summary>Intensivkurs Sommerferien: Platz reservieren oder Warteliste</summary>
+        <summary>Intensivkurs in den Ferien: Platz sichern oder Warteliste</summary>
         <form class="booking-form" id="ferien-form" autocomplete="off">
+        <fieldset class="wahl-gruppe">
+          <legend>Welche Ferien</legend>
+          <!-- Die Auswahl entsteht aus FERIENKURSE in js/preise-data.js -->
+          <div class="wahl-optionen" id="fe-ferien-optionen"></div>
+        </fieldset>
+
         <fieldset class="wahl-gruppe">
           <legend>Ich möchte</legend>
           <div class="wahl-optionen">
@@ -767,8 +773,8 @@
   <p class="footer-bottom">&copy; 2026 AquaKids Rhein-Neckar</p>
 </footer>
 
-<script src="js/preise-data.js?v=5"></script>
+<script src="js/preise-data.js?v=6"></script>
 <script src="js/pools-data.js?v=4"></script>
-<script src="js/main.js?v=13"></script>
+<script src="js/main.js?v=14"></script>
 </body>
 </html>

@@ -55,3 +55,35 @@ const AKTIONEN = {
     mindestbetrag: 40,
   },
 };
+
+// Intensivkurse in den Ferien. Die Reihenfolge hier ist die Reihenfolge auf der
+// Seite und im Reservierungsformular. Eine Ferienzeit streichen heißt: Eintrag
+// löschen, dann verschwindet sie überall. Eine neue dazu: Eintrag ergänzen.
+//
+// name:     Titel, erscheint auf der Karte und als Auswahl im Formular
+// rhythmus: wie oft und wie lange, z. B. "2 Termine pro Woche à 30 Minuten"
+// preis:    Euro je Einheit; null bedeutet "Preis nach Absprache"
+// ort:      optional; fehlt er, steht kein Ort auf der Karte
+// zusatz:   optional, eine weitere Zeile auf der Karte
+// zusehen:  true, wenn Eltern zuschauen können
+const FERIENKURSE = [
+  {
+    name: "Osterferien",
+    rhythmus: "2 Termine pro Woche à 30 Minuten",
+    preis: 40,
+    zusehen: true,
+  },
+  {
+    name: "Pfingstferien",
+    rhythmus: "2 Termine pro Woche à 30 Minuten",
+    preis: 40,
+    zusehen: true,
+  },
+  {
+    name: "Sommerferien",
+    rhythmus: "2 bis 3 Schwimmstunden pro Woche",
+    preis: null,
+    ort: "Seckenheim",
+    zusatz: "Privatpool, ohne Badeintritt",
+  },
+];

@@ -5,6 +5,7 @@ const WHATSAPP_NUMBER = "4915203611552"; // Format: Ländercode + Nummer, ohne +
 document.addEventListener("DOMContentLoaded", () => {
   renderPreisKarten();
   renderAktionen();
+  renderFerienkurse();
   setupMobileMenu();
   setupBookingForm();
   setupKooperationForm();
@@ -544,7 +545,49 @@ function setupBookingForm() {
   });
 }
 
-// Intensivkurs Sommerferien: Platz reservieren oder Warteliste (geht wie die anderen Formulare per WhatsApp raus)
+// Kartenliste und Formularauswahl der Ferien-Intensivkurse, gespeist aus
+// FERIENKURSE in js/preise-data.js.
+function ferienkursZeile(kurs) {
+  const teile = [kurs.rhythmus];
+  if (kurs.zusatz) teile.push(kurs.zusatz);
+  teile.push(
+    kurs.preis === null || kurs.preis === undefined
+      ? "Preis nach Absprache"
+      : euroBetrag(kurs.preis) + " je Einheit"
+  );
+  const titel = kurs.ort ? kurs.name + " in " + kurs.ort : kurs.name;
+  return "<strong>" + titel + ":</strong> " + teile.join(", ");
+}
+
+function renderFerienkurse() {
+  if (typeof FERIENKURSE === "undefined" || !FERIENKURSE.length) return;
+
+  const liste = document.getElementById("ferienkurs-liste");
+  if (liste) {
+    const punkte = FERIENKURSE.map((k) => "<li>" + ferienkursZeile(k) + "</li>");
+    if (FERIENKURSE.some((k) => k.zusehen)) {
+      punkte.push("<li>Platz zum Zusehen für die Eltern</li>");
+    }
+    punkte.push("<li>Voranmeldung möglich</li>");
+    liste.innerHTML = punkte.join("");
+  }
+
+  const auswahl = document.getElementById("fe-ferien-optionen");
+  if (auswahl) {
+    auswahl.innerHTML = FERIENKURSE.map(
+      (k, i) =>
+        '<label class="wahl-option"><input type="radio" name="ferien" value="' +
+        k.name +
+        '"' +
+        (i === 0 ? " required" : "") +
+        " /><span>" +
+        k.name +
+        "</span></label>"
+    ).join("");
+  }
+}
+
+// Intensivkurs in den Ferien: Platz sichern oder Warteliste (geht wie die anderen Formulare per WhatsApp raus)
 function setupFerienForm() {
   const form = document.getElementById("ferien-form");
   const status = document.getElementById("ferien-status");
@@ -568,9 +611,10 @@ function setupFerienForm() {
 
     const wert = (name) => (data.get(name) || "").toString().trim();
     const art = wert("art");
+    const ferien = wert("ferien") || "Ferien";
 
     const lines = [
-      `Hallo AquaKids Rhein-Neckar! Ich möchte für den Intensivkurs Sommerferien (Seckenheim, Privatpool): ${art}.`,
+      `Hallo AquaKids Rhein-Neckar! Ich möchte für den Intensivkurs in den ${ferien}: ${art}.`,
       "",
       `Name: ${wert("name")}`,
       `Name des Kindes: ${wert("kindname")}`,
