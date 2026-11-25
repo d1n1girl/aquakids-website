@@ -1,7 +1,7 @@
 // Kursorte: Wochenplan. Die Reihenfolge hier ist die Reihenfolge auf der Seite (Kapitel
 // "Kursorte") und im Anfrageformular (Feld "Wunschort").
 //
-// tag:     Wochentag (oder z. B. "Sommerferien")
+// tag:     Wochentag (oder z. B. "Intensivkurse")
 // ort:     Ort bzw. Stadtteil
 // zusatz:  optional, z. B. die Stadt
 // Optional je Eintrag (erscheint dann auf der Karte):
@@ -14,5 +14,5 @@ const KURSORTE = [
   { tag: "Donnerstag", ort: "Heddesheim" },
   { tag: "Freitag", ort: "Weinheim" },
   { tag: "Samstag", ort: "Rohrbach", zusatz: "Heidelberg" },
-  { tag: "Sommerferien", ort: "Seckenheim", zusatz: "Intensivkurs im Privatpool, ohne Badeintritt" },
+  { tag: "Intensivkurse", ort: "Seckenheim", zusatz: "Privatpool, ohne Badeintritt" },
 ];
